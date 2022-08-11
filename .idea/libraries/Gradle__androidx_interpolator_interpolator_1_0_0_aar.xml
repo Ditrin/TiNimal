@@ -4,10 +4,14 @@
       <root url="jar:///opt/goinfre/cdanette/.gradle/caches/transforms-3/0423c5e6d4ab6860aa8181d77b78be44/transformed/interpolator-1.0.0/jars/classes.jar!/" />
       <root url="file:///opt/goinfre/cdanette/.gradle/caches/transforms-3/0423c5e6d4ab6860aa8181d77b78be44/transformed/interpolator-1.0.0/res" />
       <root url="file:///opt/goinfre/cdanette/.gradle/caches/transforms-3/0423c5e6d4ab6860aa8181d77b78be44/transformed/interpolator-1.0.0/AndroidManifest.xml" />
+      <root url="file:///opt/goinfre/mdude/.gradle/caches/transforms-3/0423c5e6d4ab6860aa8181d77b78be44/transformed/interpolator-1.0.0/res" />
+      <root url="file:///opt/goinfre/mdude/.gradle/caches/transforms-3/0423c5e6d4ab6860aa8181d77b78be44/transformed/interpolator-1.0.0/AndroidManifest.xml" />
+      <root url="jar:///opt/goinfre/mdude/.gradle/caches/transforms-3/0423c5e6d4ab6860aa8181d77b78be44/transformed/interpolator-1.0.0/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
       <root url="jar:///opt/goinfre/cdanette/.gradle/caches/modules-2/files-2.1/androidx.interpolator/interpolator/1.0.0/fefd5e3cbc479b6b4a9532d05688a1e659e8d3d2/interpolator-1.0.0-sources.jar!/" />
+      <root url="jar:///opt/goinfre/mdude/.gradle/caches/modules-2/files-2.1/androidx.interpolator/interpolator/1.0.0/fefd5e3cbc479b6b4a9532d05688a1e659e8d3d2/interpolator-1.0.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
