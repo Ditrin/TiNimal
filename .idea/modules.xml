@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/TiNimal.iml" filepath="$PROJECT_DIR$/.idea/modules/TiNimal.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/TiNimal.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/TiNimal.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/TiNimal.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/TiNimal.app.androidTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/TiNimal.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/TiNimal.app.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/TiNimal.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/TiNimal.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/TiNimal.iml" filepath="$PROJECT_DIR$/.idea/TiNimal.iml" />
     </modules>
   </component>
 </project>
