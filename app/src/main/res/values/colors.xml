@@ -10,4 +10,5 @@
     <color name="deep_blue">#243473</color>
     <color name="primary_dark">#C2D5E0</color>
     <color name="primary_light">#F0F3F6</color>
+    <color name="background_screen">#FEFEFE</color>
 </resources>
