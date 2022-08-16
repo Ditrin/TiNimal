@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.4.7@aar">
+    <CLASSES>
+      <root url="jar:///opt/goinfre/mdude/.gradle/caches/transforms-3/5f3fc8d7284c2304653d025b10a8ff17/transformed/viewbindingpropertydelegate-noreflection-1.4.7/jars/classes.jar!/" />
+      <root url="file:///opt/goinfre/mdude/.gradle/caches/transforms-3/5f3fc8d7284c2304653d025b10a8ff17/transformed/viewbindingpropertydelegate-noreflection-1.4.7/res" />
+      <root url="file:///opt/goinfre/mdude/.gradle/caches/transforms-3/5f3fc8d7284c2304653d025b10a8ff17/transformed/viewbindingpropertydelegate-noreflection-1.4.7/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar:///opt/goinfre/mdude/.gradle/caches/modules-2/files-2.1/com.github.kirich1409/viewbindingpropertydelegate-noreflection/1.4.7/d54fcbeca01c98504d90cdddf0773db4d729dee2/viewbindingpropertydelegate-noreflection-1.4.7-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
