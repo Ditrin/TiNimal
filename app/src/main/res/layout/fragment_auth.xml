@@ -7,6 +7,7 @@
     android:orientation="vertical">
 
     <EditText
+        android:id="@+id/loginEditTextAuthFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
@@ -17,6 +18,7 @@
         android:theme="@style/Theme.TiNimal.EditText" />
 
     <EditText
+        android:id="@+id/passwordEditTextAuthFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
@@ -27,6 +29,7 @@
         android:theme="@style/Theme.TiNimal.EditText" />
 
     <EditText
+        android:id="@+id/nameEditTextAuthFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
@@ -37,6 +40,7 @@
         android:theme="@style/Theme.TiNimal.EditText" />
 
     <EditText
+        android:id="@+id/numberEditTextAuthFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
@@ -47,6 +51,7 @@
         android:theme="@style/Theme.TiNimal.EditText" />
 
     <EditText
+        android:id="@+id/mailEditTextAuthFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
@@ -57,6 +62,7 @@
         android:theme="@style/Theme.TiNimal.EditText" />
 
     <EditText
+        android:id="@+id/addressEditTextAuthFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
@@ -67,6 +73,7 @@
         android:theme="@style/Theme.TiNimal.EditText" />
 
     <Button
+        android:id="@+id/createButtonAuthFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="64dp"
