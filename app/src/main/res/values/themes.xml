@@ -14,7 +14,12 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Base.TextAppearance.AppCompat.Button" parent="Theme.TiNimal">
-        <item name="background">@color/primary_dark</item>
+    <style name="Theme.TiNimal.EditText" parent="Widget.AppCompat.EditText">
+        <item name="android:textColorHint">@color/hint_text_color</item>
     </style>
+
+    <style name="Theme.TiNimal.Button" parent="Widget.MaterialComponents.Button">
+        <item name="background">@color/black</item>
+    </style>
+
 </resources>

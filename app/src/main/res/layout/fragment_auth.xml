@@ -1,6 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/primary_dark"
+    android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <EditText
+        android:id="@+id/loginEditTextAuthFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/custom_rectangle"
+        android:hint="@string/login"
+        android:padding="8dp"
+        android:theme="@style/Theme.TiNimal.EditText" />
+
+    <EditText
+        android:id="@+id/passwordEditTextAuthFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/custom_rectangle"
+        android:hint="@string/password"
+        android:padding="8dp"
+        android:theme="@style/Theme.TiNimal.EditText" />
+
+    <EditText
+        android:id="@+id/nameEditTextAuthFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/custom_rectangle"
+        android:hint="@string/name"
+        android:padding="8dp"
+        android:theme="@style/Theme.TiNimal.EditText" />
+
+    <EditText
+        android:id="@+id/numberEditTextAuthFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/custom_rectangle"
+        android:hint="@string/number"
+        android:padding="8dp"
+        android:theme="@style/Theme.TiNimal.EditText" />
+
+    <EditText
+        android:id="@+id/mailEditTextAuthFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/custom_rectangle"
+        android:hint="@string/mail"
+        android:padding="8dp"
+        android:theme="@style/Theme.TiNimal.EditText" />
+
+    <EditText
+        android:id="@+id/addressEditTextAuthFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/custom_rectangle"
+        android:hint="@string/address"
+        android:padding="8dp"
+        android:theme="@style/Theme.TiNimal.EditText" />
+
+    <Button
+        android:id="@+id/createButtonAuthFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="64dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/create"
+        android:textStyle="bold"
+        app:cornerRadius="12dip"
+        app:strokeColor="@color/hint_text_color"
+        app:strokeWidth="1dp" />
+
+
+</LinearLayout>
