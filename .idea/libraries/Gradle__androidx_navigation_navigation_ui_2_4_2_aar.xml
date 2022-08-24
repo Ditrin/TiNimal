@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="Gradle: androidx.navigation:navigation-ui:2.4.2@aar">
+    <CLASSES>
+      <root url="jar:///opt/goinfre/mdude/.gradle/caches/transforms-3/e7d7abeaab68d4a85d0f6cb156ed0da5/transformed/navigation-ui-2.4.2/jars/classes.jar!/" />
+      <root url="file:///opt/goinfre/mdude/.gradle/caches/transforms-3/e7d7abeaab68d4a85d0f6cb156ed0da5/transformed/navigation-ui-2.4.2/res" />
+      <root url="file:///opt/goinfre/mdude/.gradle/caches/transforms-3/e7d7abeaab68d4a85d0f6cb156ed0da5/transformed/navigation-ui-2.4.2/AndroidManifest.xml" />
+      <root url="file:///opt/goinfre/cdanette/.gradle/caches/transforms-3/e7d7abeaab68d4a85d0f6cb156ed0da5/transformed/navigation-ui-2.4.2/res" />
+      <root url="jar:///opt/goinfre/cdanette/.gradle/caches/transforms-3/e7d7abeaab68d4a85d0f6cb156ed0da5/transformed/navigation-ui-2.4.2/jars/classes.jar!/" />
+      <root url="file:///opt/goinfre/cdanette/.gradle/caches/transforms-3/e7d7abeaab68d4a85d0f6cb156ed0da5/transformed/navigation-ui-2.4.2/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar:///opt/goinfre/mdude/.gradle/caches/modules-2/files-2.1/androidx.navigation/navigation-ui/2.4.2/89d1adbee4f51f0894d7bbd09355ea2dadd307c1/navigation-ui-2.4.2-sources.jar!/" />
+      <root url="jar:///opt/goinfre/cdanette/.gradle/caches/modules-2/files-2.1/androidx.navigation/navigation-ui/2.4.2/89d1adbee4f51f0894d7bbd09355ea2dadd307c1/navigation-ui-2.4.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
