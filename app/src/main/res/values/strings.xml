@@ -7,4 +7,7 @@
     <string name="mail">Mail</string>
     <string name="address">Address</string>
     <string name="create">Create</string>
+    <string name="sign_in">Sign in</string>
+    <string name="sign_up">Sign up</string>
+    <string name="tinimal">TiNimal</string>
 </resources>
