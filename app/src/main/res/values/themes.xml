@@ -17,4 +17,9 @@
     <style name="Base.TextAppearance.AppCompat.Button" parent="Theme.TiNimal">
         <item name="background">@color/primary_dark</item>
     </style>
+
+    <style name="Theme.TiNimal.Button">
+        <item name="background">@color/white</item>
+        <item name="colorPrimary">@color/white</item>
+    </style>
 </resources>

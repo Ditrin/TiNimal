@@ -4,10 +4,14 @@
       <root url="jar:///opt/goinfre/mdude/.gradle/caches/transforms-3/903e95616ea975907b14807f70ee9d21/transformed/lifecycle-viewmodel-compose-1.0.0-alpha07/jars/classes.jar!/" />
       <root url="file:///opt/goinfre/mdude/.gradle/caches/transforms-3/903e95616ea975907b14807f70ee9d21/transformed/lifecycle-viewmodel-compose-1.0.0-alpha07/res" />
       <root url="file:///opt/goinfre/mdude/.gradle/caches/transforms-3/903e95616ea975907b14807f70ee9d21/transformed/lifecycle-viewmodel-compose-1.0.0-alpha07/AndroidManifest.xml" />
+      <root url="file:///opt/goinfre/cdanette/.gradle/caches/transforms-3/903e95616ea975907b14807f70ee9d21/transformed/lifecycle-viewmodel-compose-1.0.0-alpha07/res" />
+      <root url="file:///opt/goinfre/cdanette/.gradle/caches/transforms-3/903e95616ea975907b14807f70ee9d21/transformed/lifecycle-viewmodel-compose-1.0.0-alpha07/AndroidManifest.xml" />
+      <root url="jar:///opt/goinfre/cdanette/.gradle/caches/transforms-3/903e95616ea975907b14807f70ee9d21/transformed/lifecycle-viewmodel-compose-1.0.0-alpha07/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
       <root url="jar:///opt/goinfre/mdude/.gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-viewmodel-compose/1.0.0-alpha07/c9b120561f7ae26405f8a8731d5f1c23190b587d/lifecycle-viewmodel-compose-1.0.0-alpha07-sources.jar!/" />
+      <root url="jar:///opt/goinfre/cdanette/.gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-viewmodel-compose/1.0.0-alpha07/c9b120561f7ae26405f8a8731d5f1c23190b587d/lifecycle-viewmodel-compose-1.0.0-alpha07-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

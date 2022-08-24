@@ -30,6 +30,7 @@
         <entry key="app/src/main/res/drawable/ic_star_stroke.xml" value="0.269" />
         <entry key="app/src/main/res/drawable/paws.xml" value="0.1035" />
         <entry key="app/src/main/res/layout/fragment_auth.xml" value="0.2911458333333333" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.2911458333333333" />
         <entry key="app/src/main/res/layout/login_fragment.xml" value="0.29010416666666666" />
       </map>
     </option>

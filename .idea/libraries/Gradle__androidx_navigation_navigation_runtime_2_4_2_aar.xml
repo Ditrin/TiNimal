@@ -4,10 +4,14 @@
       <root url="jar:///opt/goinfre/mdude/.gradle/caches/transforms-3/46ab3d3c5817dc5ee2fea9e76b380f0b/transformed/navigation-runtime-2.4.2/jars/classes.jar!/" />
       <root url="file:///opt/goinfre/mdude/.gradle/caches/transforms-3/46ab3d3c5817dc5ee2fea9e76b380f0b/transformed/navigation-runtime-2.4.2/res" />
       <root url="file:///opt/goinfre/mdude/.gradle/caches/transforms-3/46ab3d3c5817dc5ee2fea9e76b380f0b/transformed/navigation-runtime-2.4.2/AndroidManifest.xml" />
+      <root url="file:///opt/goinfre/cdanette/.gradle/caches/transforms-3/46ab3d3c5817dc5ee2fea9e76b380f0b/transformed/navigation-runtime-2.4.2/res" />
+      <root url="jar:///opt/goinfre/cdanette/.gradle/caches/transforms-3/46ab3d3c5817dc5ee2fea9e76b380f0b/transformed/navigation-runtime-2.4.2/jars/classes.jar!/" />
+      <root url="file:///opt/goinfre/cdanette/.gradle/caches/transforms-3/46ab3d3c5817dc5ee2fea9e76b380f0b/transformed/navigation-runtime-2.4.2/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
       <root url="jar:///opt/goinfre/mdude/.gradle/caches/modules-2/files-2.1/androidx.navigation/navigation-runtime/2.4.2/b407b0d69960fa7a1449c3171124b07a4cd8c59/navigation-runtime-2.4.2-sources.jar!/" />
+      <root url="jar:///opt/goinfre/cdanette/.gradle/caches/modules-2/files-2.1/androidx.navigation/navigation-runtime/2.4.2/b407b0d69960fa7a1449c3171124b07a4cd8c59/navigation-runtime-2.4.2-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
