@@ -12,4 +12,5 @@
     <color name="primary_light">#F0F3F6</color>
     <color name="background_frame">#FEFEFE</color>
     <color name="hint_text_color">#E4EFF4</color>
+    <color name="transparent">#00000000</color>
 </resources>
