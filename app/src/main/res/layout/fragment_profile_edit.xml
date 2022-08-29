@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_light"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:id="@+id/avatarImageViewProfileEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/avatar2" />
+
+    <ImageButton
+        android:id="@+id/plusImageButtonProfileEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="28dp"
+        android:background="@color/transparent"
+        app:layout_constraintStart_toEndOf="@+id/avatarImageViewProfileEdit"
+        app:layout_constraintTop_toTopOf="@+id/avatarImageViewProfileEdit"
+        app:srcCompat="@drawable/ic_plus" />
+
+    <ImageButton
+        android:id="@+id/removeImageButtonProfileEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="28dp"
+        android:background="@color/transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/avatarImageViewProfileEdit"
+        app:layout_constraintStart_toEndOf="@+id/avatarImageViewProfileEdit"
+        app:srcCompat="@drawable/button_remove" />
+
+    <EditText
+        android:id="@+id/nameEditTextProfileEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/custom_edit_text_rectangle"
+        android:hint="@string/name"
+        tools:text="Кирилл"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/avatarImageViewProfileEdit" />
+
+
+    <EditText
+        android:id="@+id/numberEditTextProfileEdit"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:background="@drawable/custom_edit_text_rectangle"
+        android:hint="@string/number"
+        android:padding="8dp"
+        tools:text="8 927 452 46 72"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameEditTextProfileEdit" />
+
+    <EditText
+        android:id="@+id/mailEditTextProfileEdit"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:background="@drawable/custom_edit_text_rectangle"
+        android:hint="@string/mail"
+        android:padding="8dp"
+        tools:text="kirilich@inbox.ru"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/numberEditTextProfileEdit" />
+
+    <EditText
+        android:id="@+id/addressEditTextProfileEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:background="@drawable/custom_edit_text_rectangle"
+        android:layout_marginTop="30dp"
+        android:hint="@string/address"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mailEditTextProfileEdit"
+        tools:text="г. Казань,ул. Моторная" />
+
+
+    <Button
+        android:id="@+id/removeAccountButtonProfileEdit"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        android:text="удалить аккаунт"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addressEditTextProfileEdit" />
+
+    <Button
+        android:id="@+id/saveButtonProfileEdit"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        android:layout_marginTop="10dp"
+        android:text="Сохранить"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/removeAccountButtonProfileEdit" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
