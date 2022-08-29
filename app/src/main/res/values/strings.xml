@@ -14,4 +14,6 @@
     <string name="breed">Breed</string>
     <string name="age">Age</string>
     <string name="show">Show</string>
+    <string name="price">Price</string>
+    <string name="tell_about_cat">Tell about cat…</string>
 </resources>
