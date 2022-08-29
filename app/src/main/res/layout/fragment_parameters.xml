@@ -16,7 +16,7 @@
         app:navigationIcon="@drawable/ic_arrow" />
 
     <EditText
-        android:id="@+id/addressEditTextParametrFragment"
+        android:id="@+id/addressEditTextParameterFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
@@ -29,7 +29,7 @@
         app:layout_constraintTop_toBottomOf="@+id/appBarInfo" />
 
     <EditText
-        android:id="@+id/breedEditTextParametrFragment"
+        android:id="@+id/breedEditTextParameterFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
@@ -39,10 +39,10 @@
         android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addressEditTextParametrFragment" />
+        app:layout_constraintTop_toBottomOf="@+id/addressEditTextParameterFragment" />
 
     <EditText
-        android:id="@+id/ageEditTextParametrFragment"
+        android:id="@+id/ageEditTextParameterFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
@@ -52,7 +52,7 @@
         android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/breedEditTextParametrFragment" />
+        app:layout_constraintTop_toBottomOf="@+id/breedEditTextParameterFragment" />
 
     <CheckBox
         android:id="@+id/maleCheckBox"
@@ -64,8 +64,8 @@
         android:button="@null"
         android:checked="true"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        app:layout_constraintStart_toStartOf="@+id/ageEditTextParametrFragment"
-        app:layout_constraintTop_toBottomOf="@+id/ageEditTextParametrFragment" />
+        app:layout_constraintStart_toStartOf="@+id/ageEditTextParameterFragment"
+        app:layout_constraintTop_toBottomOf="@+id/ageEditTextParameterFragment" />
 
     <CheckBox
         android:id="@+id/femaleCheckBox"
@@ -158,7 +158,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="@+id/ageEditTextParametrFragment"
+        app:layout_constraintStart_toStartOf="@+id/ageEditTextParameterFragment"
         app:layout_constraintTop_toBottomOf="@+id/onlyPhotoTextView"
         tools:text="Цена от" />
 
