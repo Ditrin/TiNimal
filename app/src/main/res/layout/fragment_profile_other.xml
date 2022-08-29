@@ -26,7 +26,7 @@
             android:layout_height="180dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/avatar2"
+            android:background="@drawable/avatar3"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,7 +41,7 @@
             app:layout_constraintHorizontal_bias="0.49"
             app:layout_constraintStart_toStartOf="@+id/avatarImageViewProfile"
             app:layout_constraintTop_toBottomOf="@+id/avatarImageViewProfile"
-            tools:text="Кирилл" />
+            tools:text="Катерина" />
 
         <TextView
             android:id="@+id/mailTextViewProfile"
@@ -67,7 +67,6 @@
 
         <TextView
             android:id="@+id/addressTextViewProfile"
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -75,7 +74,7 @@
             android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/avatarImageViewProfile"
             app:layout_constraintTop_toBottomOf="@+id/phoneTextViewProfile"
-            tools:text="г. Казань,ул. Моторная" />
+            tools:text="г. Казань,ул.Чистопольская" />
 
         <ImageButton
             android:id="@+id/starImageButtonProfile"
