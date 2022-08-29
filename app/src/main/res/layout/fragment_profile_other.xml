@@ -85,7 +85,7 @@
             android:background="@color/transparent"
             app:layout_constraintStart_toEndOf="@+id/avatarImageViewProfile"
             app:layout_constraintTop_toBottomOf="@+id/addressTextViewProfile"
-            app:srcCompat="@drawable/ic_star_empty" />
+            app:srcCompat="@drawable/ic_star_stroke" />
 
         <ImageButton
             android:id="@+id/reviewsImageButtonProfile"
@@ -137,7 +137,6 @@
             android:id="@+id/reviewsCountTextViewProfile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
             android:textColor="@color/black"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="@+id/reviewsImageButtonProfile"
