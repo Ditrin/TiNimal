@@ -108,11 +108,13 @@
         tools:text="г. Казань,ул. Моторная" />
 
 
+
+
     <Button
         android:id="@+id/removeAccountButtonProfileEdit"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="72dp"
         android:text="удалить аккаунт"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -125,7 +127,7 @@
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="48dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:text="Сохранить"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
