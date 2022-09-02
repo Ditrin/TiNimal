@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="32dp"
             android:textColor="@color/black"
-            tools:text="Возраст" />
+            android:text="@string/age" />
 
         <TextView
             android:id="@+id/nameCatProfileFragment"
@@ -66,7 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="32dp"
             android:textColor="@color/black"
-            tools:text="Пол" />
+            android:text="@string/sex" />
 
         <ImageView
             android:id="@+id/sexImageView"
