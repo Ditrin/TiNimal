@@ -58,8 +58,8 @@
         android:id="@+id/maleCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/checkbox_male_selector"
         android:button="@null"
         android:checked="true"
@@ -84,11 +84,11 @@
         android:id="@+id/passportTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/maleCheckBox"
         app:layout_constraintTop_toBottomOf="@+id/maleCheckBox"
-        tools:text="Наличие паспорта"
-        android:layout_marginTop="24dp"
-        android:textColor="@color/black"/>
+        tools:text="Наличие паспорта" />
 
     <TextView
         android:id="@+id/vaccinationTextView"
@@ -203,9 +203,13 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:text="@string/show"
+        android:textStyle="bold"
+        app:cornerRadius="12dip"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:strokeColor="@color/hint_text_color"
+        app:strokeWidth="1dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
