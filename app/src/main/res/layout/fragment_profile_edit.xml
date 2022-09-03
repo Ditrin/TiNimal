@@ -62,7 +62,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/avatarImageViewProfileEdit" />
 
-
     <EditText
         android:id="@+id/numberEditTextProfileEdit"
         android:layout_marginTop="30dp"
@@ -106,9 +105,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mailEditTextProfileEdit"
         tools:text="г. Казань,ул. Моторная" />
-
-
-
 
     <Button
         android:id="@+id/removeAccountButtonProfileEdit"
