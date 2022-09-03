@@ -1,6 +1,7 @@
 package ru.cordyapp.tinimal.data.remote.DTOmodels
 
 data class CatDTO (
+    val id: Long,
     val name: String,
     val sex: Boolean,
     val breed: String,
