@@ -183,7 +183,7 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginHorizontal="32dp"
-        android:background="@color/white"
+        android:background="@drawable/custom_frame_rectangle"
         android:hint="@string/tell_about_cat"
         android:textColorHint="@color/black"
         android:textSize="12sp"
