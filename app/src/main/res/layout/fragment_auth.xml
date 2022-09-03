@@ -14,8 +14,7 @@
         android:layout_marginTop="32dp"
         android:background="@drawable/custom_rectangle"
         android:hint="@string/login"
-        android:padding="8dp"
-        android:theme="@style/Theme.TiNimal.EditText" />
+        android:padding="8dp" />
 
     <EditText
         android:id="@+id/passwordEditTextAuthFragment"
@@ -25,8 +24,7 @@
         android:layout_marginTop="32dp"
         android:background="@drawable/custom_rectangle"
         android:hint="@string/password"
-        android:padding="8dp"
-        android:theme="@style/Theme.TiNimal.EditText" />
+        android:padding="8dp" />
 
     <EditText
         android:id="@+id/nameEditTextAuthFragment"
@@ -36,8 +34,7 @@
         android:layout_marginTop="32dp"
         android:background="@drawable/custom_rectangle"
         android:hint="@string/name"
-        android:padding="8dp"
-        android:theme="@style/Theme.TiNimal.EditText" />
+        android:padding="8dp" />
 
     <EditText
         android:id="@+id/numberEditTextAuthFragment"
@@ -47,8 +44,7 @@
         android:layout_marginTop="32dp"
         android:background="@drawable/custom_rectangle"
         android:hint="@string/number"
-        android:padding="8dp"
-        android:theme="@style/Theme.TiNimal.EditText" />
+        android:padding="8dp" />
 
     <EditText
         android:id="@+id/mailEditTextAuthFragment"
@@ -58,8 +54,7 @@
         android:layout_marginTop="32dp"
         android:background="@drawable/custom_rectangle"
         android:hint="@string/mail"
-        android:padding="8dp"
-        android:theme="@style/Theme.TiNimal.EditText" />
+        android:padding="8dp" />
 
     <EditText
         android:id="@+id/addressEditTextAuthFragment"
@@ -69,8 +64,7 @@
         android:layout_marginTop="32dp"
         android:background="@drawable/custom_rectangle"
         android:hint="@string/address"
-        android:padding="8dp"
-        android:theme="@style/Theme.TiNimal.EditText" />
+        android:padding="8dp" />
 
     <Button
         android:id="@+id/createButtonAuthFragment"
