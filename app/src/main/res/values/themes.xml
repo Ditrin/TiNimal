@@ -22,4 +22,16 @@
         <item name="background">@color/white</item>
         <item name="colorPrimary">@color/white</item>
     </style>
+
+    <style name="Theme.TiNimal.BottomNav">
+        <item name="colorPrimary">@color/bottom_highlight</item>
+    </style>
+
+    <style name="BottomNavigationView" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="BottomNavigationView.Active" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">11sp</item>
+    </style>
 </resources>

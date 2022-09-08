@@ -17,9 +17,9 @@
     <string name="price">Price</string>
     <string name="tell_about_cat">Tell about cat…</string>
     <string name="sex">Sex</string>
-    <string name="passport">Наличие паспорта</string>
-    <string name="vaccination">Наличие прививок</string>
-    <string name="certificate">Наличие справок</string>
-    <string name="save">Save</string>
-    <string name="delete">delete</string>
+    <string name="search">Search</string>
+    <string name="favourites">Favourites</string>
+    <string name="message">Message</string>
+    <string name="messages">Messages</string>
+    <string name="profile">Profile</string>
 </resources>
