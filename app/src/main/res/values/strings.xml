@@ -17,4 +17,9 @@
     <string name="price">Price</string>
     <string name="tell_about_cat">Tell about cat…</string>
     <string name="sex">Sex</string>
+    <string name="search">Search</string>
+    <string name="favourites">Favourites</string>
+    <string name="message">Message</string>
+    <string name="messages">Messages</string>
+    <string name="profile">Profile</string>
 </resources>

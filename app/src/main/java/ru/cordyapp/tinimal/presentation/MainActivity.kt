@@ -1,7 +1,8 @@
-package ru.cordyapp.tinimal
+package ru.cordyapp.tinimal.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import ru.cordyapp.tinimal.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
