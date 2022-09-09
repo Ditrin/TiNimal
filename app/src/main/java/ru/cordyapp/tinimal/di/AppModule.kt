@@ -21,7 +21,7 @@ object AppModule {
     fun providesTinimalApi() : TinimalApi {
         return Retrofit.Builder()
             .baseUrl("http://localhost:8080/")
-            .addConverterFactory(MoshiConverterFactory.create())
+           .addConverterFactory(MoshiConverterFactory.create())
             .build()
             .create(TinimalApi::class.java)
     }
