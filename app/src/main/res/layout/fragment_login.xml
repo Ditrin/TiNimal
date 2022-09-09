@@ -8,7 +8,6 @@
     android:background="@color/primary_dark">
 
     <TextView
-        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/tinimal"
@@ -23,6 +22,7 @@
 
 
     <EditText
+        android:id="@+id/loginEditText"
         android:layout_marginTop="80dp"
         android:layout_width="match_parent"
         android:layout_height="64dp"
@@ -34,7 +34,7 @@
 
     <EditText
         android:layout_marginTop="20dp"
-        android:id="@+id/editText"
+        android:id="@+id/passwordEditText"
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:background="@drawable/custom_rectangle"
@@ -45,7 +45,7 @@
 
     <Button
         android:theme="@style/Theme.TiNimal.Button"
-        android:id="@+id/createButtonAuthFragment"
+        android:id="@+id/signInButton"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_marginHorizontal="96dp"
@@ -57,7 +57,7 @@
         app:cornerRadius="12dip"
 />
     <Button
-        android:id="@+id/buttonSignUp"
+        android:id="@+id/signUpButton"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_marginHorizontal="96dp"
@@ -76,7 +76,6 @@
 
 
     <ImageView
-        android:id="@+id/imageView2"
         android:layout_width="409dp"
         android:layout_height="163dp"
         app:layout_constraintBottom_toBottomOf="parent"
