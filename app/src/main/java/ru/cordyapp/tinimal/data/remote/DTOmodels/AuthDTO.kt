@@ -1,8 +1,11 @@
 package ru.cordyapp.tinimal.data.remote.DTOmodels
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
+@JsonClass(generateAdapter = true)
 data class AuthDTO(
-    @SerializedName("username") val username: String,
-    @SerializedName("password") val password: String
+    @field:Json(name = "username") val username: String,
+    @field:Json(name = "password") val password: String
 )

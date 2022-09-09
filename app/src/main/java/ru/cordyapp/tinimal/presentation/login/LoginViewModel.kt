@@ -28,12 +28,14 @@ class LoginViewModel @Inject constructor(private val useCase: AuthorizationUseCa
             kotlin.runCatching {
                 useCase.execute(AuthDTO(login, password))
             }.onSuccess {
+                Log.d("asd","111")
                 token = it
             }.onFailure {
-                if (it is NetworkErrorException)
+//                if (it is NetworkErrorException)
                     messageLiveData.postValue("Неверные данные")
+                Log.d("asd",it.toString())
             }
-
+            Log.d("asd","333")
         }
     }
 }
