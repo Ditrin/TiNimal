@@ -1,5 +1,6 @@
 package ru.cordyapp.tinimal.presentation.login
 
+import android.content.Context.MODE_PRIVATE
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -17,9 +18,15 @@ import ru.cordyapp.tinimal.databinding.FragmentLoginBinding
 class LoginFragment : Fragment(R.layout.fragment_login) {
     private val viewModel: LoginViewModel by viewModels()
     private val binding by viewBinding(FragmentLoginBinding::bind)
+//    private val sharedPreferences = activity?.getSharedPreferences("MY_SHARED_PREFS", MODE_PRIVATE)
+//    private val token = sharedPreferences?.getString("TOKEN", "")
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val sharedPreferences = activity?.getSharedPreferences("MY_SHARED_PREFS", MODE_PRIVATE)
+        val token = sharedPreferences?.getString("TOKEN", "")
+        if (token != "")
+            Toast.makeText(activity, token, Toast.LENGTH_SHORT).show()
 
         binding.signInButton.setOnClickListener {
             val user =
@@ -29,10 +36,15 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 )
             viewModel.postAuthorization(user)
             viewModel.message.observe(viewLifecycleOwner) {
-//                if (it == null)
-//                    Toast.makeText(activity, viewModel.token, Toast.LENGTH_SHORT).show()
-//                else
-//                    Toast.makeText(activity, it, Toast.LENGTH_SHORT).show()
+                if (it == null) {
+                    val myEdit = sharedPreferences?.edit()
+
+                    myEdit?.putString("TOKEN", viewModel.token)
+                    myEdit?.apply()
+                    Toast.makeText(activity, viewModel.token, Toast.LENGTH_SHORT).show()
+                }
+                else
+                    Toast.makeText(activity, it, Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -42,5 +54,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         }
     }
 
+    companion object{
+        private const val PREF = "MY_SHARED_PREFS"
+    }
 
 }
