@@ -31,4 +31,19 @@ class AuthViewModel @Inject constructor(private val useCase: CreateUserUseCase) 
         }
     }
 
+    fun verify(
+        login: String?,
+        password: String?,
+        name: String?,
+        phoneNumber: String?,
+        mail: String?,
+        address: String?
+    ) {
+        if (login == "" || password == "" || name == "" || phoneNumber == "" || mail == "" || address == "")
+            isValidateLiveData.postValue(false)
+        else
+            isValidateLiveData.postValue(true)
+
+    }
+
 }
