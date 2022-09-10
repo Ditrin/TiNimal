@@ -66,10 +66,11 @@
         tools:text="Республика Татарстан, Казань" />
 
     <ImageView
-        android:layout_width="14dp"
-        android:layout_height="14dp"
-        android:src="@drawable/ic_male"
+        android:id="@+id/sexImageView"
+        android:layout_width="12dp"
+        android:layout_height="13dp"
         android:layout_marginStart="24dp"
+        android:src="@drawable/ic_male"
         app:layout_constraintStart_toEndOf="@+id/priceTextView"
         app:layout_constraintTop_toTopOf="@+id/priceTextView" />
 
