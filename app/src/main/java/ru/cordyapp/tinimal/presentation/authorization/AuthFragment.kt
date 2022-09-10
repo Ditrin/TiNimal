@@ -4,17 +4,12 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Job
 import ru.cordyapp.tinimal.R
 import ru.cordyapp.tinimal.data.remote.DTOmodels.UserAuthDTO
 import ru.cordyapp.tinimal.databinding.FragmentAuthBinding
-import ru.cordyapp.tinimal.databinding.FragmentLoginBinding
 
 @AndroidEntryPoint
 class AuthFragment : Fragment(R.layout.fragment_auth) {
@@ -27,16 +22,30 @@ class AuthFragment : Fragment(R.layout.fragment_auth) {
 
         with(binding) {
             createButtonAuthFragment.setOnClickListener {
-                val user = UserAuthDTO(
+                viewModel.verify(
                     loginEditTextAuthFragment.text.toString(),
                     passwordEditTextAuthFragment.text.toString(),
                     nameEditTextAuthFragment.text.toString(),
-                    numberEditTextAuthFragment.text.toString().toLong(),
+                    numberEditTextAuthFragment.text.toString(),
                     mailEditTextAuthFragment.text.toString(),
                     addressEditTextAuthFragment.text.toString()
                 )
-                viewModel.createUser(user)
-                findNavController().navigate(R.id.action_authFragment_to_loginFragment)
+                viewModel.isValidate.observe(viewLifecycleOwner) {
+                    if (it) {
+                        errorTextView.visibility = View.INVISIBLE
+                        val user = UserAuthDTO(
+                            loginEditTextAuthFragment.text.toString(),
+                            passwordEditTextAuthFragment.text.toString(),
+                            nameEditTextAuthFragment.text.toString(),
+                            numberEditTextAuthFragment.text.toString().toLong(),
+                            mailEditTextAuthFragment.text.toString(),
+                            addressEditTextAuthFragment.text.toString()
+                        )
+                        viewModel.createUser(user)
+                        findNavController().navigate(R.id.action_authFragment_to_loginFragment)
+                    } else
+                        errorTextView.visibility = View.VISIBLE
+                }
             }
         }
     }

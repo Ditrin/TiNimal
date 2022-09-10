@@ -67,12 +67,21 @@
         android:hint="@string/address"
         android:padding="8dp" />
 
+    <TextView
+        android:id="@+id/errorTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/invalid_input"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="64dp"
+        android:visibility="invisible"
+        android:textColor="@color/error"/>
+
     <Button
         android:id="@+id/createButtonAuthFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="64dp"
-        android:layout_marginTop="64dp"
         android:layout_marginBottom="32dp"
         android:text="@string/create"
         android:textStyle="bold"

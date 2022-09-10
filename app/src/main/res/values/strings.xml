@@ -27,5 +27,6 @@
     <string name="passport">Passport</string>
     <string name="vaccination">Vaccination</string>
     <string name="certificate">Certificate</string>
+    <string name="invalid_input">Invalid input. Check that every field is filled in</string>
     <string name="password_reset">password reset</string>
 </resources>
