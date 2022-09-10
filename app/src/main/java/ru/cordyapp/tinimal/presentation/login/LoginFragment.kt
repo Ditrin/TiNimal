@@ -9,6 +9,8 @@ import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import ru.cordyapp.tinimal.R
+import ru.cordyapp.tinimal.data.remote.DTOmodels.AuthDTO
+import ru.cordyapp.tinimal.data.remote.DTOmodels.UserDTO
 import ru.cordyapp.tinimal.databinding.FragmentLoginBinding
 
 @AndroidEntryPoint
@@ -20,11 +22,12 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.signInButton.setOnClickListener {
-            val login = binding.loginEditText.toString()
-            val password = binding.passwordEditText.toString()
-            viewModel.postAuthorization(
-               login, password
-            )
+            val user =
+                AuthDTO(
+                    binding.loginEditText.text.toString(),
+                    binding.passwordEditText.text.toString()
+                )
+            viewModel.postAuthorization(user)
             viewModel.message.observe(viewLifecycleOwner) {
 //                if (it == null)
 //                    Toast.makeText(activity, viewModel.token, Toast.LENGTH_SHORT).show()
