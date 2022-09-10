@@ -55,7 +55,8 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:cornerRadius="12dip"
-/>
+        />
+
     <Button
         android:id="@+id/signUpButton"
         android:layout_width="match_parent"
@@ -63,11 +64,22 @@
         android:layout_marginHorizontal="96dp"
         android:layout_marginTop="10dp"
         android:text="@string/sign_up"
-        android:textStyle="bold"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:cornerRadius="12dip"
         app:strokeColor="@color/white"
-        app:strokeWidth="1dp"/>
+        app:strokeWidth="1dp" />
+
+    <TextView
+        android:id="@+id/passwordResetTextView"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="Forgot password?"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/white"/>
 
     <Space
         android:layout_width="match_parent"
