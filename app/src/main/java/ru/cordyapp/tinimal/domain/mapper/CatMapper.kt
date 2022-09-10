@@ -1,4 +1,4 @@
-package ru.cordyapp.tinimal.domain.Mapper
+package ru.cordyapp.tinimal.domain.mapper
 
 import ru.cordyapp.tinimal.data.remote.DTOmodels.CatDTO
 import ru.cordyapp.tinimal.domain.models.CatShort

@@ -1,4 +1,4 @@
-package ru.cordyapp.tinimal.domain.Mapper
+package ru.cordyapp.tinimal.domain.mapper
 
 interface Mapper<I,O> {
     fun map(t: I): O
