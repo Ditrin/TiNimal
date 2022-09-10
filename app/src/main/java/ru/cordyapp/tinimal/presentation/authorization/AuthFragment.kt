@@ -24,6 +24,7 @@ class AuthFragment : Fragment(R.layout.fragment_auth) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         with(binding) {
             createButtonAuthFragment.setOnClickListener {
                 val user = UserAuthDTO(
