@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import ru.cordyapp.tinimal.data.remote.DTOmodels.AuthDTO
 import ru.cordyapp.tinimal.data.remote.DTOmodels.UserDTO
@@ -20,8 +21,10 @@ class LoginViewModel @Inject constructor(private val useCase: AuthorizationUseCa
     private val messageLiveData = MutableLiveData<String>("")
     val message: LiveData<String> = messageLiveData
 
+    private val tokenLiveData = MutableLiveData<String>("")
+    val token: LiveData<String> = tokenLiveData
+
     private var job: Job? = null
-    var token: String? = null
 
     fun postAuthorization(authDTO: AuthDTO) {
         Log.d("qwerty", "ttt")
@@ -30,14 +33,14 @@ class LoginViewModel @Inject constructor(private val useCase: AuthorizationUseCa
             runCatching {
                 useCase.execute(authDTO)
             }.onSuccess {
-                Log.d("asd","111")
-                token = it.token
+                tokenLiveData.value = it.token
+                Log.d("asd", it.token)
             }.onFailure {
 //                if (it is NetworkErrorException)
-                    messageLiveData.postValue("Неверные данные")
-                Log.d("asd",it.toString())
+                tokenLiveData.value = ""
+                messageLiveData.postValue("Неверные данные")
+                Log.d("asd", it.toString())
             }
-            Log.d("asd","333")
         }
     }
 }
