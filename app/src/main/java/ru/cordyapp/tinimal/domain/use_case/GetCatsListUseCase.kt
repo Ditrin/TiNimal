@@ -7,7 +7,7 @@ import ru.cordyapp.tinimal.domain.repository.TiNimalRepository
 class GetCatsListUseCase (
     private val repository: TiNimalRepository
         ){
-    suspend fun execute(cats:String): CatsDTO{
+    suspend fun execute(cats:String): List<CatDTO>{
         return repository.getCatsList(cats)
     }
 }

@@ -22,10 +22,10 @@ class MainViewModel @Inject constructor(
 //    val isLoad: LiveData<Boolean>
 //        get() = isLoadLiveData
 
-    private val usersListLiveData = MutableLiveData<CatsDTO>()
+    private val catsListLiveData = MutableLiveData<List<CatDTO>>()
 
-    val catsList: LiveData<CatsDTO>
-        get() = usersListLiveData
+    val catsList: LiveData<List<CatDTO>>
+        get() = catsListLiveData
 
     private var searchJob: Job? = null
 
@@ -37,12 +37,10 @@ class MainViewModel @Inject constructor(
                 getCatsList.execute(cat)
             }.onSuccess {
 
-                usersListLiveData.postValue(it)
+                catsListLiveData.postValue(it)
             }.onFailure {
-                usersListLiveData.postValue()
+                catsListLiveData.postValue(emptyList())
             }
         }
     }
-}
-
 }

@@ -8,5 +8,5 @@ import ru.cordyapp.tinimal.domain.models.CatShort
 
 interface TinimalApi {
     @GET("cats")
-    suspend fun getAllCats() : CatsDTO
+    suspend fun getAllCats() : List<CatDTO>
 }
