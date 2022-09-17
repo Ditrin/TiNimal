@@ -34,11 +34,11 @@ class LoginViewModel @Inject constructor(private val useCase: AuthorizationUseCa
                 useCase.execute(authDTO)
             }.onSuccess {
                 tokenLiveData.value = it.token
+                messageLiveData.value = "Success"
                 Log.d("asd", it.token)
             }.onFailure {
-//                if (it is NetworkErrorException)
                 tokenLiveData.value = ""
-                messageLiveData.postValue("Неверные данные")
+                messageLiveData.value = "Неверные данные"
                 Log.d("asd", it.toString())
             }
         }
