@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -24,10 +25,16 @@ class MainFragment:Fragment(R.layout.fragment_search) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel.getUsersListByLogin()
         viewModel.catsList.observe(viewLifecycleOwner){
             binding.adsListRecyclerView.apply {
                 adapter = mainAdapter
                 layoutManager = LinearLayoutManager(requireContext())
+                val dividerItemDecoration = DividerItemDecoration(
+                    context,
+                    (layoutManager as LinearLayoutManager).orientation
+                )
+                addItemDecoration(dividerItemDecoration)
             }
             val list = it.map { CatMapper().map(it) }
 //            val list = mutableListOf<CatShort>()

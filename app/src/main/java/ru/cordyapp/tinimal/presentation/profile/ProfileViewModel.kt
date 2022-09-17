@@ -1,4 +1,4 @@
-package ru.cordyapp.tinimal.presentation.main
+package ru.cordyapp.tinimal.presentation.profile
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -9,24 +9,19 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import ru.cordyapp.tinimal.data.remote.DTOmodels.CatDTO
-import ru.cordyapp.tinimal.data.remote.DTOmodels.CatsDTO
+import ru.cordyapp.tinimal.data.remote.DTOmodels.UserDTO
 import ru.cordyapp.tinimal.domain.use_case.GetCatsListUseCase
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(
+class ProfileViewModel @Inject constructor(
     private val getCatsList: GetCatsListUseCase
-) : ViewModel() {
+): ViewModel() {
 
-//    private val isLoadLiveData = MutableLiveData(false)
-//
-//    val isLoad: LiveData<Boolean>
-//        get() = isLoadLiveData
+    private val userLiveData = MutableLiveData<UserDTO>()
 
-    private val catsListLiveData = MutableLiveData<List<CatDTO>>()
-
-    val catsList: LiveData<List<CatDTO>>
-        get() = catsListLiveData
+    val catsList: LiveData<UserDTO>
+        get() = userLiveData
 
     private var searchJob: Job? = null
 
@@ -38,7 +33,7 @@ class MainViewModel @Inject constructor(
                 getCatsList.execute()
             }.onSuccess {
 
-                catsListLiveData.postValue(it)
+                userLiveData.postValue(it)
             }.onFailure {
                 Log.d("tags", "error $it" )
                 catsListLiveData.postValue(emptyList())
