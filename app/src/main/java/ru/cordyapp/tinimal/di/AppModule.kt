@@ -9,12 +9,16 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import ru.cordyapp.tinimal.data.remote.AddTokenHeaderInterceptor
 import ru.cordyapp.tinimal.data.remote.api.AuthApi
 import ru.cordyapp.tinimal.data.remote.api.TinimalApi
 import ru.cordyapp.tinimal.data.remote.repository.AuthorizationRepositoryImpl
+import ru.cordyapp.tinimal.data.remote.repository.TiNimalRepositoryImpl
 import ru.cordyapp.tinimal.domain.repository.AuthorizationRepository
+import ru.cordyapp.tinimal.domain.repository.TiNimalRepository
 import ru.cordyapp.tinimal.domain.use_case.AuthorizationUseCase
 import ru.cordyapp.tinimal.domain.use_case.CreateUserUseCase
+import ru.cordyapp.tinimal.domain.use_case.GetCatsListUseCase
 import javax.inject.Singleton
 
 @Module
@@ -25,7 +29,7 @@ object AppModule {
     @Singleton
     fun providesAuthApi(okHttpClient: OkHttpClient): AuthApi {
         return Retrofit.Builder()
-            .baseUrl("http://10.21.33.65:8090/")
+            .baseUrl("https://cordy-app.herokuapp.com/")
             .addConverterFactory(MoshiConverterFactory.create())
             .client(okHttpClient)
             .build()
@@ -36,7 +40,7 @@ object AppModule {
     @Singleton
     fun providesTinimalApi(okHttpClient: OkHttpClient): TinimalApi {
         return Retrofit.Builder()
-            .baseUrl("http://10.21.33.65:8090/")
+            .baseUrl("https://cordy-app.herokuapp.com/")
             .addConverterFactory(MoshiConverterFactory.create())
             .client(okHttpClient)
             .build()
@@ -46,7 +50,9 @@ object AppModule {
     @Provides
     @Singleton
     fun providesOkHttp(): OkHttpClient {
+        val tokenHeaderInterceptor = AddTokenHeaderInterceptor()
         return OkHttpClient.Builder()
+            .addInterceptor(tokenHeaderInterceptor)
             .addInterceptor(HttpLoggingInterceptor {
                 Log.d("OkHTTP", it)
             }
@@ -69,10 +75,24 @@ object AppModule {
 
     @Provides
     @Singleton
+    fun provideGetCats(repository: TiNimalRepository): GetCatsListUseCase {
+        return GetCatsListUseCase(repository)
+    }
+
+    @Provides
+    @Singleton
     fun provideAuthorizationRepository(
         api: AuthApi
     ): AuthorizationRepository {
         return AuthorizationRepositoryImpl(api)
+    }
+
+    @Provides
+    @Singleton
+    fun provideTinimalRepository(
+        api: TinimalApi
+    ): TiNimalRepository {
+        return TiNimalRepositoryImpl(api)
     }
 
 

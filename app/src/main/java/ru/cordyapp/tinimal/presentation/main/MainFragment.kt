@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
+import dagger.hilt.android.AndroidEntryPoint
 import ru.cordyapp.tinimal.R
 import ru.cordyapp.tinimal.data.remote.DTOmodels.CatDTO
 import ru.cordyapp.tinimal.data.remote.DTOmodels.CatsDTO
@@ -13,6 +14,7 @@ import ru.cordyapp.tinimal.databinding.FragmentSearchBinding
 import ru.cordyapp.tinimal.domain.mapper.CatMapper
 import ru.cordyapp.tinimal.domain.models.CatShort
 
+@AndroidEntryPoint
 class MainFragment:Fragment(R.layout.fragment_search) {
     private val viewModel: MainViewModel by viewModels()
 
