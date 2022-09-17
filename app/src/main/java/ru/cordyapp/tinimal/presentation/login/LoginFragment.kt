@@ -24,8 +24,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val sharedPreferences = activity?.getSharedPreferences("MY_SHARED_PREFS", MODE_PRIVATE)
-        val token = sharedPreferences?.getString("TOKEN", "None")
+        val sharedPreferences = activity?.getSharedPreferences(NAME, MODE_PRIVATE)
+        val token = sharedPreferences?.getString(AUTH_TOKEN, "None")
 
         if (token != "None")
             Toast.makeText(activity, token, Toast.LENGTH_SHORT).show()
@@ -45,7 +45,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 if (it != "") {
                     val myEdit = sharedPreferences?.edit()
 
-                    myEdit?.putString("TOKEN", it)
+                    myEdit?.putString(AUTH_TOKEN, it)
                     myEdit?.apply()
                 }
                 else
@@ -66,7 +66,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     }
 
     companion object {
-        private const val PREF = "MY_SHARED_PREFS"
+        private const val AUTH_TOKEN = "auth_token"
+        private const val NAME = "app_preferences"
     }
 
 }
