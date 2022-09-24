@@ -7,11 +7,7 @@
     android:background="@color/primary_light"
     android:orientation="vertical">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/appBarInfo"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        app:navigationIcon="@drawable/ic_arrow" />
+    <include layout="@layout/toolbar_cat_profile"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -25,7 +21,7 @@
             android:layout_width="180dp"
             android:layout_height="180dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/avatar3"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -44,59 +40,35 @@
             tools:text="Катерина" />
 
         <TextView
-            android:id="@+id/mailTextViewProfile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="12dp"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toEndOf="@+id/avatarImageViewProfile"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="kirilich@inbox.ru" />
-
-        <TextView
-            android:id="@+id/phoneTextViewProfile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toEndOf="@+id/avatarImageViewProfile"
-            app:layout_constraintTop_toBottomOf="@+id/mailTextViewProfile"
-            tools:text="8 927 452 46 72" />
-
-        <TextView
             android:id="@+id/addressTextViewProfile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginStart="16dp"
             android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/avatarImageViewProfile"
-            app:layout_constraintTop_toBottomOf="@+id/phoneTextViewProfile"
-            tools:text="г. Казань,ул.Чистопольская" />
+            tools:layout_editor_absoluteY="169dp"
+            tools:text="г. Казань,ул.Чистопольскаяввввв" />
 
         <ImageButton
             android:id="@+id/starImageButtonProfile"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginStart="16dp"
             android:background="@color/transparent"
             app:layout_constraintStart_toEndOf="@+id/avatarImageViewProfile"
-            app:layout_constraintTop_toBottomOf="@+id/addressTextViewProfile"
-            app:srcCompat="@drawable/ic_star_stroke" />
+            app:srcCompat="@drawable/ic_star_stroke"
+            tools:layout_editor_absoluteY="79dp" />
 
         <ImageButton
             android:id="@+id/reviewsImageButtonProfile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
             android:background="@color/transparent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.524"
             app:layout_constraintStart_toEndOf="@+id/starImageButtonProfile"
-            app:layout_constraintTop_toBottomOf="@+id/addressTextViewProfile"
-            app:srcCompat="@drawable/button_reviews" />
+            app:srcCompat="@drawable/button_reviews"
+            tools:layout_editor_absoluteY="79dp" />
 
         <TextView
             android:id="@+id/starTextViewProfile"
