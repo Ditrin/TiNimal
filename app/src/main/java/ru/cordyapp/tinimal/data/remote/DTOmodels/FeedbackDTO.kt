@@ -4,7 +4,6 @@ import com.squareup.moshi.JsonClass
 import java.util.*
 @JsonClass(generateAdapter = true)
 
-@JsonClass(generateAdapter = true)
 data class FeedbackDTO(
         val id: Long,
         val user_id: Int,

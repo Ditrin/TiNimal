@@ -10,34 +10,34 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import ru.cordyapp.tinimal.data.remote.DTOmodels.CatDTO
 import ru.cordyapp.tinimal.data.remote.DTOmodels.UserDTO
-import ru.cordyapp.tinimal.domain.use_case.GetCatsListUseCase
+import ru.cordyapp.tinimal.domain.use_case.GetUserUseCase
 import javax.inject.Inject
 
 @HiltViewModel
 class ProfileViewModel @Inject constructor(
-    private val getCatsList: GetCatsListUseCase
+    private val getCatsList: GetUserUseCase
 ): ViewModel() {
 
-    private val userLiveData = MutableLiveData<UserDTO>()
-
-    val catsList: LiveData<UserDTO>
-        get() = userLiveData
-
-    private var searchJob: Job? = null
-
-
-    fun getUsersListByLogin() {
-        searchJob?.cancel()
-        searchJob = viewModelScope.launch {
-            runCatching {
-                getCatsList.execute()
-            }.onSuccess {
-
-                userLiveData.postValue(it)
-            }.onFailure {
-                Log.d("tags", "error $it" )
-                catsListLiveData.postValue(emptyList())
-            }
-        }
-    }
+//    private val userLiveData = MutableLiveData<UserDTO>()
+//
+//    val catsList: LiveData<UserDTO>
+//        get() = userLiveData
+//
+//    private var searchJob: Job? = null
+//
+//
+//    fun getUsersListByLogin() {
+//        searchJob?.cancel()
+//        searchJob = viewModelScope.launch {
+//            runCatching {
+//                getCatsList.execute()
+//            }.onSuccess {
+//
+//                userLiveData.postValue(it)
+//            }.onFailure {
+//                Log.d("tags", "error $it" )
+//                userLiveData.postValue(emptyList())
+//            }
+//        }
+//    }
 }

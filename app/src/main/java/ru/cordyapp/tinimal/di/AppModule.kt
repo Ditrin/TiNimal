@@ -16,9 +16,7 @@ import ru.cordyapp.tinimal.data.remote.repository.AuthorizationRepositoryImpl
 import ru.cordyapp.tinimal.data.remote.repository.TiNimalRepositoryImpl
 import ru.cordyapp.tinimal.domain.repository.AuthorizationRepository
 import ru.cordyapp.tinimal.domain.repository.TiNimalRepository
-import ru.cordyapp.tinimal.domain.use_case.AuthorizationUseCase
-import ru.cordyapp.tinimal.domain.use_case.CreateUserUseCase
-import ru.cordyapp.tinimal.domain.use_case.GetCatsListUseCase
+import ru.cordyapp.tinimal.domain.use_case.*
 import javax.inject.Singleton
 
 @Module
@@ -74,8 +72,14 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideGetCats(repository: TiNimalRepository): GetCatsListUseCase {
-        return GetCatsListUseCase(repository)
+    fun provideGetCats(repository: TiNimalRepository): GetCatsListByUserUseCase {
+        return GetCatsListByUserUseCase(repository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideGetUsers(repository: TiNimalRepository): GetUserUseCase {
+        return GetUserUseCase(repository)
     }
 
     @Provides

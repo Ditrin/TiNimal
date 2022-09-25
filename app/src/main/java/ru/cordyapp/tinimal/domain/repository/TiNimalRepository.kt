@@ -7,6 +7,6 @@ import ru.cordyapp.tinimal.domain.models.CatShort
 
 interface TiNimalRepository {
 
-    suspend fun getUser(): List<UserDTO>
+//    suspend fun getUser(): List<UserDTO>
     suspend fun getCatsByUser(): List<CatDTO>
 }
