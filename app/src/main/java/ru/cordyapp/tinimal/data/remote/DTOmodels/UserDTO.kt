@@ -3,7 +3,6 @@ package ru.cordyapp.tinimal.data.remote.DTOmodels
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-
 data class UserDTO(
     val id: Long,
     val login: String,
@@ -21,6 +20,6 @@ data class UserDTO(
     val feedbacks: List<FeedbackDTO>?,
     val cats: List<CatDTO>?,
     val favorites: List<CatDTO>?,
-    val chats: List<ChatDTO>?,
-    val username: String
+    val username: String,
+    val authorities: Any?
 )

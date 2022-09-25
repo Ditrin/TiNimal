@@ -79,7 +79,7 @@
             app:layout_constraintTop_toBottomOf="@+id/phoneTextViewProfile"
             tools:text="г. Казань,ул. Моторная" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/starImageButtonProfile"
             android:layout_width="40dp"
             android:layout_height="40dp"
@@ -111,7 +111,7 @@
             app:layout_constraintEnd_toEndOf="@+id/starImageButtonProfile"
             app:layout_constraintStart_toStartOf="@+id/starImageButtonProfile"
             app:layout_constraintTop_toBottomOf="@+id/starImageButtonProfile"
-            tools:text="Рейтинг" />
+            android:text="@string/rating" />
 
         <TextView
             android:id="@+id/reviewsTextViewProfile"
@@ -123,7 +123,7 @@
             app:layout_constraintEnd_toEndOf="@+id/reviewsImageButtonProfile"
             app:layout_constraintStart_toStartOf="@+id/reviewsImageButtonProfile"
             app:layout_constraintTop_toBottomOf="@+id/reviewsImageButtonProfile"
-            tools:text="Отзывы" />
+            android:text="@string/reviews" />
 
         <TextView
             android:id="@+id/starCountTextViewProfile"

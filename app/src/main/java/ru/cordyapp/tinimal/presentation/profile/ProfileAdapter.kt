@@ -23,7 +23,7 @@ class ProfileAdapter : RecyclerView.Adapter<ProfileAdapter.ViewHolder>() {
                 else sexImageView.setImageResource(R.drawable.ic_male)
                 nameTextView.text = cat.name
                 breedTextView.text = cat.breed
-             //   addressTextView.text = cat.
+                addressTextView.text = cat.
                 Glide.with(itemView)
                     .load(cat.photo)
                     .transform(CircleCrop())

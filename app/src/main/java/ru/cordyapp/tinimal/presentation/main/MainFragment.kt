@@ -36,6 +36,7 @@ class MainFragment:Fragment(R.layout.fragment_search) {
                 )
                 addItemDecoration(dividerItemDecoration)
             }
+
             val list = it.map { CatMapper().map(it) }
 //            val list = mutableListOf<CatShort>()
 //            it.forEach {

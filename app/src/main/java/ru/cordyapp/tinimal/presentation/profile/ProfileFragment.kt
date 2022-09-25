@@ -10,51 +10,72 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
+import dagger.hilt.android.AndroidEntryPoint
 import ru.cordyapp.tinimal.R
 import ru.cordyapp.tinimal.data.remote.DTOmodels.UserDTO
 import ru.cordyapp.tinimal.databinding.FragmentProfileBinding
 import ru.cordyapp.tinimal.domain.mapper.CatMapper
 import ru.cordyapp.tinimal.presentation.main.MainAdapter
+@AndroidEntryPoint
 
-class ProfileFragment: Fragment(R.layout.fragment_profile) {
-//    private val binding by viewBinding(FragmentProfileBinding::bind)
-//    private val viewModel: ProfileViewModel by viewModels()
-//    private val profileAdapter = ProfileAdapter()
-//
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?){
-//        super.onViewCreated(view, savedInstanceState)
-//
-//        viewModel.getUsersListByLogin()
-//        viewModel.catsList.observe(viewLifecycleOwner){
-//            binding.catsByUserListRecycleView.apply {
-//                adapter = profileAdapter
-//                layoutManager = LinearLayoutManager(requireContext())
-//                val dividerItemDecoration = DividerItemDecoration(
-//                    context,
-//                    (layoutManager as LinearLayoutManager).orientation
-//                )
-//                addItemDecoration(dividerItemDecoration)
+
+class ProfileFragment : Fragment(R.layout.fragment_profile) {
+    private val binding by viewBinding(FragmentProfileBinding::bind)
+    private val viewModel: ProfileViewModel by viewModels()
+    private val profileAdapter = ProfileAdapter()
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        viewModel.getUsersListByLogin()
+        viewModel.catsList.observe(viewLifecycleOwner) {
+            binding.catsByUserListRecycleView.apply {
+                adapter = profileAdapter
+                layoutManager = LinearLayoutManager(requireContext())
+                val dividerItemDecoration = DividerItemDecoration(
+                    context,
+                    (layoutManager as LinearLayoutManager).orientation
+                )
+                addItemDecoration(dividerItemDecoration)
+            }
+            val list = it.cats?.map { CatMapper().map(it) }
+//            val list = mutableListOf<CatShort>()
+//            it.forEach {
+//                list.add(CatMapper().map(it))
 //            }
-//            val list = it.cats.map
-////            val list = mutableListOf<CatShort>()
-////            it.forEach {
-////                list.add(CatMapper().map(it))
-////            }
-//            profileAdapter.setCatsList(list)
-//
-//        }
-//
-//        with(binding){
-//
-//
-//
-//
-//            Glide.with(this@ProfileFragment)
-//                .load(Use)
-//                .transform(CircleCrop())
-//                .diskCacheStrategy(DiskCacheStrategy.ALL)
-//                .into(imageCharacter)
-//        }
-//
-//    }
+            profileAdapter.setCatsList(list!!)
+            with(binding) {
+                nameTextViewProfile.text = it.name
+                mailTextViewProfile.text = it.mail
+                phoneTextViewProfile.text = it.phoneNumber.toString()
+                addressTextViewProfile.text = it.address
+                reviewsCountTextViewProfile.text = it.ranking.toString()
+                starImageButtonProfile.setImageResource(countRating(it.ranking))
+                reviewsCountTextViewProfile.text = it.feedbacks?.size.toString()
+                starCountTextViewProfile.text = it.ranking.toString()
+
+                Glide.with(this@ProfileFragment)
+                    .load(this)
+                    .transform(CircleCrop())
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .into(avatarImageViewProfile)
+            }
+
+
+        }
+
+    }
+
+    private fun countRating(raiting: Float?) =
+        when (raiting?.toInt()) {
+
+            1 -> R.drawable.ic_star1
+            2 -> R.drawable.ic_star2
+            3 -> R.drawable.ic_star3
+            4 -> R.drawable.ic_star4
+            5 -> R.drawable.ic_star5
+
+            else -> R.drawable.ic_star_empty
+
+        }
 }
