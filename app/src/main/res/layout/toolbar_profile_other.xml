@@ -11,16 +11,6 @@
         android:background="@color/transparent"
         android:src="@drawable/ic_arrow" />
 
-    <ImageButton
-        android:id="@+id/callButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginEnd="32dp"
-        android:background="@color/transparent"
-        android:src="@drawable/button_unkudos" />
-
-
 
     <ImageButton
         android:id="@+id/kudosButton"

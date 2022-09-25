@@ -30,22 +30,11 @@
             android:id="@+id/removePhotoImageButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="140dp"
+            android:layout_marginStart="184dp"
             android:layout_marginTop="8dp"
             android:background="@color/transparent"
             android:src="@drawable/ic_plus"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/avatarImageView" />
-
-        <ImageButton
-            android:id="@+id/addPhotoImageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="140dp"
-            android:background="@color/transparent"
-            android:src="@drawable/button_remove"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/avatarImageView" />
 
         <CheckBox
@@ -184,6 +173,7 @@
             android:id="@+id/infoEditText"
             android:layout_width="match_parent"
             android:layout_height="100dp"
+            android:gravity="top|left"
             android:layout_marginHorizontal="32dp"
             android:background="@drawable/custom_frame_rectangle"
             android:hint="@string/tell_about_cat"
