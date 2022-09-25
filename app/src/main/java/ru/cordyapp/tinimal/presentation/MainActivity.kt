@@ -41,13 +41,13 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             when (destination.id){
                 R.id.authFragment -> {
                     bottomNavigationView.visibility = View.GONE
-                    supportActionBar?.setDisplayHomeAsUpEnabled(false)
                 }
                 R.id.loginFragment -> {
                     bottomNavigationView.visibility = View.GONE
-                    supportActionBar?.setDisplayHomeAsUpEnabled(false)
                 }
-                else -> bottomNavigationView.visibility = View.VISIBLE
+                else -> {
+                    bottomNavigationView.visibility = View.VISIBLE
+                }
             }
         }
     }

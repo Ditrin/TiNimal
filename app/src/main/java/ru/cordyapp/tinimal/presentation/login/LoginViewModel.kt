@@ -33,9 +33,9 @@ class LoginViewModel @Inject constructor(private val useCase: AuthorizationUseCa
             runCatching {
                 useCase.execute(authDTO)
             }.onSuccess {
-                tokenLiveData.value = it.token
+                tokenLiveData.value = it.jwttoken
                 messageLiveData.value = "Success"
-                Log.d("asd", it.token)
+                Log.d("asd", it.jwttoken)
             }.onFailure {
                 tokenLiveData.value = ""
                 messageLiveData.value = "Неверные данные"
