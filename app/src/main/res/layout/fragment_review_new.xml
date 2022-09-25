@@ -14,15 +14,16 @@
         app:navigationIcon="@drawable/ic_arrow" />
 
     <EditText
+
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginHorizontal="32dp"
         android:layout_marginTop="8dp"
-        android:background="#F0F3F6"
-        android:hint="Чем все закончилось?"
+        android:background="@drawable/custom_frame_rectangle"
+        android:gravity="top|left"
+        android:text="Чем все закончилось?"
         android:padding="8dp"
         android:textColorHint="@color/black"
-        android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/buttonCreate"
         app:layout_constraintEnd_toEndOf="@+id/priceEditTextCatFormFragment"
         app:layout_constraintStart_toStartOf="@+id/certificatesTextView"

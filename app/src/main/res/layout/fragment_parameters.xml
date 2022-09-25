@@ -110,21 +110,12 @@
         app:layout_constraintTop_toBottomOf="@+id/vaccinationTextView"
         tools:text="Наличие справок" />
 
-    <TextView
-        android:id="@+id/onlyPhotoTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="@+id/certificatesTextView"
-        app:layout_constraintTop_toBottomOf="@+id/certificatesTextView"
-        tools:text="Только с фото" />
-
     <CheckBox
         android:id="@+id/passportCheckBox"
         android:layout_width="28dp"
         android:layout_height="28dp"
         android:layout_marginEnd="128dp"
+        app:layout_constraintBottom_toBottomOf="@+id/passportTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/passportTextView" />
 
@@ -133,6 +124,7 @@
         android:layout_width="28dp"
         android:layout_height="28dp"
         android:layout_marginEnd="128dp"
+        app:layout_constraintBottom_toBottomOf="@+id/vaccinationTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/vaccinationTextView" />
 
@@ -141,61 +133,52 @@
         android:layout_width="28dp"
         android:layout_height="28dp"
         android:layout_marginEnd="128dp"
+        app:layout_constraintBottom_toBottomOf="@+id/certificatesTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/certificatesTextView" />
 
-    <CheckBox
-        android:id="@+id/onlyPhotoCheckBox"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-        android:layout_marginEnd="128dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/onlyPhotoTextView" />
+    <TextView
+        android:id="@+id/priceFinishTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/editText2"
+        app:layout_constraintTop_toTopOf="@+id/priceStartTextView"
+        tools:text="Цена до" />
 
     <TextView
         android:id="@+id/priceStartTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         android:textColor="@color/black"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/ageEditTextParameterFragment"
-        app:layout_constraintTop_toBottomOf="@+id/onlyPhotoTextView"
+        tools:layout_editor_absoluteY="475dp"
         tools:text="Цена от" />
 
     <EditText
         android:id="@+id/editText2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="4dp"
         android:background="@drawable/custom_edit_text_rectangle"
         android:hint="0 рублей"
         android:padding="8dp"
-        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/priceStartTextView"
         app:layout_constraintStart_toEndOf="@+id/priceStartTextView"
-        app:layout_constraintTop_toBottomOf="@+id/onlyPhotoTextView" />
-
-    <TextView
-        android:id="@+id/priceFinishTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toEndOf="@+id/editText2"
-        app:layout_constraintTop_toTopOf="@+id/priceStartTextView"
-        tools:text="Цена до" />
+        app:layout_constraintTop_toTopOf="@+id/priceStartTextView" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="4dp"
         android:background="@drawable/custom_edit_text_rectangle"
         android:hint="0 рублей"
         android:padding="8dp"
-        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/priceFinishTextView"
         app:layout_constraintStart_toEndOf="@+id/priceFinishTextView"
-        app:layout_constraintTop_toBottomOf="@+id/onlyPhotoTextView" />
+        app:layout_constraintTop_toTopOf="@+id/priceFinishTextView" />
 
     <Button
         android:id="@+id/buttonShow"
