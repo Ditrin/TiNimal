@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/tinimal_nav_graph"
     app:startDestination="@id/loginFragment">
@@ -7,6 +8,7 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="ru.cordyapp.tinimal.presentation.login.LoginFragment"
+        tools:layout="@layout/fragment_login"
         android:label="LoginFragment" >
         <action
             android:id="@+id/action_loginFragment_to_authFragment"
@@ -30,6 +32,14 @@
         android:id="@+id/mainFragment"
         android:name="ru.cordyapp.tinimal.presentation.main.MainFragment"
         android:label="MainFragment" />
+    <fragment
+        android:id="@+id/favouritesFragment"
+        android:name="ru.cordyapp.tinimal.presentation.favourites.FavouritesFragment"
+        android:label="FavouritesFragment" />
+    <fragment
+        android:id="@+id/messagesFragment"
+        android:name="ru.cordyapp.tinimal.presentation.messages.MessagesFragment"
+        android:label="MessagesFragment" />
     <fragment
         android:id="@+id/profileFragment"
         android:name="ru.cordyapp.tinimal.presentation.profile.ProfileFragment"
