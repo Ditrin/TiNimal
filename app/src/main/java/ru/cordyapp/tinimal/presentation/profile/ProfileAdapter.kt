@@ -8,7 +8,6 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import ru.cordyapp.tinimal.R
 import ru.cordyapp.tinimal.databinding.ItemAdBinding
-import ru.cordyapp.tinimal.databinding.ItemCatsBinding
 import ru.cordyapp.tinimal.domain.models.CatShort
 
 class ProfileAdapter : RecyclerView.Adapter<ProfileAdapter.ViewHolder>() {
@@ -23,7 +22,7 @@ class ProfileAdapter : RecyclerView.Adapter<ProfileAdapter.ViewHolder>() {
                 else sexImageView.setImageResource(R.drawable.ic_male)
                 nameTextView.text = cat.name
                 breedTextView.text = cat.breed
-             //   addressTextView.text = cat.
+            //    addressTextView.text = cat.
                 Glide.with(itemView)
                     .load(cat.photo)
                     .transform(CircleCrop())

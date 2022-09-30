@@ -29,4 +29,10 @@
     <string name="certificate">Certificate</string>
     <string name="invalid_input">Invalid input. Check that every field is filled in</string>
     <string name="password_reset">password reset</string>
+    <string name="currency">$</string>
+    <string name="rating">rating</string>
+    <string name="reviews">feedback</string>
+    <string name="mailText">Mail:</string>
+    <string name="phoneText">Phone:</string>
+    <string name="addressText">Address:</string>
 </resources>

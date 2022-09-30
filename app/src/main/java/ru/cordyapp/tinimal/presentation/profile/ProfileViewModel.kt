@@ -18,26 +18,26 @@ class ProfileViewModel @Inject constructor(
     private val getCatsList: GetUserUseCase
 ): ViewModel() {
 
-//    private val userLiveData = MutableLiveData<UserDTO>()
-//
-//    val catsList: LiveData<UserDTO>
-//        get() = userLiveData
-//
-//    private var searchJob: Job? = null
-//
-//
-//    fun getUsersListByLogin() {
-//        searchJob?.cancel()
-//        searchJob = viewModelScope.launch {
-//            runCatching {
-//                getCatsList.execute()
-//            }.onSuccess {
-//
-//                userLiveData.postValue(it)
-//            }.onFailure {
-//                Log.d("tags", "error $it" )
-//                userLiveData.postValue(emptyList())
-//            }
-//        }
-//    }
+    private val catsListLiveData = MutableLiveData<UserDTO>()
+
+    val catsList: LiveData<UserDTO>
+        get() = catsListLiveData
+
+    private var searchJob: Job? = null
+
+
+    fun getUsersListByLogin() {
+        searchJob?.cancel()
+        searchJob = viewModelScope.launch {
+            runCatching {
+                getCatsList.execute()
+            }.onSuccess {
+
+                catsListLiveData.postValue(it)
+            }.onFailure {
+                Log.d("tags", "error $it" )
+               // catsListLiveData.postValue(emptyList())
+            }
+        }
+    }
 }

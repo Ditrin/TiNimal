@@ -12,10 +12,11 @@ interface TinimalApi {
     @GET("cats")
     suspend fun getAllCats() : List<CatDTO>
 
-//    @GET("users/{id}/cats")
-//    suspend fun getCatsByUser(
+    @GET("users/3")
+    suspend fun getUserById(
 //        @Path("id") id: Int
-//    ): List<CatDTO>
+    ): UserDTO
+
 
 
 

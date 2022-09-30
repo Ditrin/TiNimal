@@ -4,4 +4,10 @@
     <string name="sign_up">Sign up</string>
     <string name="tinimal">TiNimal</string>
     <string name="password_reset">password_reset</string>
+    <string name="currency">$</string>
+    <string name="rating">Рейтинг</string>
+    <string name="reviews">Отзывы</string>
+    <string name="mailText">Mail:</string>
+    <string name="phoneText">Phone:</string>
+    <string name="addressText">Address:</string>
 </resources>

@@ -6,5 +6,6 @@ data class CatShort(
     val sex: Boolean,
     val breed: String,
     val price: Int,
-    val photo: String?
+    val photo: String?,
+    val address: String?
 )
