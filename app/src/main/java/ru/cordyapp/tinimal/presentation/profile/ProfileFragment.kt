@@ -60,7 +60,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                 starCountTextViewProfile.text = it.ranking.toString()
 
                 Glide.with(this@ProfileFragment)
-                    .load(this)
+                    .load(it.avatar)
                     .transform(CircleCrop())
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(avatarImageViewProfile)
