@@ -50,7 +50,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             }
             viewModel.message.observe(viewLifecycleOwner) {
                 if (it == "Success") {
-                    findNavController().navigate(R.id.action_loginFragment_to_profileFragment)
+                    findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
                 } else
                     Toast.makeText(activity, it, Toast.LENGTH_SHORT).show()
             }

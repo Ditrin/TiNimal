@@ -7,4 +7,7 @@
     <string name="currency">$</string>
     <string name="rating">Рейтинг</string>
     <string name="reviews">Отзывы</string>
+    <string name="mailText">Mail:</string>
+    <string name="phoneText">Phone:</string>
+    <string name="addressText">Address:</string>
 </resources>

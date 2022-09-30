@@ -2,6 +2,8 @@ package ru.cordyapp.tinimal.presentation.profile
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.content.res.ResourcesCompat
+import androidx.core.graphics.drawable.toDrawable
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -16,6 +18,7 @@ import ru.cordyapp.tinimal.data.remote.DTOmodels.UserDTO
 import ru.cordyapp.tinimal.databinding.FragmentProfileBinding
 import ru.cordyapp.tinimal.domain.mapper.CatMapper
 import ru.cordyapp.tinimal.presentation.main.MainAdapter
+
 @AndroidEntryPoint
 
 
@@ -36,14 +39,16 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                     context,
                     (layoutManager as LinearLayoutManager).orientation
                 )
+                ResourcesCompat.getDrawable(resources, R.drawable.custom_decorator_rec, null)
+                    ?.let { drawable -> dividerItemDecoration.setDrawable(drawable) }
                 addItemDecoration(dividerItemDecoration)
+
+
             }
             val list = it.cats?.map { CatMapper().map(it) }
-//            val list = mutableListOf<CatShort>()
-//            it.forEach {
-//                list.add(CatMapper().map(it))
-//            }
+
             profileAdapter.setCatsList(list!!)
+
             with(binding) {
                 nameTextViewProfile.text = it.name
                 mailTextViewProfile.text = it.mail

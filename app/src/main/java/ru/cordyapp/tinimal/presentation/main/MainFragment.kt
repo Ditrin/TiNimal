@@ -2,6 +2,7 @@ package ru.cordyapp.tinimal.presentation.main
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -34,7 +35,10 @@ class MainFragment:Fragment(R.layout.fragment_search) {
                     context,
                     (layoutManager as LinearLayoutManager).orientation
                 )
+                ResourcesCompat.getDrawable(resources, R.drawable.custom_decorator_rec, null)
+                    ?.let { drawable -> dividerItemDecoration.setDrawable(drawable) }
                 addItemDecoration(dividerItemDecoration)
+
             }
 
             val list = it.map { CatMapper().map(it) }

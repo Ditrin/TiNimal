@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white"
+    android:background="@drawable/custom_frame_rectangle"
     android:paddingBottom="16dp">
 
     <ImageView
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:textColor="@color/black"
-        android:textSize="12sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/avatarImageView"
         app:layout_constraintTop_toTopOf="@+id/avatarImageView"
@@ -33,10 +33,10 @@
         android:id="@+id/currencyTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
+        android:layout_marginStart="2dp"
         android:text="@string/currency"
         android:textColor="@color/black"
-        android:textSize="12sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/priceTextView"
         app:layout_constraintStart_toEndOf="@+id/priceTextView"
@@ -49,7 +49,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:textColor="@color/black"
-        android:textSize="12sp"
+        android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/avatarImageView"
         app:layout_constraintTop_toBottomOf="@+id/priceTextView"
         tools:text="Джордж" />
@@ -61,7 +61,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:textColor="@color/black"
-        android:textSize="10sp"
+        android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/avatarImageView"
         app:layout_constraintTop_toBottomOf="@+id/nameTextView"
         tools:text="Шотландский скоттиш-страйт" />
@@ -73,28 +73,31 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:textColor="@color/black"
-        android:textSize="10sp"
+        android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/avatarImageView"
         app:layout_constraintTop_toBottomOf="@+id/breedTextView"
         tools:text="Республика Татарстан, Казань" />
 
     <ImageView
         android:id="@+id/sexImageView"
-        android:layout_width="12dp"
-        android:layout_height="13dp"
-        android:layout_marginStart="24dp"
+        android:layout_width="17dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
         android:src="@drawable/ic_male"
-        app:layout_constraintStart_toEndOf="@+id/priceTextView"
-        app:layout_constraintTop_toTopOf="@+id/priceTextView" />
+        app:layout_constraintEnd_toStartOf="@+id/kudosImageButton"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/kudosImageButton"
         android:layout_width="28dp"
         android:layout_height="26dp"
-        android:layout_marginEnd="144dp"
+
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="40dp"
         android:background="@color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/sexImageView"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/button_kudos" />
 
 
