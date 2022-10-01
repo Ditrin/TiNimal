@@ -85,6 +85,12 @@ object AppModule {
 
     @Provides
     @Singleton
+    fun provideAddCat(repository: TiNimalRepository): AddCatUseCase {
+        return AddCatUseCase(repository)
+    }
+
+    @Provides
+    @Singleton
     fun provideAuthorizationRepository(
         api: AuthApi
     ): AuthorizationRepository {

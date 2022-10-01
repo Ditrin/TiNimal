@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_loginFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_catFormFragment"
+            app:destination="@id/catFormFragment" />
     </fragment>
     <fragment
         android:id="@+id/authFragment"
@@ -50,4 +53,8 @@
         android:id="@+id/profileFragment"
         android:name="ru.cordyapp.tinimal.presentation.profile.ProfileFragment"
         android:label="ProfileFragment" />
+    <fragment
+        android:id="@+id/catFormFragment"
+        android:name="ru.cordyapp.tinimal.presentation.cat_form.CatFormFragment"
+        android:label="CatFormFragment" />
 </navigation>
