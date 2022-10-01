@@ -37,10 +37,6 @@
         android:name="ru.cordyapp.tinimal.presentation.favourites.FavouritesFragment"
         android:label="FavouritesFragment" />
     <fragment
-        android:id="@+id/messagesFragment"
-        android:name="ru.cordyapp.tinimal.presentation.messages.MessagesFragment"
-        android:label="MessagesFragment" />
-    <fragment
         android:id="@+id/profileFragment"
         android:name="ru.cordyapp.tinimal.presentation.profile.ProfileFragment"
         android:label="ProfileFragment" />

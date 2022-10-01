@@ -6,6 +6,8 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
@@ -34,6 +36,13 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             graph.setStartDestination(R.id.mainFragment)
 
         navController.graph = graph
+
+//        val appBarConfiguration = AppBarConfiguration(
+//            setOf(
+//                R.id.mainFragment, R.id.profileFragment, R.id.favouritesFragment
+//            )
+//        )
+//        setupActionBarWithNavController(navController, appBarConfiguration)
 
         bottomNavigationView.setupWithNavController(navController)
 
