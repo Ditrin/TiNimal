@@ -14,6 +14,17 @@ object SharedPref {
                 ?.apply()
         }
 
+    var id: Long?
+        get() = sharedPrefs?.getLong(ID, -1)
+        set(value) {
+            if (value != null) {
+                sharedPrefs?.edit()
+                    ?.putLong(ID, value)
+                    ?.apply()
+            }
+        }
+
+
     fun init(context: Context){
         sharedPrefs = context.getSharedPreferences(NAME, Context.MODE_PRIVATE)
 
@@ -21,5 +32,5 @@ object SharedPref {
 
     private const val NAME = "app_preferences"
     private const val AUTH_TOKEN = "auth_token"
-
+    private const val ID = "id"
 }

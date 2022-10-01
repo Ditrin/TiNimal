@@ -6,7 +6,7 @@ import ru.cordyapp.tinimal.domain.repository.TiNimalRepository
 class GetUserUseCase(
     private val repository: TiNimalRepository
 ) {
-    suspend fun execute(): UserDTO {
-        return repository.getUser()
+    suspend fun execute(id: Long): UserDTO {
+        return repository.getUserById(id)
     }
 }

@@ -15,7 +15,7 @@ class TiNimalRepositoryImpl(private val api: TinimalApi): TiNimalRepository {
         return api.getAllCats()
     }
 
-    override suspend fun getUser(): UserDTO {
-        return api.getUserById()
+    override suspend fun getUserById(id: Long): UserDTO {
+        return api.getUserById(id)
     }
 }

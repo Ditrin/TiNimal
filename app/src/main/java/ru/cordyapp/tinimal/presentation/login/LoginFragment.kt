@@ -31,6 +31,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 //        if (token != "None")
 //            Toast.makeText(activity, token, Toast.LENGTH_SHORT).show()
 
+        viewModel.isEnabled.observe(viewLifecycleOwner){
+            binding.signInButton.isEnabled = it
+            binding.signUpButton.isEnabled = it
+        }
+
         binding.signInButton.setOnClickListener {
             val user =
                 AuthDTO(
@@ -40,16 +45,21 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
             viewModel.postAuthorization(user)
 
-            viewModel.token.observe(viewLifecycleOwner) {
-                Log.d("asd", "Token is $it")
-                if (it != "") {
-                    SharedPref.authToken = it
-                }
-                else
-                    Toast.makeText(activity, it, Toast.LENGTH_SHORT).show()
-            }
+//            viewModel.token.observe(viewLifecycleOwner) {
+//                Log.d("asd", "Token is $it")
+//                if (it != "") {
+//                    SharedPref.authToken = it
+//                }
+//                else
+//                    Toast.makeText(activity, it, Toast.LENGTH_SHORT).show()
+//            }
+//            viewModel.id.observe(viewLifecycleOwner){
+//                SharedPref.id = it
+//            }
             viewModel.message.observe(viewLifecycleOwner) {
                 if (it == "Success") {
+                    SharedPref.authToken = viewModel.token
+                    SharedPref.id = viewModel.id
                     findNavController().navigate(R.id.action_loginFragment_to_profileFragment)
                 } else
                     Toast.makeText(activity, it, Toast.LENGTH_SHORT).show()
@@ -58,7 +68,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
 
         binding.signUpButton.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_profileFragment)
+            findNavController().navigate(R.id.action_loginFragment_to_authFragment)
         }
     }
 

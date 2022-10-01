@@ -25,10 +25,11 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun providesAuthApi(): AuthApi {
+    fun providesAuthApi(okHttpClient: OkHttpClient): AuthApi {
         return Retrofit.Builder()
             .baseUrl("https://cordy-app.herokuapp.com/")
             .addConverterFactory(MoshiConverterFactory.create())
+            .client(okHttpClient)
             .build()
             .create(AuthApi::class.java)
     }

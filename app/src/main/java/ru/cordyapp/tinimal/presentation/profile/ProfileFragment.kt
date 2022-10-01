@@ -18,6 +18,7 @@ import ru.cordyapp.tinimal.data.remote.DTOmodels.UserDTO
 import ru.cordyapp.tinimal.databinding.FragmentProfileBinding
 import ru.cordyapp.tinimal.domain.mapper.CatMapper
 import ru.cordyapp.tinimal.presentation.main.MainAdapter
+import ru.cordyapp.tinimal.utils.SharedPref
 
 @AndroidEntryPoint
 
@@ -26,11 +27,13 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     private val binding by viewBinding(FragmentProfileBinding::bind)
     private val viewModel: ProfileViewModel by viewModels()
     private val profileAdapter = ProfileAdapter()
+    private val id: Long = SharedPref.id ?: -1
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
-        viewModel.getUsersListByLogin()
+        super.onViewCreated(view, savedInstanceState)
+        if (id.toInt() != -1)
+            viewModel.getUsersListByLogin(id)
         viewModel.catsList.observe(viewLifecycleOwner) {
             binding.catsByUserListRecycleView.apply {
                 adapter = profileAdapter
@@ -65,22 +68,16 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(avatarImageViewProfile)
             }
-
-
         }
-
     }
 
     private fun countRating(raiting: Float?) =
         when (raiting?.toInt()) {
-
             1 -> R.drawable.ic_star1
             2 -> R.drawable.ic_star2
             3 -> R.drawable.ic_star3
             4 -> R.drawable.ic_star4
             5 -> R.drawable.ic_star5
-
             else -> R.drawable.ic_star_empty
-
         }
 }

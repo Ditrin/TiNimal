@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
         android:layout_marginTop="32dp"
+        android:maxLength="64"
         android:background="@drawable/custom_rectangle"
         android:hint="@string/login"
         android:padding="8dp" />
@@ -22,6 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
         android:layout_marginTop="32dp"
+        android:maxLength="64"
         android:background="@drawable/custom_rectangle"
         android:hint="@string/password"
         android:padding="8dp" />
@@ -34,7 +36,8 @@
         android:layout_marginTop="32dp"
         android:background="@drawable/custom_rectangle"
         android:hint="@string/name"
-        android:padding="8dp" />
+        android:padding="8dp"
+        android:maxLength="20"/>
 
     <EditText
         android:id="@+id/numberEditTextAuthFragment"
@@ -55,7 +58,8 @@
         android:layout_marginTop="32dp"
         android:background="@drawable/custom_rectangle"
         android:hint="@string/mail"
-        android:padding="8dp" />
+        android:padding="8dp"
+        android:maxLength="64"/>
 
     <EditText
         android:id="@+id/addressEditTextAuthFragment"
@@ -65,6 +69,7 @@
         android:layout_marginTop="32dp"
         android:background="@drawable/custom_rectangle"
         android:hint="@string/address"
+        android:maxLength="64"
         android:padding="8dp" />
 
     <TextView
