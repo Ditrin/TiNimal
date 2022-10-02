@@ -60,7 +60,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 if (it == "Success") {
                     SharedPref.authToken = viewModel.token
                     SharedPref.id = viewModel.id
-                    findNavController().navigate(R.id.action_loginFragment_to_catFormFragment)
+                    findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
                 } else
                     Toast.makeText(activity, it, Toast.LENGTH_SHORT).show()
             }

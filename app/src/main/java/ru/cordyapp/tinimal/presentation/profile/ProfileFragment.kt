@@ -6,6 +6,7 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.drawable.toDrawable
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -68,6 +69,11 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(avatarImageViewProfile)
             }
+
+            binding.plusImageViewProfile.setOnClickListener {
+                findNavController().navigate(R.id.action_profileFragment_to_catFormFragment)
+            }
+
         }
     }
 
