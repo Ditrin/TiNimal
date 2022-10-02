@@ -1,6 +1,7 @@
 package ru.cordyapp.tinimal.presentation.cat_form
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -20,17 +21,17 @@ class CatFormFragment: Fragment(R.layout.fragment_cat_form) {
         super.onViewCreated(view, savedInstanceState)
 
 
+        viewModel.isCertificate.observe(viewLifecycleOwner) { isCertificate->
+            binding.certificatesCheckBox.setOnClickListener {
+                viewModel.setCertificate()
+                if (isCertificate)
+                    binding.certificatesCheckBox.isChecked = isCertificate
+                else
+                    binding.certificatesCheckBox.isChecked = !isCertificate
+            }
+            Log.d("ass", "${viewModel.isCertificate.value}")
 
-
-//        viewModel.isCertificate.observe(viewLifecycleOwner) { isCertificate->
-//            binding.certificatesCheckBox.setOnClickListener {
-//                viewModel.setCertificate()
-//                if (isCertificate)
-//                    binding.certificatesCheckBox.setBackgroundResource(R.drawable.custom_square_fill)
-//                else
-//                    binding.certificatesCheckBox.setBackgroundResource(R.drawable.custom_square)
-//            }
-//        }
+        }
 //
 //        viewModel.isPassport.observe(viewLifecycleOwner) { isPassport->
 //            binding.passportCheckBox.setOnClickListener {
@@ -52,48 +53,21 @@ class CatFormFragment: Fragment(R.layout.fragment_cat_form) {
 //            }
 //        }
 //
-        viewModel.isMale.observe(viewLifecycleOwner) {isMale ->
+        viewModel.isMale.observe(viewLifecycleOwner) { isMale ->
             binding.maleCheckBox.setOnClickListener {
-                viewModel.setSex()
-//                if (isMale)
-//                {
-                binding.maleCheckBox.isChecked = isMale
-                binding.femaleCheckBox.isChecked = !isMale
-//                }
-//                else
-//                    binding.maleCheckBox.isChecked = true
-//                binding.femaleCheckBox.isChecked = false
-
+                viewModel.setSex(false)
+                    binding.maleCheckBox.isChecked = true
+                    binding.femaleCheckBox.isChecked = false
             }
             binding.femaleCheckBox.setOnClickListener {
-                viewModel.setSex()
-//                if (isMale)
-//                { binding.maleCheckBox.isChecked = false
-//                    binding.femaleCheckBox.isChecked = true
-//                }
-//                else
-//                    binding.maleCheckBox.isChecked = true
-//                binding.femaleCheckBox.isChecked = false
-                binding.maleCheckBox.isChecked = isMale
-                binding.femaleCheckBox.isChecked = !isMale
+                viewModel.setSex(true)
+                    binding.maleCheckBox.isChecked = false
+                    binding.femaleCheckBox.isChecked = true
             }
-
+            Log.d("asd", "${viewModel.isMale.value}")
         }
-
-//        viewModel.isMale.observe(viewLifecycleOwner) {isMale ->
-//            binding.maleCheckBox.setOnClickListener {
-//                viewModel.setSex()
-//                if (isMale)
-//                { binding.maleCheckBox.isChecked = false
-//                    binding.femaleCheckBox.isChecked = true
-//                }
-//                else
-//                    binding.maleCheckBox.isChecked = true
-//                binding.femaleCheckBox.isChecked = false
-//
-//            }
-//
-//        }
 
     }
 }
+
+

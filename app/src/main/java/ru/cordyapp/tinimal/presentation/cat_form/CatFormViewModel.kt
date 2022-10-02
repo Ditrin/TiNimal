@@ -54,8 +54,8 @@ class CatFormViewModel @Inject constructor(private val addCatUseCase: AddCatUseC
         isCertificateLiveData.value = !isCertificateLiveData.value!!
     }
 
-    fun setSex(){
-        isMaleLiveData.value = !isMaleLiveData.value!!
+    fun setSex(b: Boolean){
+        isMaleLiveData.value = b
     }
 
     fun verify(){
