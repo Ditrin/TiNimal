@@ -25,37 +25,20 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        val sharedPreferences = activity?.getSharedPreferences(NAME, MODE_PRIVATE)
-//        val token = SharedPref.authToken
-
-//        if (token != "None")
-//            Toast.makeText(activity, token, Toast.LENGTH_SHORT).show()
+        if (!SharedPref.authToken.isNullOrBlank())
+            findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
 
         viewModel.isEnabled.observe(viewLifecycleOwner){
             binding.signInButton.isEnabled = it
             binding.signUpButton.isEnabled = it
         }
-
         binding.signInButton.setOnClickListener {
             val user =
                 AuthDTO(
                     binding.loginEditText.text.toString(),
                     binding.passwordEditText.text.toString()
                 )
-
             viewModel.postAuthorization(user)
-
-//            viewModel.token.observe(viewLifecycleOwner) {
-//                Log.d("asd", "Token is $it")
-//                if (it != "") {
-//                    SharedPref.authToken = it
-//                }
-//                else
-//                    Toast.makeText(activity, it, Toast.LENGTH_SHORT).show()
-//            }
-//            viewModel.id.observe(viewLifecycleOwner){
-//                SharedPref.id = it
-//            }
             viewModel.message.observe(viewLifecycleOwner) {
                 if (it == "Success") {
                     SharedPref.authToken = viewModel.token
@@ -65,16 +48,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     Toast.makeText(activity, it, Toast.LENGTH_SHORT).show()
             }
         }
-
-
         binding.signUpButton.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_authFragment)
         }
     }
-
-    companion object {
-        private const val AUTH_TOKEN = "auth_token"
-        private const val NAME = "app_preferences"
-    }
-
 }

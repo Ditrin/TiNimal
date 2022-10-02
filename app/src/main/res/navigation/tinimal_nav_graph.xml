@@ -10,15 +10,13 @@
         android:name="ru.cordyapp.tinimal.presentation.login.LoginFragment"
         tools:layout="@layout/fragment_login"
         android:label="LoginFragment" >
+
         <action
             android:id="@+id/action_loginFragment_to_authFragment"
             app:destination="@id/authFragment" />
         <action
             android:id="@+id/action_loginFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
-        <action
-            android:id="@+id/action_loginFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/authFragment"
@@ -27,12 +25,7 @@
         <action
             android:id="@+id/action_authFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
-        <action
-            android:id="@+id/action_authFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
-        <action
-            android:id="@+id/action_authFragment_to_profileFragment2"
-            app:destination="@id/profileFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
