@@ -3,10 +3,7 @@ package ru.cordyapp.tinimal.data.remote.repository
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import retrofit2.http.Path
-import ru.cordyapp.tinimal.data.remote.DTOmodels.CatAddDTO
-import ru.cordyapp.tinimal.data.remote.DTOmodels.CatDTO
-import ru.cordyapp.tinimal.data.remote.DTOmodels.CatsDTO
-import ru.cordyapp.tinimal.data.remote.DTOmodels.UserDTO
+import ru.cordyapp.tinimal.data.remote.DTOmodels.*
 import ru.cordyapp.tinimal.data.remote.api.TinimalApi
 import ru.cordyapp.tinimal.domain.models.CatShort
 import ru.cordyapp.tinimal.domain.repository.TiNimalRepository
@@ -31,6 +28,10 @@ class TiNimalRepositoryImpl(private val api: TinimalApi): TiNimalRepository {
             e.printStackTrace()
             null
         }
+    }
+
+    override suspend fun getFeedback(id: Long): List<FeedbackDTO> {
+        return api.getFeedback(id)
     }
 
     override suspend fun getUserById(id: Long): UserDTO {

@@ -73,7 +73,11 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
             binding.plusImageViewProfile.setOnClickListener {
                 findNavController().navigate(R.id.action_profileFragment_to_catFormFragment)
             }
-
+        }
+        binding.toolbar.logoutButton.setOnClickListener {
+            SharedPref.id = null
+            SharedPref.authToken = null
+            findNavController().navigate(R.id.action_profileFragment_to_loginFragment)
         }
     }
 
