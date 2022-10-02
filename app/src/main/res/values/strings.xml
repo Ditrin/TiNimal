@@ -35,4 +35,7 @@
     <string name="mailText">Mail:</string>
     <string name="phoneText">Phone:</string>
     <string name="addressText">Address:</string>
+    <string name="is_passport">Наличие паспорта</string>
+    <string name="is_vaccination">Наличие прививок</string>
+    <string name="is_certificate">Наличие справок</string>
 </resources>

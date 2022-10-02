@@ -21,8 +21,17 @@ class LoginViewModel @Inject constructor(private val useCase: AuthorizationUseCa
     private val messageLiveData = MutableLiveData<String>("")
     val message: LiveData<String> = messageLiveData
 
-    private val tokenLiveData = MutableLiveData<String>("")
-    val token: LiveData<String> = tokenLiveData
+//    private val tokenLiveData = MutableLiveData<String>("")
+//    val token: LiveData<String> = tokenLiveData
+//
+//    private val idLiveData = MutableLiveData<Long>()
+//    val id: LiveData<Long> = idLiveData
+
+    private val isEnabledLiveData = MutableLiveData<Boolean>(true)
+    val isEnabled: LiveData<Boolean> = isEnabledLiveData
+
+    var token: String = ""
+    var id : Long? = null
 
     private var job: Job? = null
 
@@ -30,15 +39,21 @@ class LoginViewModel @Inject constructor(private val useCase: AuthorizationUseCa
         Log.d("qwerty", "ttt")
         job?.cancel()
         job = viewModelScope.launch {
+            isEnabledLiveData.value = false
             runCatching {
                 useCase.execute(authDTO)
             }.onSuccess {
-                tokenLiveData.value = it.jwttoken
+//                tokenLiveData.value = it.jwttoken
+//                idLiveData.value = it.id
+                token = it.jwttoken
+                id = it.id
                 messageLiveData.value = "Success"
+                isEnabledLiveData.value = true
                 Log.d("asd", it.jwttoken)
             }.onFailure {
-                tokenLiveData.value = ""
+                token = ""
                 messageLiveData.value = "Неверные данные"
+                isEnabledLiveData.value = true
                 Log.d("asd", it.toString())
             }
         }

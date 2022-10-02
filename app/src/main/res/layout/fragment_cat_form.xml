@@ -74,7 +74,7 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/checkbox_male_selector"
         android:button="@null"
-        android:checked="true"
+        android:checked="false"
         android:textAppearance="?android:attr/textAppearanceLarge"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
@@ -100,7 +100,7 @@
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/maleCheckBox"
         app:layout_constraintTop_toBottomOf="@+id/priceEditTextCatFormFragment"
-        tools:text="Наличие паспорта" />
+        android:text="@string/is_passport" />
 
     <TextView
         android:id="@+id/vaccinationTextView"
@@ -110,7 +110,7 @@
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/passportTextView"
         app:layout_constraintTop_toBottomOf="@+id/passportTextView"
-        tools:text="Наличие прививок" />
+        android:text="@string/is_vaccination" />
 
     <TextView
         android:id="@+id/certificatesTextView"
@@ -120,29 +120,43 @@
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/vaccinationTextView"
         app:layout_constraintTop_toBottomOf="@+id/vaccinationTextView"
-        tools:text="Наличие справок" />
+        android:text="@string/is_certificate" />
 
     <CheckBox
         android:id="@+id/passportCheckBox"
         android:layout_width="28dp"
         android:layout_height="28dp"
         android:layout_marginEnd="128dp"
+        android:background="@drawable/checkbox_square_selector"
         app:layout_constraintEnd_toEndOf="parent"
+        android:button="@null"
+        android:checked="false"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         app:layout_constraintTop_toTopOf="@+id/passportTextView" />
 
     <CheckBox
         android:id="@+id/vaccinationCheckBox"
         android:layout_width="28dp"
         android:layout_height="28dp"
+        android:background="@drawable/checkbox_square_selector"
         android:layout_marginEnd="128dp"
+        android:button="@null"
+        android:checked="false"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/vaccinationTextView" />
+
+
 
     <CheckBox
         android:id="@+id/certificatesCheckBox"
         android:layout_width="28dp"
         android:layout_height="28dp"
         android:layout_marginEnd="128dp"
+        android:background="@drawable/checkbox_square_selector"
+        android:button="@null"
+        android:checked="false"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/certificatesTextView" />
 
@@ -150,7 +164,7 @@
         android:id="@+id/buttonCreate"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/create"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -165,23 +179,25 @@
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarInfo"
-        tools:src="@drawable/button_add_cat" />
-
+        android:src="@drawable/button_add_cat" />
 
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/custom_frame_rectangle"
         android:hint="@string/tell_about_cat"
+        android:padding="8dp"
+        android:gravity="left"
         android:textColorHint="@color/black"
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/buttonCreate"
-        android:padding="8dp"
         app:layout_constraintEnd_toEndOf="@+id/priceEditTextCatFormFragment"
         app:layout_constraintStart_toStartOf="@+id/certificatesTextView"
-        app:layout_constraintTop_toBottomOf="@+id/certificatesTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/certificatesCheckBox" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

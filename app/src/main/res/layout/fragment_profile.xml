@@ -16,10 +16,10 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="8dp"
         android:layout_marginTop="8dp"
-
+        android:layout_marginBottom="8dp"
         android:background="@drawable/custom_frame_rectangle">
 
         <ImageView
@@ -34,10 +34,11 @@
 
         <TextView
             android:id="@+id/nameTextViewProfile"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:textColor="@color/black"
+            android:gravity="center"
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="@+id/avatarImageViewProfile"
             app:layout_constraintHorizontal_bias="0.49"
@@ -47,72 +48,43 @@
 
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/mailText"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toEndOf="@+id/avatarImageViewProfile"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="28dp"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toEndOf="@+id/avatarImageViewProfile"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            android:text="@string/phoneText" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="28dp"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toEndOf="@+id/avatarImageViewProfile"
-            app:layout_constraintTop_toBottomOf="@+id/textView2"
-            android:text="@string/addressText" />
-
-        <TextView
             android:id="@+id/mailTextViewProfile"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:ellipsize="none"
+            android:maxLines="2"
+            android:scrollHorizontally="false"
+            android:singleLine="false"
             android:textColor="@color/black"
-            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.126"
+            app:layout_constraintStart_toEndOf="@+id/avatarImageViewProfile"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="kirilich@inbox.ru" />
 
         <TextView
             android:id="@+id/phoneTextViewProfile"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="16dp"
             android:textColor="@color/black"
-            app:layout_constraintStart_toEndOf="@+id/textView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/mailTextViewProfile"
             app:layout_constraintTop_toBottomOf="@+id/mailTextViewProfile"
             tools:text="8 927 452 46 72" />
 
         <TextView
             android:id="@+id/addressTextViewProfile"
 
-            android:layout_width="106dp"
-            android:layout_height="19dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="28dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:textColor="@color/black"
-            app:layout_constraintStart_toEndOf="@+id/textView3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/phoneTextViewProfile"
             app:layout_constraintTop_toBottomOf="@+id/phoneTextViewProfile"
             tools:text="г. Казань,ул. Моторная" />
 

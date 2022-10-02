@@ -7,6 +7,6 @@ import java.util.*
 data class FeedbackDTO(
         val id: Long,
         val user_id: Int,
-        val date: String,
+        val date: String?,
         val text: String
 )

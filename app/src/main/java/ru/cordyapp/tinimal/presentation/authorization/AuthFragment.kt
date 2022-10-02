@@ -42,7 +42,7 @@ class AuthFragment : Fragment(R.layout.fragment_auth) {
                             addressEditTextAuthFragment.text.toString()
                         )
                         viewModel.createUser(user)
-                        findNavController().navigate(R.id.action_authFragment_to_mainFragment)
+                        findNavController().navigate(R.id.action_authFragment_to_profileFragment)
                     } else
                         errorTextView.visibility = View.VISIBLE
                 }
