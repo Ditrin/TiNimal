@@ -38,7 +38,11 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="ru.cordyapp.tinimal.presentation.profile.ProfileFragment"
-        android:label="ProfileFragment" />
+        android:label="ProfileFragment" >
+        <action
+            android:id="@+id/action_profileFragment_to_catFormFragment"
+            app:destination="@id/catFormFragment" />
+    </fragment>
     <fragment
         android:id="@+id/catFormFragment"
         android:name="ru.cordyapp.tinimal.presentation.cat_form.CatFormFragment"
