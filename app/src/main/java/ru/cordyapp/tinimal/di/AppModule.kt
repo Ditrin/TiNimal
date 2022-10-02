@@ -90,6 +90,12 @@ object AppModule {
 
     @Provides
     @Singleton
+    fun provideGetFeedback(repository: TiNimalRepository): GetFeedbackUseCase {
+        return GetFeedbackUseCase(repository)
+    }
+
+    @Provides
+    @Singleton
     fun provideAuthorizationRepository(
         api: AuthApi
     ): AuthorizationRepository {

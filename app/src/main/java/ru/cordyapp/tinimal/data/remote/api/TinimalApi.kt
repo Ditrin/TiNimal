@@ -7,7 +7,7 @@ import ru.cordyapp.tinimal.domain.models.CatShort
 
 interface TinimalApi {
     @GET("cats")
-    suspend fun getAllCats() : List<CatDTO>
+    suspend fun getAllCats(): List<CatDTO>
 
     @GET("users/{id}")
     suspend fun getUserById(
@@ -16,10 +16,15 @@ interface TinimalApi {
 
     @Multipart
     @POST("users/{id}/cats")
-    suspend fun addCat(@Body catAddDTO: CatAddDTO, @Path("id") id: Long, @Part image: MultipartBody.Part): CatDTO?
+    suspend fun addCat(
+        @Body catAddDTO: CatAddDTO,
+        @Path("id") id: Long,
+        @Part image: MultipartBody.Part
+    ): CatDTO?
+
+    @GET("users/{id}/feedbacks")
+    suspend fun getFeedback(@Path("id") id: Long): List<FeedbackDTO>
 
 
-
-
- //   @GET("")
+    //   @GET("")
 }
