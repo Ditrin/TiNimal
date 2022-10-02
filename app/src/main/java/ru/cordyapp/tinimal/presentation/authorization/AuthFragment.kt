@@ -10,6 +10,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import ru.cordyapp.tinimal.R
 import ru.cordyapp.tinimal.data.remote.DTOmodels.UserAuthDTO
 import ru.cordyapp.tinimal.databinding.FragmentAuthBinding
+import ru.cordyapp.tinimal.utils.SharedPref
 
 @AndroidEntryPoint
 class AuthFragment : Fragment(R.layout.fragment_auth) {
@@ -42,12 +43,17 @@ class AuthFragment : Fragment(R.layout.fragment_auth) {
                             addressEditTextAuthFragment.text.toString()
                         )
                         viewModel.createUser(user)
-                        findNavController().navigate(R.id.action_authFragment_to_profileFragment)
                     } else
                         errorTextView.visibility = View.VISIBLE
+                }
+                viewModel.isSuccess.observe(viewLifecycleOwner) {
+                    if (it) {
+                        SharedPref.authToken = viewModel.token
+                        SharedPref.id = viewModel.id
+                        findNavController().navigate(R.id.action_authFragment_to_mainFragment)
+                    }
                 }
             }
         }
     }
-
 }

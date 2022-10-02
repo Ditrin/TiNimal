@@ -17,6 +17,12 @@ class AuthViewModel @Inject constructor(private val useCase: CreateUserUseCase) 
     private val isValidateLiveData = MutableLiveData<Boolean>(false)
     val isValidate: LiveData<Boolean> = isValidateLiveData
 
+    private val isSuccessLiveData = MutableLiveData<Boolean>(false)
+    val isSuccess: LiveData<Boolean> = isSuccessLiveData
+
+    var token = ""
+    var id: Long? = null
+
     private var job: Job? = null
 
     fun createUser(userAuthDTO: UserAuthDTO) {
@@ -25,9 +31,12 @@ class AuthViewModel @Inject constructor(private val useCase: CreateUserUseCase) 
             runCatching {
                 useCase.execute(userAuthDTO)
             }.onSuccess {
-
+                token = it.jwttoken
+                id = it.id
+                isSuccessLiveData.value = true
+            }.onFailure {
+                isSuccessLiveData.value = false
             }
-                .onFailure { }
         }
     }
 

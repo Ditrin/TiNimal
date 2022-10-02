@@ -24,25 +24,16 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val navHost = findViewById<View>(R.id.tinimalNavHostFragment)
-
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
         val navController = findNavController(R.id.tinimalNavHostFragment)
 
-        val graph = navController.graph
-        if (SharedPref.authToken.isNullOrBlank())
-            graph.setStartDestination(R.id.authFragment)
-        else
-            graph.setStartDestination(R.id.mainFragment)
+//        val graph = navController.graph
+//        if (SharedPref.authToken.isNullOrBlank())
+//            graph.setStartDestination(R.id.authFragment)
+//        else
+//            graph.setStartDestination(R.id.mainFragment)
 
-        navController.graph = graph
-
-//        val appBarConfiguration = AppBarConfiguration(
-//            setOf(
-//                R.id.mainFragment, R.id.profileFragment, R.id.favouritesFragment
-//            )
-//        )
-//        setupActionBarWithNavController(navController, appBarConfiguration)
+//        navController.graph = graph
 
         bottomNavigationView.setupWithNavController(navController)
 

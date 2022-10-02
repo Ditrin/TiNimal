@@ -42,10 +42,6 @@ class MainFragment:Fragment(R.layout.fragment_search) {
             }
 
             val list = it.map { CatMapper().map(it) }
-//            val list = mutableListOf<CatShort>()
-//            it.forEach {
-//                list.add(CatMapper().map(it))
-//            }
             mainAdapter.setCatsList(list)
 
         }
