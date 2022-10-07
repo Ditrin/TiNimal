@@ -26,7 +26,7 @@ interface TinimalApi {
     suspend fun getFeedback(@Path("id") id: Long): List<FeedbackDTO>
 
     @GET("cats/{id}")
-    suspend fun getCatById(@Path("id") id: Long): CatDTO
+    suspend fun getCatById(@Path("id") id: Long): CatInfoDTO
 
 
     //   @GET("")

@@ -1,5 +1,7 @@
 package ru.cordyapp.tinimal.domain.models
 
+import java.io.Serializable
+
 data class CatShort(
     val id: Long,
     val name: String,
@@ -8,4 +10,4 @@ data class CatShort(
     val price: Int,
     val photo: String?,
     val address: String?
-)
+) : Serializable
