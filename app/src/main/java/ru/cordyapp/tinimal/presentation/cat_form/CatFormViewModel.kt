@@ -7,12 +7,16 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import ru.cordyapp.tinimal.data.remote.DTOmodels.CatAddDTO
+import ru.cordyapp.tinimal.data.remote.DTOmodels.CatAvatarDTO
 import ru.cordyapp.tinimal.domain.use_case.AddCatUseCase
 import java.io.File
 import javax.inject.Inject
 
 @HiltViewModel
 class CatFormViewModel @Inject constructor(private val addCatUseCase: AddCatUseCase) : ViewModel() {
+    private val isValidateLiveData = MutableLiveData<Boolean>(false)
+    val isValidate: LiveData<Boolean> = isValidateLiveData
+
     private val isSuccessLiveData = MutableLiveData<Boolean>()
     val isSuccess: LiveData<Boolean> = isSuccessLiveData
 
@@ -28,7 +32,7 @@ class CatFormViewModel @Inject constructor(private val addCatUseCase: AddCatUseC
     private val isMaleLiveData = MutableLiveData<Boolean>(true)
     val isMale: LiveData<Boolean> = isMaleLiveData
 
-    fun addCat(catAddDTO: CatAddDTO, id: Long, file: File) {
+    fun addCat(catAddDTO: CatAddDTO, id: Long, file: CatAvatarDTO) {
         viewModelScope.launch {
             runCatching {
                 addCatUseCase.execute(catAddDTO, id, file)
@@ -50,7 +54,7 @@ class CatFormViewModel @Inject constructor(private val addCatUseCase: AddCatUseC
         isVaccinationLiveData.value = !isVaccinationLiveData.value!!
     }
 
-    fun setCertificate(){
+    fun setCertificate() {
         isCertificateLiveData.value = !isCertificateLiveData.value!!
     }
 
@@ -58,7 +62,18 @@ class CatFormViewModel @Inject constructor(private val addCatUseCase: AddCatUseC
         isMaleLiveData.value = b
     }
 
-    fun verify(){
+    fun verify(
+        name: String?,
+        breed: String?,
+        age: String?,
+        price: String?,
+        catStory: String?
+    ) {
+        if (name == "" || breed == "" || age == "" || price == "" || catStory == "")
+            isValidateLiveData.postValue(false)
+        else
+            isValidateLiveData.postValue(true)
 
     }
+
 }

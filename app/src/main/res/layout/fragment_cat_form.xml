@@ -170,6 +170,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+
     <ImageView
 
         android:id="@+id/imageView"
@@ -181,23 +182,37 @@
         app:layout_constraintTop_toBottomOf="@+id/appBarInfo"
         android:src="@drawable/button_add_cat" />
 
+    <TextView
+        android:id="@+id/errorTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:text="@string/invalid_input"
+        android:textColor="@color/error"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/buttonCreate"
+        app:layout_constraintTop_toBottomOf="@+id/catStoryEditTextCatFormFragment"
+        tools:layout_editor_absoluteX="104dp" />
 
     <EditText
+        android:id="@+id/catStoryEditTextCatFormFragment"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginHorizontal="32dp"
         android:layout_marginTop="11dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/custom_frame_rectangle"
+        android:gravity="left"
         android:hint="@string/tell_about_cat"
         android:padding="8dp"
-        android:gravity="left"
         android:textColorHint="@color/black"
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/buttonCreate"
         app:layout_constraintEnd_toEndOf="@+id/priceEditTextCatFormFragment"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/certificatesTextView"
-        app:layout_constraintTop_toBottomOf="@+id/certificatesCheckBox" />
+        app:layout_constraintTop_toBottomOf="@+id/certificatesCheckBox"
+        app:layout_constraintVertical_bias="0.684" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

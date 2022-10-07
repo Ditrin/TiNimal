@@ -7,7 +7,8 @@ import com.squareup.moshi.JsonClass
 data class CatAddDTO(
     @field:Json(name = "sex") val sex: Boolean,
     @field:Json(name = "breed") val breed: String,
-    @field:Json(name = "age") val name: Int,
+    @field:Json(name = "name") val name: String,
+    @field:Json(name = "age") val age: Int,
     @field:Json(name = "price") val price: Int,
     @field:Json(name = "passport") val passport: Boolean,
     @field:Json(name = "vaccination") val vaccination: Boolean,

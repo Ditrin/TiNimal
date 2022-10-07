@@ -48,6 +48,9 @@
         <action
             android:id="@+id/action_profileFragment_to_feedbackProfileFragment"
             app:destination="@id/feedbackProfileFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_profileEditFragment"
+            app:destination="@id/profileEditFragment" />
     </fragment>
     <fragment
         android:id="@+id/catFormFragment"
@@ -57,4 +60,8 @@
         android:id="@+id/feedbackProfileFragment"
         android:name="ru.cordyapp.tinimal.presentation.feedbacks.myFeedback.FeedbackProfileFragment"
         android:label="FeedbackProfileFragment" />
+    <fragment
+        android:id="@+id/profileEditFragment"
+        android:name="ru.cordyapp.tinimal.presentation.profile_edit.ProfileEditFragment"
+        android:label="ProfileEditFragment" />
 </navigation>

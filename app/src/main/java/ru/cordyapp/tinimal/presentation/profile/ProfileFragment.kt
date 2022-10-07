@@ -84,15 +84,20 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         binding.reviewsImageButtonProfile.setOnClickListener {
             findNavController().navigate(R.id.action_profileFragment_to_feedbackProfileFragment)
         }
-    }
 
-    private fun countRating(raiting: Float?) =
-        when (raiting?.toInt()) {
-            1 -> R.drawable.ic_star1
-            2 -> R.drawable.ic_star2
-            3 -> R.drawable.ic_star3
-            4 -> R.drawable.ic_star4
-            5 -> R.drawable.ic_star5
-            else -> R.drawable.ic_star_empty
+        binding.toolbar.settingsButton.setOnClickListener {
+            findNavController().navigate(R.id.action_profileFragment_to_profileEditFragment)
         }
+
+
+            }
+    private fun countRating(raiting: Float?) =
+                when (raiting?.toInt()) {
+                    1 -> R.drawable.ic_star1
+                    2 -> R.drawable.ic_star2
+                    3 -> R.drawable.ic_star3
+                    4 -> R.drawable.ic_star4
+                    5 -> R.drawable.ic_star5
+                    else -> R.drawable.ic_star_empty
+    }
 }

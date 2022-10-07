@@ -28,6 +28,10 @@ interface TinimalApi {
     @GET("cats/{id}")
     suspend fun getCatById(@Path("id") id: Long): CatDTO
 
+    @POST("cat/{id}/avatar")
+    suspend fun postCatPhotoById(
+        @Path("id") id: Int,
+    ): CatAvatarDTO
 
     //   @GET("")
 }

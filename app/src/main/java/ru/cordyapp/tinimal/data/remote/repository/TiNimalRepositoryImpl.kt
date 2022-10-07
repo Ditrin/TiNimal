@@ -17,12 +17,12 @@ class TiNimalRepositoryImpl(private val api: TinimalApi): TiNimalRepository {
         return api.getAllCats()
     }
 
-    override suspend fun addCatToUser(catAddDTO: CatAddDTO, id: Long, file: File): CatDTO? {
+    override suspend fun addCatToUser(catAddDTO: CatAddDTO, id: Long, file: CatAvatarDTO): CatDTO? {
         return try {
             api.addCat(catAddDTO,id, image = MultipartBody.Part.createFormData(
                 "image",
-                file.name,
-                file.asRequestBody()
+                file.file,
+            //    file.asRequestBody()
             ))
         } catch (e: IOException) {
             e.printStackTrace()
