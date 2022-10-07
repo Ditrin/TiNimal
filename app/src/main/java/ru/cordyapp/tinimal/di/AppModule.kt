@@ -96,6 +96,12 @@ object AppModule {
 
     @Provides
     @Singleton
+    fun provideGetCatById(repository: TiNimalRepository): GetCatByIdUseCase {
+        return GetCatByIdUseCase(repository)
+    }
+
+    @Provides
+    @Singleton
     fun provideAuthorizationRepository(
         api: AuthApi
     ): AuthorizationRepository {

@@ -34,6 +34,10 @@ class TiNimalRepositoryImpl(private val api: TinimalApi): TiNimalRepository {
         return api.getFeedback(id)
     }
 
+    override suspend fun getCatById(id: Long): CatDTO {
+        return api.getCatById(id)
+    }
+
     override suspend fun getUserById(id: Long): UserDTO {
         return api.getUserById(id)
     }
