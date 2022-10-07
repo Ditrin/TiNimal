@@ -25,6 +25,9 @@ interface TinimalApi {
     @GET("users/{id}/feedbacks")
     suspend fun getFeedback(@Path("id") id: Long): List<FeedbackDTO>
 
+    @GET("cats/{id}")
+    suspend fun getCatById(@Path("id") id: Long): CatDTO
+
 
     //   @GET("")
 }

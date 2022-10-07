@@ -1,6 +1,7 @@
 package ru.cordyapp.tinimal.presentation.profile
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.drawable.toDrawable
@@ -64,7 +65,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                 starCountTextViewProfile.text = it.ranking.toString()
 
                 Glide.with(this@ProfileFragment)
-                    .load(it.avatar)
+                    .load("https://cordy-app.herokuapp.com/avatars/" + it.id.toString())
                     .transform(CircleCrop())
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(avatarImageViewProfile)
@@ -78,6 +79,10 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
             SharedPref.id = null
             SharedPref.authToken = null
             findNavController().navigate(R.id.action_profileFragment_to_loginFragment)
+        }
+
+        binding.reviewsImageButtonProfile.setOnClickListener {
+            findNavController().navigate(R.id.action_profileFragment_to_feedbackProfileFragment)
         }
     }
 

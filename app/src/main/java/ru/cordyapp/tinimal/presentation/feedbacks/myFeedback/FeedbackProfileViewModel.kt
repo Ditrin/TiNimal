@@ -24,9 +24,6 @@ class FeedbackProfileViewModel @Inject constructor(
     private val isSuccessLiveData = MutableLiveData<Boolean>(false)
     val isSuccess: LiveData<Boolean> = isSuccessLiveData
 
-    private val userLiveData = MutableLiveData<UserDTO>()
-    val user: LiveData<UserDTO> = userLiveData
-
     fun getFeedbacks(id: Long) {
         viewModelScope.launch {
             runCatching {
@@ -36,17 +33,6 @@ class FeedbackProfileViewModel @Inject constructor(
                 feedbackListLiveData.postValue(it)
             }.onFailure {
                 isSuccessLiveData.value = false
-            }
-        }
-    }
-
-    fun getUserById(id: Long) {
-        viewModelScope.launch {
-            runCatching {
-                getUserUseCase.execute(id)
-            }.onSuccess {
-                userLiveData.postValue(it)
-            }.onFailure {
             }
         }
     }
