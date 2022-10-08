@@ -36,7 +36,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         super.onViewCreated(view, savedInstanceState)
         if (id.toInt() != -1)
             viewModel.getUsersListByLogin(id)
-        viewModel.catsList.observe(viewLifecycleOwner) {
+        viewModel.catsList.observe(viewLifecycleOwner) { user ->
             binding.catsByUserListRecycleView.apply {
                 adapter = profileAdapter
                 layoutManager = LinearLayoutManager(requireContext())
@@ -50,29 +50,44 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
 
             }
-            val list = it.cats?.map { CatMapper().map(it) }
+            val list = user.cats?.map { CatMapper().map(it) }
 
             profileAdapter.setCatsList(list!!)
 
             with(binding) {
-                nameTextViewProfile.text = it.name
-                mailTextViewProfile.text = it.mail
-                phoneTextViewProfile.text = it.phoneNumber.toString()
-                addressTextViewProfile.text = it.address
-                reviewsCountTextViewProfile.text = it.ranking.toString()
-                starImageButtonProfile.setImageResource(countRating(it.ranking))
-                reviewsCountTextViewProfile.text = it.feedbacks?.size.toString()
-                starCountTextViewProfile.text = it.ranking.toString()
+                nameTextViewProfile.text = user.name
+                mailTextViewProfile.text = user.mail
+                phoneTextViewProfile.text = user.phoneNumber.toString()
+                addressTextViewProfile.text = user.address
+                reviewsCountTextViewProfile.text = user.ranking.toString()
+                starImageButtonProfile.setImageResource(countRating(user.ranking))
+                reviewsCountTextViewProfile.text = user.feedbacks?.size.toString()
+                starCountTextViewProfile.text = user.ranking.toString()
 
                 Glide.with(this@ProfileFragment)
-                    .load("https://cordy-app.herokuapp.com/avatars/" + it.id.toString())
+                    .load("https://cordy-app.herokuapp.com/avatars/" + user.id.toString())
                     .transform(CircleCrop())
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(avatarImageViewProfile)
             }
 
+            profileAdapter.setOnClickListener { cat->
+                val bundle = Bundle().apply {
+                    putLong("ourCatId", cat.id)
+                }
+                findNavController().navigate(R.id.action_profileFragment_to_ourCatProfileFragment, bundle)
+
+            }
+
             binding.plusImageViewProfile.setOnClickListener {
                 findNavController().navigate(R.id.action_profileFragment_to_catFormFragment)
+            }
+
+            binding.toolbar.settingsButton.setOnClickListener {
+                val bundle = Bundle().apply {
+                    putSerializable("userId", user)
+                }
+                findNavController().navigate(R.id.action_profileFragment_to_profileEditFragment, bundle)
             }
         }
         binding.toolbar.logoutButton.setOnClickListener {
@@ -85,9 +100,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
             findNavController().navigate(R.id.action_profileFragment_to_feedbackProfileFragment)
         }
 
-        binding.toolbar.settingsButton.setOnClickListener {
-            findNavController().navigate(R.id.action_profileFragment_to_profileEditFragment)
-        }
+
 
 
             }

@@ -1,8 +1,13 @@
 package ru.cordyapp.tinimal.presentation.cat_profile
 
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -55,9 +60,6 @@ class CatProfileFragment : Fragment(R.layout.fragment_cat_profile) {
                 toolbarCatProfile.backPressButton.setOnClickListener {
                     requireActivity().onBackPressed()
                 }
-                toolbarCatProfile.kudosButton.setOnClickListener {
-
-                }
                 rankingCatProfile.setStarByRating(catInfo.owner_ranking)
                 toolbarCatProfile.callButton.setOnClickListener { }
                 avatarCatProfile.setOnClickListener {
@@ -66,7 +68,27 @@ class CatProfileFragment : Fragment(R.layout.fragment_cat_profile) {
                     }
                     findNavController().navigate(R.id.action_catProfileFragment_to_userProfileFragment, bundle)
                 }
+                toolbarCatProfile.callButton.setOnClickListener {
+                    call(catInfo.owner_phoneNumber.toString())
+                }
             }
+        }
+    }
+
+    private fun call(phoneNumber: String) {
+        if (ContextCompat.checkSelfPermission(
+                requireActivity(),
+                android.Manifest.permission.CALL_PHONE
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                requireActivity(), arrayOf(android.Manifest.permission.CALL_PHONE),
+                0
+            )
+        } else {
+            val intent = Intent(Intent.ACTION_CALL)
+            intent.data = Uri.parse("tel:$phoneNumber")
+            startActivity(intent)
         }
     }
 }

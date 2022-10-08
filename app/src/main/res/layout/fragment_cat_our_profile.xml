@@ -6,7 +6,9 @@
     android:background="@color/primary_light"
     android:orientation="vertical">
 
-    <include layout="@layout/toolbar_profile" />
+    <include
+        android:id="@+id/ourCatToolbar"
+        layout="@layout/toolbar_cat_our" />
 
     <ImageView
         android:id="@+id/photoCatProfileFragment"

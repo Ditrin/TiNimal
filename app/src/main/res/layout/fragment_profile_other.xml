@@ -9,7 +9,7 @@
 
     <include
         android:id="@+id/userProfileToolbar"
-        layout="@layout/toolbar_cat_profile"/>
+        layout="@layout/toolbar_profile_other"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

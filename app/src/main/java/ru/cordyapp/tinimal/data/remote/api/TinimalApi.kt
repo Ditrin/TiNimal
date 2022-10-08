@@ -1,6 +1,7 @@
 package ru.cordyapp.tinimal.data.remote.api
 
 import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.http.*
 import ru.cordyapp.tinimal.data.remote.DTOmodels.*
 import ru.cordyapp.tinimal.domain.models.CatShort
@@ -32,6 +33,14 @@ interface TinimalApi {
     suspend fun postCatPhotoById(
         @Path("id") id: Int,
     ): CatAvatarDTO
+
+    @Multipart
+    @PUT("users/{id}")
+    suspend fun updateUser(
+        @Part("name") name: String,
+        @Path("id") id: Long,
+        @Part image: MultipartBody.Part
+    ): UserDTO?
 
     //   @GET("")
 }

@@ -1,5 +1,8 @@
 package ru.cordyapp.tinimal.domain.repository
 
+import okhttp3.RequestBody
+import retrofit2.http.Body
+import retrofit2.http.Part
 import ru.cordyapp.tinimal.data.remote.DTOmodels.*
 import ru.cordyapp.tinimal.domain.models.CatShort
 import java.io.File
@@ -11,4 +14,5 @@ interface TiNimalRepository {
     suspend fun addCatToUser(catAddDTO: CatAddDTO, id: Long): CatDTO?
     suspend fun getFeedback(id: Long): List<FeedbackDTO>
     suspend fun getCatById(id: Long): CatInfoDTO
+    suspend fun updateUser(@Part name: String, id: Long, file: File): UserDTO?
 }

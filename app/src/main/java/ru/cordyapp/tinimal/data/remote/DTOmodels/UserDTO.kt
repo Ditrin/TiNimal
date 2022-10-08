@@ -1,6 +1,7 @@
 package ru.cordyapp.tinimal.data.remote.DTOmodels
 
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 @JsonClass(generateAdapter = true)
 data class UserDTO(
@@ -22,4 +23,4 @@ data class UserDTO(
     val favorites: List<CatDTO>?,
     val username: String,
     val authorities: Any?
-)
+) : Serializable
