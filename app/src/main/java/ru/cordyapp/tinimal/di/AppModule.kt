@@ -102,6 +102,12 @@ object AppModule {
 
     @Provides
     @Singleton
+    fun provideUpdateUser(repository: TiNimalRepository): UpdateUserUseCase {
+        return UpdateUserUseCase(repository)
+    }
+
+    @Provides
+    @Singleton
     fun provideAuthorizationRepository(
         api: AuthApi
     ): AuthorizationRepository {

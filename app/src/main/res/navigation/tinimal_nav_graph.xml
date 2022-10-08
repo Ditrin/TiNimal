@@ -55,6 +55,9 @@
         <action
             android:id="@+id/action_profileFragment_to_profileEditFragment"
             app:destination="@id/profileEditFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_ourCatProfileFragment"
+            app:destination="@id/ourCatProfileFragment" />
     </fragment>
     <fragment
         android:id="@+id/catFormFragment"
@@ -71,16 +74,11 @@
     <fragment
         android:id="@+id/profileEditFragment"
         android:name="ru.cordyapp.tinimal.presentation.profile_edit.ProfileEditFragment"
-        android:label="ProfileEditFragment" />
-        android:id="@+id/catProfileFragment"
-        android:name="ru.cordyapp.tinimal.presentation.cat_profile.CatProfileFragment"
-        android:label="CatProfileFragment" >
-        <action
-            android:id="@+id/action_catProfileFragment_to_userProfileFragment"
-            app:destination="@id/userProfileFragment" />
+        android:label="ProfileEditFragment" >
         <argument
-            android:name="cat"
-            app:argType="long" />
+            android:name="userId"
+            app:argType="ru.cordyapp.tinimal.data.remote.DTOmodels.UserDTO" />
+    </fragment>
     <fragment
         android:id="@+id/catProfileFragment"
         android:name="ru.cordyapp.tinimal.presentation.cat_profile.CatProfileFragment"
@@ -88,6 +86,9 @@
         <argument
             android:name="cat"
             app:argType="long" />
+        <action
+            android:id="@+id/action_catProfileFragment_to_userProfileFragment"
+            app:destination="@id/userProfileFragment" />
     </fragment>
     <fragment
         android:id="@+id/userProfileFragment"
@@ -95,6 +96,14 @@
         android:label="UserProfileFragment" >
         <argument
             android:name="id_owner"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/ourCatProfileFragment"
+        android:name="ru.cordyapp.tinimal.presentation.cat_profile.our_cat.OurCatProfileFragment"
+        android:label="OurCatProfileFragment" >
+        <argument
+            android:name="ourCatId"
             app:argType="long" />
     </fragment>
 </navigation>

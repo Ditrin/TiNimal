@@ -106,6 +106,8 @@ dependencies {
     implementation "com.squareup.moshi:moshi:$moshiVersion"
     implementation "com.squareup.moshi:moshi-kotlin:$moshiVersion"
     kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshiVersion"
+
+
 }
 kapt {
     correctErrorTypes true
