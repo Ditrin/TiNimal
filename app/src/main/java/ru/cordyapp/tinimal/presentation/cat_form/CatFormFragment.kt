@@ -5,17 +5,22 @@ import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import ru.cordyapp.tinimal.R
 import ru.cordyapp.tinimal.data.remote.DTOmodels.CatAddDTO
 import ru.cordyapp.tinimal.data.remote.DTOmodels.CatAvatarDTO
 import ru.cordyapp.tinimal.databinding.FragmentCatFormBinding
+import ru.cordyapp.tinimal.utils.SharedPref
+import java.io.File
 
 @AndroidEntryPoint
 class CatFormFragment : Fragment(R.layout.fragment_cat_form) {
     private val binding by viewBinding(FragmentCatFormBinding::bind)
     private val viewModel: CatFormViewModel by viewModels()
+    private val file = File("ic_launcher-playstore.png")
+    private val id = SharedPref.id ?: -1
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -32,10 +37,10 @@ class CatFormFragment : Fragment(R.layout.fragment_cat_form) {
                 viewModel.isValidate.observe(viewLifecycleOwner) {
                     if (it) {
                         errorTextView.visibility = View.INVISIBLE
-                        val file = CatAvatarDTO(
-                            imageView.toString()
-
-                        )
+//                        val file = CatAvatarDTO(
+//                            imageView.toString()
+//
+//                        )
                         val cat = CatAddDTO(
                             viewModel.isMale.toString().toBoolean(),
                             breedEditTextCatFormFragment.text.toString(),
@@ -46,14 +51,18 @@ class CatFormFragment : Fragment(R.layout.fragment_cat_form) {
                             viewModel.isVaccination.toString().toBoolean(),
                             viewModel.isCertificate.toString().toBoolean(),
                             catStoryEditTextCatFormFragment.text.toString(),
-                            file.toString()
                         )
-                        viewModel.addCat(cat, id.toLong(), file)
+//                        val file = File("/ru.cordyapp.tinimal.presentation.cat_form")
+                        viewModel.addCat(cat, id)
                     } else
                         errorTextView.visibility = View.VISIBLE
                 }
+
+                findNavController().navigate(R.id.action_catFormFragment_to_profileFragment)
             }
         }
+
+
 
         viewModel.isCertificate.observe(viewLifecycleOwner) { isCertificate ->
             binding.certificatesCheckBox.setOnClickListener {
@@ -87,7 +96,8 @@ class CatFormFragment : Fragment(R.layout.fragment_cat_form) {
             }
             Log.d("asd", "${viewModel.isMale.value}")
         }
-
+        binding.appBarInfo.setNavigationOnClickListener {
+            requireActivity().onBackPressed()}
     }
 }
 

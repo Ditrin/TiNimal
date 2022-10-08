@@ -8,7 +8,7 @@ interface TiNimalRepository {
 
     suspend fun getUserById(id: Long): UserDTO
     suspend fun getCatsByUser(): List<CatDTO>
-    suspend fun addCatToUser(catAddDTO: CatAddDTO, id: Long, file: CatAvatarDTO): CatDTO?
+    suspend fun addCatToUser(catAddDTO: CatAddDTO, id: Long): CatDTO?
     suspend fun getFeedback(id: Long): List<FeedbackDTO>
     suspend fun getCatById(id: Long): CatDTO
 }

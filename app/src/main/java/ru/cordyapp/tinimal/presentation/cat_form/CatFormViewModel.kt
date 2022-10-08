@@ -1,5 +1,6 @@
 package ru.cordyapp.tinimal.presentation.cat_form
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -32,15 +33,16 @@ class CatFormViewModel @Inject constructor(private val addCatUseCase: AddCatUseC
     private val isMaleLiveData = MutableLiveData<Boolean>(true)
     val isMale: LiveData<Boolean> = isMaleLiveData
 
-    fun addCat(catAddDTO: CatAddDTO, id: Long, file: CatAvatarDTO) {
+    fun addCat(catAddDTO: CatAddDTO, id: Long) {
         viewModelScope.launch {
             runCatching {
-                addCatUseCase.execute(catAddDTO, id, file)
+                addCatUseCase.execute(catAddDTO, id)
             }
                 .onSuccess {
                     isSuccessLiveData.value = true
                 }
                 .onFailure {
+                    Log.d("Error_tag", it.toString())
                     isSuccessLiveData.value = false
                 }
         }

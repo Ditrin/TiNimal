@@ -7,7 +7,7 @@ import ru.cordyapp.tinimal.domain.repository.TiNimalRepository
 import java.io.File
 
 class AddCatUseCase (private val repository: TiNimalRepository) {
-    suspend fun execute(catAddDTO: CatAddDTO, id: Long, file: CatAvatarDTO): CatDTO? {
-        return repository.addCatToUser(catAddDTO, id, file)
+    suspend fun execute(catAddDTO: CatAddDTO, id: Long): CatDTO? {
+        return repository.addCatToUser(catAddDTO, id)
     }
 }
