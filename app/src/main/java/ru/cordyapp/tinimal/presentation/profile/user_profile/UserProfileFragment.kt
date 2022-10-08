@@ -65,9 +65,13 @@ class UserProfileFragment : Fragment(R.layout.fragment_profile_other) {
                     .transform(CircleCrop())
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(avatarImageViewProfile)
-            }
-            binding.userProfileToolbar.callButton.setOnClickListener {
-                call(user.phoneNumber.toString())
+
+                userProfileToolbar.callButton.setOnClickListener {
+                    call(user.phoneNumber.toString())
+                }
+                userProfileToolbar.backPressButton.setOnClickListener {
+                    requireActivity().onBackPressed()
+                }
             }
         }
 

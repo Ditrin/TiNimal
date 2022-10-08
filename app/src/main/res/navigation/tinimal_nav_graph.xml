@@ -81,6 +81,13 @@
         <argument
             android:name="cat"
             app:argType="long" />
+    <fragment
+        android:id="@+id/catProfileFragment"
+        android:name="ru.cordyapp.tinimal.presentation.cat_profile.CatProfileFragment"
+        android:label="CatProfileFragment" >
+        <argument
+            android:name="cat"
+            app:argType="long" />
     </fragment>
     <fragment
         android:id="@+id/userProfileFragment"
