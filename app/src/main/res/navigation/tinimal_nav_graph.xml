@@ -30,7 +30,11 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="ru.cordyapp.tinimal.presentation.main.MainFragment"
-        android:label="MainFragment" />
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_catProfileFragment"
+            app:destination="@id/catProfileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/favouritesFragment"
         android:name="ru.cordyapp.tinimal.presentation.favourites.FavouritesFragment"
@@ -68,4 +72,11 @@
         android:id="@+id/profileEditFragment"
         android:name="ru.cordyapp.tinimal.presentation.profile_edit.ProfileEditFragment"
         android:label="ProfileEditFragment" />
+        android:id="@+id/catProfileFragment"
+        android:name="ru.cordyapp.tinimal.presentation.cat_profile.CatProfileFragment"
+        android:label="CatProfileFragment" >
+        <argument
+            android:name="cat"
+            app:argType="ru.cordyapp.tinimal.domain.models.CatShort" />
+    </fragment>
 </navigation>

@@ -1,200 +1,209 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/primary_light"
-    android:orientation="vertical">
-
-    <include layout="@layout/toolbar_cat_profile" />
-
-    <ImageView
-        android:id="@+id/photoCatProfileFragment"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_gravity="center"
-        android:src="@drawable/cat_photo_example" />
-
-    <TextView
-        android:id="@+id/nameProfileFragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="32dp"
-        android:layout_marginTop="16dp"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        tools:text="Джоржд" />
-
-    <TextView
-        android:id="@+id/breedProfileFragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="32dp"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        tools:text="Шотландский скоттиш-страйт" />
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:background="@color/primary_light"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbarCatProfile"
+            layout="@layout/toolbar_cat_profile" />
+
+        <ImageView
+            android:id="@+id/photoCatProfileFragment"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            android:src="@drawable/cat_photo_example" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="32dp"
-            android:textColor="@color/black"
-            android:text="@string/age" />
-
-        <TextView
-            android:id="@+id/ageCatProfileFragment"
+            android:id="@+id/nameProfileFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="16dp"
             android:textColor="@color/black"
-            tools:text="4" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+            android:textSize="16sp"
+            tools:text="Джоржд" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/breedProfileFragment"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="32dp"
             android:textColor="@color/black"
-            android:text="@string/sex" />
+            android:textSize="16sp"
+            tools:text="Шотландский скоттиш-страйт" />
 
-        <ImageView
-            android:id="@+id/sexImageView"
-            android:layout_width="18dp"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="32dp"
+                android:text="@string/age"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/ageCatProfileFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/black"
+                tools:text="4" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="32dp"
+                android:text="@string/sex"
+                android:textColor="@color/black" />
+
+            <ImageView
+                android:id="@+id/sexImageView"
+                android:layout_width="18dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_male" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/priceProfileFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:text="2000$" />
+
+        <TextView
+            android:id="@+id/addressProfileFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            tools:text="Республика Татарстан, Казань" />
+
+        <TextView
+            android:id="@+id/infoTextView"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginHorizontal="32dp"
+            android:background="@drawable/custom_frame_rectangle"
+            android:layout_marginTop="8dp"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            tools:text="Kот кpупный, здopoвый, кpасивый, с прeкpacным хaрактepoм, что пеpедаётcя его потомcтву. Носитель мраморного гена по родословной." />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/ic_male" />
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/starTextViewProfile2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="9sp"
+                app:layout_constraintStart_toStartOf="@+id/rankingCatProfile"
+                app:layout_constraintTop_toBottomOf="@+id/rankingCatProfile"
+                tools:text="Рейтинг" />
+
+            <TextView
+                android:id="@+id/reviewsTextViewProfile2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="9sp"
+                app:layout_constraintStart_toStartOf="@+id/reviewCatProfile"
+                app:layout_constraintTop_toBottomOf="@+id/reviewCatProfile"
+                tools:text="Отзывы" />
+
+            <ImageView
+                android:id="@+id/avatarCatProfile"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="16dp"
+                android:src="@drawable/avatar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <ImageView
+                android:id="@+id/rankingCatProfile"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="92dp"
+                android:layout_marginBottom="16dp"
+                android:src="@drawable/ic_star_stroke"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <ImageView
+                android:id="@+id/reviewCatProfile"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="156dp"
+                android:layout_marginBottom="16dp"
+                android:src="@drawable/button_reviews"
+                app:layout_constraintBottom_toBottomOf="@+id/rankingCountTextView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/rankingCountTextView"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/nameOwnerTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                app:layout_constraintStart_toEndOf="@+id/avatarCatProfile"
+                app:layout_constraintTop_toTopOf="@+id/avatarCatProfile"
+                tools:text="Кирилл" />
+
+            <TextView
+                android:id="@+id/rankingCountTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/rankingCatProfile"
+                app:layout_constraintStart_toEndOf="@+id/rankingCatProfile"
+                app:layout_constraintTop_toTopOf="@+id/rankingCatProfile"
+                app:layout_constraintVertical_bias="0.0"
+                tools:text="5" />
+
+            <TextView
+                android:id="@+id/reviewCountTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/reviewCatProfile"
+                app:layout_constraintStart_toEndOf="@+id/reviewCatProfile"
+                app:layout_constraintTop_toTopOf="@+id/reviewCatProfile"
+                tools:text="6" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/priceProfileFragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="32dp"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        tools:text="2000$" />
-
-    <TextView
-        android:id="@+id/addressProfileFragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="32dp"
-        android:textColor="@color/black"
-        android:textSize="12sp"
-        tools:text="Республика Татарстан, Казань" />
-
-    <TextView
-        android:id="@+id/infoTextView"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginHorizontal="32dp"
-        android:background="@drawable/custom_frame_rectangle"
-        android:padding="8dp"
-        android:textColor="@color/black"
-        tools:text="Kот кpупный, здopoвый, кpасивый, с прeкpacным хaрактepoм, что пеpедаётcя его потомcтву. Носитель мраморного гена по родословной." />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginHorizontal="32dp"
-        android:layout_marginBottom="16dp">
-
-        <TextView
-            android:id="@+id/starTextViewProfile2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="9sp"
-            app:layout_constraintStart_toStartOf="@+id/rankingCatProfile"
-            app:layout_constraintTop_toBottomOf="@+id/rankingCatProfile"
-            tools:text="Рейтинг" />
-
-        <TextView
-            android:id="@+id/reviewsTextViewProfile2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="9sp"
-            app:layout_constraintStart_toStartOf="@+id/reviewCatProfile"
-            app:layout_constraintTop_toBottomOf="@+id/reviewCatProfile"
-            tools:text="Отзывы" />
-
-        <ImageView
-            android:id="@+id/avatarCatProfile"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="16dp"
-            android:src="@drawable/avatar"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <ImageView
-            android:id="@+id/rankingCatProfile"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_marginStart="92dp"
-            android:layout_marginBottom="16dp"
-            android:src="@drawable/ic_star_stroke"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <ImageView
-            android:id="@+id/reviewCatProfile"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_marginStart="156dp"
-            android:layout_marginBottom="16dp"
-            android:src="@drawable/button_reviews"
-            app:layout_constraintBottom_toBottomOf="@+id/rankingCountTextView"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/rankingCountTextView"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <TextView
-            android:id="@+id/nameOwnerTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            app:layout_constraintStart_toEndOf="@+id/avatarCatProfile"
-            app:layout_constraintTop_toTopOf="@+id/avatarCatProfile"
-            tools:text="Кирилл" />
-
-        <TextView
-            android:id="@+id/rankingCountTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="32dp"
-            android:layout_marginStart="8dp"
-            app:layout_constraintBottom_toBottomOf="@+id/rankingCatProfile"
-            app:layout_constraintStart_toEndOf="@+id/rankingCatProfile"
-            app:layout_constraintTop_toTopOf="@+id/rankingCatProfile"
-            app:layout_constraintVertical_bias="0.0"
-            tools:text="5" />
-
-        <TextView
-            android:id="@+id/reviewCountTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="32dp"
-            android:layout_marginStart="8dp"
-            app:layout_constraintBottom_toBottomOf="@+id/reviewCatProfile"
-            app:layout_constraintStart_toEndOf="@+id/reviewCatProfile"
-            app:layout_constraintTop_toTopOf="@+id/reviewCatProfile"
-            tools:text="6" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-</LinearLayout>
+</ScrollView>

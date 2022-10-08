@@ -5,6 +5,7 @@ import android.view.View
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -38,12 +39,19 @@ class MainFragment:Fragment(R.layout.fragment_search) {
                 ResourcesCompat.getDrawable(resources, R.drawable.custom_decorator_rec, null)
                     ?.let { drawable -> dividerItemDecoration.setDrawable(drawable) }
                 addItemDecoration(dividerItemDecoration)
-
             }
 
             val list = it.map { CatMapper().map(it) }
             mainAdapter.setCatsList(list)
-
+            mainAdapter.setOnClickListener { cat->
+                val bundle = Bundle().apply {
+                    putSerializable("cat", cat)
+                }
+                findNavController().navigate(
+                    R.id.action_mainFragment_to_catProfileFragment,
+                    bundle
+                )
+            }
         }
     }
 }
