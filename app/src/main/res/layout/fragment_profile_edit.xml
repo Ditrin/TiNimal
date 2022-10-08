@@ -23,7 +23,7 @@
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarInfo"
-        app:srcCompat="@drawable/avatar2" />
+        app:srcCompat="@drawable/default_avatar" />
 
     <ImageButton
         android:id="@+id/plusImageButtonProfileEdit"
@@ -110,7 +110,7 @@
         android:id="@+id/removeAccountButtonProfileEdit"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="50dp"
         android:text="удалить аккаунт"
         android:textStyle="bold"
         app:cornerRadius="12dip"

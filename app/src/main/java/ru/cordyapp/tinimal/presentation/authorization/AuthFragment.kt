@@ -13,7 +13,8 @@ import ru.cordyapp.tinimal.databinding.FragmentAuthBinding
 import ru.cordyapp.tinimal.utils.SharedPref
 
 @AndroidEntryPoint
-class AuthFragment : Fragment(R.layout.fragment_auth) {
+class
+AuthFragment : Fragment(R.layout.fragment_auth) {
     private val binding by viewBinding(FragmentAuthBinding::bind)
     private val viewModel: AuthViewModel by viewModels()
 

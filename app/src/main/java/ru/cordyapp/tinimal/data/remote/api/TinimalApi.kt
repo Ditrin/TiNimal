@@ -14,12 +14,12 @@ interface TinimalApi {
         @Path("id") id: Long
     ): UserDTO
 
-    @Multipart
+//    @Multipart
     @POST("users/{id}/cats")
     suspend fun addCat(
         @Body catAddDTO: CatAddDTO,
         @Path("id") id: Long,
-        @Part image: MultipartBody.Part
+//        @Part image: MultipartBody.Part
     ): CatDTO?
 
     @GET("users/{id}/feedbacks")
@@ -28,6 +28,10 @@ interface TinimalApi {
     @GET("cats/{id}")
     suspend fun getCatById(@Path("id") id: Long): CatInfoDTO
 
+    @POST("cat/{id}/avatar")
+    suspend fun postCatPhotoById(
+        @Path("id") id: Int,
+    ): CatAvatarDTO
 
     //   @GET("")
 }
