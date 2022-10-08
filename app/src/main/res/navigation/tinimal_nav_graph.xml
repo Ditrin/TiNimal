@@ -65,8 +65,19 @@
         android:id="@+id/catProfileFragment"
         android:name="ru.cordyapp.tinimal.presentation.cat_profile.CatProfileFragment"
         android:label="CatProfileFragment" >
+        <action
+            android:id="@+id/action_catProfileFragment_to_userProfileFragment"
+            app:destination="@id/userProfileFragment" />
         <argument
             android:name="cat"
-            app:argType="ru.cordyapp.tinimal.domain.models.CatShort" />
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/userProfileFragment"
+        android:name="ru.cordyapp.tinimal.presentation.profile.user_profile.UserProfileFragment"
+        android:label="UserProfileFragment" >
+        <argument
+            android:name="id_owner"
+            app:argType="long" />
     </fragment>
 </navigation>

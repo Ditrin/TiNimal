@@ -1,9 +1,35 @@
 package ru.cordyapp.tinimal.presentation.feedbacks
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
+import ru.cordyapp.tinimal.data.remote.DTOmodels.FeedbackDTO
+import ru.cordyapp.tinimal.domain.use_case.GetFeedbackUseCase
+import javax.inject.Inject
 
-//@HiltViewModel
-//class FeedbackOtherViewModel: ViewModel() {
-//
-//}
+@HiltViewModel
+class FeedbackOtherViewModel @Inject constructor(
+    private val feedbackUseCase: GetFeedbackUseCase
+) : ViewModel() {
+    private val feedbackListLiveData = MutableLiveData<List<FeedbackDTO>>()
+    val feedbackList: LiveData<List<FeedbackDTO>> = feedbackListLiveData
+
+    private val isSuccessLiveData = MutableLiveData<Boolean>(false)
+    val isSuccess: LiveData<Boolean> = isSuccessLiveData
+
+    fun getFeedbacks(id: Long) {
+        viewModelScope.launch {
+            runCatching {
+                feedbackUseCase.execute(id)
+            }.onSuccess {
+                isSuccessLiveData.value = true
+                feedbackListLiveData.postValue(it)
+            }.onFailure {
+                isSuccessLiveData.value = false
+            }
+        }
+    }
+}

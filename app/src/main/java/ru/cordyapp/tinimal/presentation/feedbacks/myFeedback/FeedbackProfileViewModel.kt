@@ -14,8 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class FeedbackProfileViewModel @Inject constructor(
-    private val feedbackUseCase: GetFeedbackUseCase,
-    private val getUserUseCase: GetUserUseCase
+    private val feedbackUseCase: GetFeedbackUseCase
 ) : ViewModel() {
 
     private val feedbackListLiveData = MutableLiveData<List<FeedbackDTO>>()

@@ -1,6 +1,7 @@
 package ru.cordyapp.tinimal.presentation.main
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
@@ -18,7 +19,7 @@ import ru.cordyapp.tinimal.domain.mapper.CatMapper
 import ru.cordyapp.tinimal.domain.models.CatShort
 
 @AndroidEntryPoint
-class MainFragment:Fragment(R.layout.fragment_search) {
+class MainFragment : Fragment(R.layout.fragment_search) {
     private val viewModel: MainViewModel by viewModels()
 
     private val binding by viewBinding(FragmentSearchBinding::bind)
@@ -28,7 +29,7 @@ class MainFragment:Fragment(R.layout.fragment_search) {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.getUsersListByLogin()
-        viewModel.catsList.observe(viewLifecycleOwner){
+        viewModel.catsList.observe(viewLifecycleOwner) {
             binding.adsListRecyclerView.apply {
                 adapter = mainAdapter
                 layoutManager = LinearLayoutManager(requireContext())
@@ -43,9 +44,10 @@ class MainFragment:Fragment(R.layout.fragment_search) {
 
             val list = it.map { CatMapper().map(it) }
             mainAdapter.setCatsList(list)
-            mainAdapter.setOnClickListener { cat->
+            mainAdapter.setOnClickListener { cat ->
+                Log.d("ID_TAG", it.toString())
                 val bundle = Bundle().apply {
-                    putSerializable("cat", cat)
+                    putLong("cat", cat.id)
                 }
                 findNavController().navigate(
                     R.id.action_mainFragment_to_catProfileFragment,
