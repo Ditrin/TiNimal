@@ -96,6 +96,14 @@ object AppModule {
 
     @Provides
     @Singleton
+    fun provideDeleteUser(repository: TiNimalRepository): DeleteUserUseCase {
+        return DeleteUserUseCase(repository)
+    }
+
+
+
+    @Provides
+    @Singleton
     fun provideGetFeedback(repository: TiNimalRepository): GetFeedbackUseCase {
         return GetFeedbackUseCase(repository)
     }

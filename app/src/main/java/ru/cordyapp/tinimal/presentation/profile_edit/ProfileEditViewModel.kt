@@ -10,6 +10,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import ru.cordyapp.tinimal.data.remote.DTOmodels.UserDTO
 import ru.cordyapp.tinimal.data.remote.DTOmodels.UserEditDTO
+import ru.cordyapp.tinimal.domain.use_case.DeleteUserUseCase
 import ru.cordyapp.tinimal.domain.use_case.PostAvatarUseCase
 import ru.cordyapp.tinimal.domain.use_case.UpdateUserUseCase
 import java.io.File
@@ -18,7 +19,8 @@ import javax.inject.Inject
 @HiltViewModel
 class ProfileEditViewModel @Inject constructor(
     private val updateUserUseCase: UpdateUserUseCase,
-    private val postAvatarUseCase: PostAvatarUseCase
+    private val postAvatarUseCase: PostAvatarUseCase,
+    private val deleteUserUseCase: DeleteUserUseCase
 ) : ViewModel() {
 
     private val userLiveData = MutableLiveData<UserDTO>()
@@ -56,8 +58,22 @@ class ProfileEditViewModel @Inject constructor(
         }
     }
 
+
+
     fun saveImagePath(path: Uri){
         pathImageLiveData.postValue(path)
     }
+
+    fun deleteUser(id: Long){
+        viewModelScope.launch {
+            runCatching {
+               deleteUserUseCase.execute(id)
+    }.onSuccess {
+            Log.d("TAG_AVATAR", "all good")
+        }.onFailure {
+            Log.d("TAG_AVATAR", it.toString())
+        }
+    }
+}
 
 }

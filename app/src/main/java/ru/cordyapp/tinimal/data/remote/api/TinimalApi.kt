@@ -52,4 +52,9 @@ interface TinimalApi {
     suspend fun getFavorites(
         @Path("id") id: Long
     ): List<CatDTO>
+
+    @DELETE("/users/{id}")
+    suspend fun deleteUser(
+        @Path("id") id: Long
+    )
 }
