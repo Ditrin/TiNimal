@@ -1,5 +1,6 @@
 package ru.cordyapp.tinimal.data.remote.repository
 
+import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.asRequestBody
@@ -42,6 +43,22 @@ class TiNimalRepositoryImpl(private val api: TinimalApi) : TiNimalRepository {
 
     override suspend fun updateUser(userEditDTO: UserEditDTO, id: Long): UserDTO {
         return api.updateUser(userEditDTO, id)
+    }
+
+    override suspend fun postAvatar(id: Long, file: File) {
+        return try {
+            api.postAvatar(id, image = MultipartBody.Part.createFormData(
+                "image",
+                file.name,
+                file.asRequestBody("image/*".toMediaType())
+            ))
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+    }
+
+    override suspend fun getFavorites(id: Long): List<CatDTO> {
+        return api.getFavorites(id)
     }
 
 //    override suspend fun updateUser(name: String, id: Long, file: File): UserDTO? {

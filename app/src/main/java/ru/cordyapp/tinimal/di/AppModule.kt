@@ -90,6 +90,12 @@ object AppModule {
 
     @Provides
     @Singleton
+    fun providePostAvatar(repository: TiNimalRepository): PostAvatarUseCase {
+        return PostAvatarUseCase(repository)
+    }
+
+    @Provides
+    @Singleton
     fun provideGetFeedback(repository: TiNimalRepository): GetFeedbackUseCase {
         return GetFeedbackUseCase(repository)
     }
@@ -104,6 +110,12 @@ object AppModule {
     @Singleton
     fun provideUpdateUser(repository: TiNimalRepository): UpdateUserUseCase {
         return UpdateUserUseCase(repository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideFavoritesCats(repository: TiNimalRepository): GetFavoritesUseCase {
+        return GetFavoritesUseCase(repository)
     }
 
     @Provides

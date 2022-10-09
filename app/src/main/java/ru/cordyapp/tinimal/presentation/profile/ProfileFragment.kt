@@ -21,6 +21,7 @@ import ru.cordyapp.tinimal.databinding.FragmentProfileBinding
 import ru.cordyapp.tinimal.domain.mapper.CatMapper
 import ru.cordyapp.tinimal.presentation.main.MainAdapter
 import ru.cordyapp.tinimal.utils.SharedPref
+import ru.cordyapp.tinimal.utils.User
 
 @AndroidEntryPoint
 
@@ -65,7 +66,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                 starCountTextViewProfile.text = user.ranking.toString()
 
                 Glide.with(this@ProfileFragment)
-                    .load("https://cordy-app.herokuapp.com/avatars/" + user.id.toString())
+                    .load(user.avatar)
                     .transform(CircleCrop())
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(avatarImageViewProfile)
@@ -84,10 +85,11 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
             }
 
             binding.toolbar.settingsButton.setOnClickListener {
+                User.user = user
                 val bundle = Bundle().apply {
                     putSerializable("userId", user)
                 }
-                findNavController().navigate(R.id.action_profileFragment_to_profileEditFragment, bundle)
+                findNavController().navigate(R.id.action_profileFragment_to_profileEditFragment)
             }
         }
         binding.toolbar.logoutButton.setOnClickListener {

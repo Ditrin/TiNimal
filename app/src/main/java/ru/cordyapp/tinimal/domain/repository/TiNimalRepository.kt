@@ -15,4 +15,6 @@ interface TiNimalRepository {
     suspend fun getFeedback(id: Long): List<FeedbackDTO>
     suspend fun getCatById(id: Long): CatInfoDTO
     suspend fun updateUser(userEditDTO: UserEditDTO, id: Long): UserDTO
+    suspend fun postAvatar(id: Long, @Part file: File)
+    suspend fun getFavorites(id: Long): List<CatDTO>
 }

@@ -14,6 +14,7 @@
         app:navigationIcon="@drawable/ic_arrow" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/catFavoritesListRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginHorizontal="8dp"
