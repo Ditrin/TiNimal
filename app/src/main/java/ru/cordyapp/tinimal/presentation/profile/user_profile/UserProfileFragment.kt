@@ -86,7 +86,10 @@ class UserProfileFragment : Fragment(R.layout.fragment_profile_other) {
             }
 
             binding.reviewsImageButtonProfile.setOnClickListener {
-                findNavController().navigate(R.id.action_userProfileFragment_to_feedbackOtherFragment)
+                val bundle = Bundle().apply {
+                    putLong("idUser", user.id)
+                }
+                findNavController().navigate(R.id.action_userProfileFragment_to_feedbackOtherFragment, bundle)
             }
 
         }

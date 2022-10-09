@@ -128,5 +128,20 @@
     <fragment
         android:id="@+id/feedbackOtherFragment"
         android:name="ru.cordyapp.tinimal.presentation.feedbacks.FeedbackOtherFragment"
-        android:label="FeedbackOtherFragment" />
+        android:label="FeedbackOtherFragment" >
+        <action
+            android:id="@+id/action_feedbackOtherFragment_to_feedbackNewFragment"
+            app:destination="@id/feedbackNewFragment" />
+        <argument
+            android:name="idUser"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/feedbackNewFragment"
+        android:name="ru.cordyapp.tinimal.presentation.feedbacks.myFeedback.FeedbackNewFragment"
+        android:label="FeedbackNewFragment" >
+        <argument
+            android:name="idUser"
+            app:argType="long" />
+    </fragment>
 </navigation>

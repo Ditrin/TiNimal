@@ -57,7 +57,7 @@ class CatProfileFragment : Fragment(R.layout.fragment_cat_profile) {
                 rankingCountTextView.text = catInfo.owner_ranking.toString()
                 reviewCountTextView.text = catInfo.count_feedback.toString()
                 Glide.with(this@CatProfileFragment)
-                    .load("https://cordy-app.herokuapp.com/avatars/" + catInfo.owner_id.toString())
+                    .load(catInfo.owner_avatar)
                     .transform(CircleCrop())
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(avatarCatProfile)
@@ -79,7 +79,10 @@ class CatProfileFragment : Fragment(R.layout.fragment_cat_profile) {
             }
 
             binding.reviewCatProfile.setOnClickListener {
-                findNavController().navigate(R.id.action_catProfileFragment_to_feedbackOtherFragment)
+                val bundle = Bundle().apply {
+                    putLong("idUser", catInfo.owner_id)
+                }
+                findNavController().navigate(R.id.action_catProfileFragment_to_feedbackOtherFragment, bundle)
             }
         }
     }
