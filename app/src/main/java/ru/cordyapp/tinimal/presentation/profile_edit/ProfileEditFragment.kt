@@ -23,6 +23,7 @@ import ru.cordyapp.tinimal.R
 import ru.cordyapp.tinimal.data.remote.DTOmodels.UserDTO
 import ru.cordyapp.tinimal.data.remote.DTOmodels.UserEditDTO
 import ru.cordyapp.tinimal.databinding.FragmentProfileEditBinding
+import ru.cordyapp.tinimal.utils.SharedPref
 import ru.cordyapp.tinimal.utils.User
 import java.io.File
 
@@ -30,7 +31,8 @@ import java.io.File
 @AndroidEntryPoint
 class ProfileEditFragment : Fragment(R.layout.fragment_profile_edit) {
     private val binding by viewBinding(FragmentProfileEditBinding::bind)
-//    private val args: ProfileEditFragmentArgs by navArgs()
+
+    //    private val args: ProfileEditFragmentArgs by navArgs()
     private val viewModel: ProfileEditViewModel by viewModels()
     private val pickImage = 100
     private var imageUri: Uri? = null
@@ -69,14 +71,27 @@ class ProfileEditFragment : Fragment(R.layout.fragment_profile_edit) {
 
                 viewModel.update(editUser, user.id)
 //                viewModel.postAvatar(user.id, file!!)
-                viewModel.isSuccess.observe(viewLifecycleOwner){
-                    if (it){
-                        Toast.makeText(requireActivity(), "User info update", Toast.LENGTH_SHORT).show()
+                viewModel.isSuccess.observe(viewLifecycleOwner) {
+                    if (it) {
+                        Toast.makeText(requireActivity(), "User info update", Toast.LENGTH_SHORT)
+                            .show()
                         findNavController().navigate(R.id.action_profileEditFragment_to_profileFragment)
-                    }
-                    else
-                        Toast.makeText(requireActivity(), "User info not update. Retry later", Toast.LENGTH_SHORT).show()
+                    } else
+                        Toast.makeText(
+                            requireActivity(),
+                            "User info not update. Retry later",
+                            Toast.LENGTH_SHORT
+                        ).show()
                 }
+            }
+            binding.appBarInfo.setOnClickListener {
+                requireActivity().onBackPressed()
+            }
+            binding.removeAccountButtonProfileEdit.setOnClickListener {
+                Log.d("DELETE_TAG", "id = ${User.user!!.id}, token = ${SharedPref.authToken}")
+                viewModel.deleteUser(User.user!!.id)
+                SharedPref.authToken = ""
+                findNavController().navigate(R.id.action_profileEditFragment_to_loginFragment)
             }
         }
 
@@ -132,7 +147,8 @@ class ProfileEditFragment : Fragment(R.layout.fragment_profile_edit) {
     fun getPath(uri: Uri?): String? {
         val projection = arrayOf(MediaStore.Images.Media.DATA)
         val cursor: Cursor =
-            requireActivity().getContentResolver().query(uri!!, projection, null, null, null) ?: return null
+            requireActivity().getContentResolver().query(uri!!, projection, null, null, null)
+                ?: return null
         val column_index: Int = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
         cursor.moveToFirst()
         val s: String = cursor.getString(column_index)

@@ -38,7 +38,6 @@ class OurCatProfileFragment: Fragment(R.layout.fragment_cat_our_profile) {
                 infoTextView.text = catInfo.info
                 Glide.with(this@OurCatProfileFragment)
                     .load(catInfo.photo)
-                    .transform(CircleCrop())
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(photoCatProfileFragment)
                 ourCatToolbar.backPressButton.setOnClickListener {

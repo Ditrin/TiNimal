@@ -75,6 +75,11 @@ class CatProfileFragment : Fragment(R.layout.fragment_cat_profile) {
                 toolbarCatProfile.callButton.setOnClickListener {
                     call(catInfo.owner_phoneNumber.toString())
                 }
+
+            }
+
+            binding.reviewCatProfile.setOnClickListener {
+                findNavController().navigate(R.id.action_catProfileFragment_to_feedbackOtherFragment)
             }
         }
     }

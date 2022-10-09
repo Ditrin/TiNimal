@@ -85,6 +85,9 @@
         <action
             android:id="@+id/action_profileEditFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_profileEditFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/catProfileFragment"
@@ -96,6 +99,9 @@
         <action
             android:id="@+id/action_catProfileFragment_to_userProfileFragment"
             app:destination="@id/userProfileFragment" />
+        <action
+            android:id="@+id/action_catProfileFragment_to_feedbackOtherFragment"
+            app:destination="@id/feedbackOtherFragment" />
     </fragment>
     <fragment
         android:id="@+id/userProfileFragment"
@@ -104,6 +110,12 @@
         <argument
             android:name="id_owner"
             app:argType="long" />
+        <action
+            android:id="@+id/action_userProfileFragment_to_catProfileFragment"
+            app:destination="@id/catProfileFragment" />
+        <action
+            android:id="@+id/action_userProfileFragment_to_feedbackOtherFragment"
+            app:destination="@id/feedbackOtherFragment" />
     </fragment>
     <fragment
         android:id="@+id/ourCatProfileFragment"
@@ -113,4 +125,8 @@
             android:name="ourCatId"
             app:argType="long" />
     </fragment>
+    <fragment
+        android:id="@+id/feedbackOtherFragment"
+        android:name="ru.cordyapp.tinimal.presentation.feedbacks.FeedbackOtherFragment"
+        android:label="FeedbackOtherFragment" />
 </navigation>

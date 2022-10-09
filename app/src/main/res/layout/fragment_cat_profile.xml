@@ -71,28 +71,47 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
                 android:layout_marginHorizontal="32dp"
                 android:text="@string/sex"
+
                 android:textColor="@color/black" />
 
             <ImageView
                 android:id="@+id/sexImageView"
                 android:layout_width="18dp"
+                android:layout_marginStart="10dp"
+
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_male" />
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
         <TextView
             android:id="@+id/priceProfileFragment"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="32dp"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold"
-            tools:text="2000$" />
-
+            tools:text="2000" />
+            <TextView
+                android:id="@+id/currencyTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/currency"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/priceTextView"
+                app:layout_constraintStart_toEndOf="@+id/priceTextView"
+                app:layout_constraintTop_toTopOf="@+id/priceTextView" />
+        </LinearLayout>
         <TextView
             android:id="@+id/addressProfileFragment"
             android:layout_width="match_parent"
@@ -105,7 +124,7 @@
         <TextView
             android:id="@+id/infoTextView"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="match_parent"
             android:layout_marginHorizontal="32dp"
             android:background="@drawable/custom_frame_rectangle"
             android:layout_marginTop="8dp"
@@ -148,7 +167,7 @@
                 android:layout_marginStart="4dp"
                 android:layout_marginBottom="4dp"
                 android:layout_height="76dp"
-                android:src="@drawable/avatar"
+                android:src="@drawable/default_avatar"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
