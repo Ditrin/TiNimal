@@ -6,7 +6,7 @@ import ru.cordyapp.tinimal.domain.repository.TiNimalRepository
 import java.io.File
 
 class UpdateUserUseCase(private val repository: TiNimalRepository) {
-    suspend fun execute(name: String, id: Long, file: File): UserDTO? {
-        return repository.updateUser(name, id, file)
+    suspend fun execute(userEditDTO: UserEditDTO, id: Long): UserDTO {
+        return repository.updateUser(userEditDTO, id)
     }
 }

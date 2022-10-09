@@ -10,5 +10,6 @@ data class FeedbackDTO(
         val date: String?,
         val text: String,
         val name: String?,
+        val avatar: String?,
         val rating: Float?
 )

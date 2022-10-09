@@ -6,8 +6,10 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.bumptech.glide.Glide
@@ -56,8 +58,15 @@ class ProfileEditFragment : Fragment(R.layout.fragment_profile_edit) {
                     addressEditTextProfileEdit.text.toString()
                 )
                 file = File(viewModel.pathImage.toString())
-                viewModel.update(nameEditTextProfileEdit.text.toString(), user.id, file!!)
-
+                viewModel.update(editUser, user.id)
+                viewModel.isSuccess.observe(viewLifecycleOwner){
+                    if (it){
+                        Toast.makeText(requireActivity(), "User info update", Toast.LENGTH_SHORT).show()
+                        findNavController().navigate(R.id.action_profileEditFragment_to_profileFragment)
+                    }
+                    else
+                        Toast.makeText(requireActivity(), "User info not update. Retry later", Toast.LENGTH_SHORT).show()
+                }
             }
         }
 
