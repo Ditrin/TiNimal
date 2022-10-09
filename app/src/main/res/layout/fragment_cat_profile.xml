@@ -2,12 +2,13 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/primary_light"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="@color/primary_light"
         android:orientation="vertical">
 
@@ -116,8 +117,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="32dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp">
+            android:layout_marginTop="16dp">
 
             <TextView
                 android:id="@+id/starTextViewProfile2"
@@ -125,6 +125,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="9sp"
+                app:layout_constraintEnd_toEndOf="@+id/rankingCatProfile"
                 app:layout_constraintStart_toStartOf="@+id/rankingCatProfile"
                 app:layout_constraintTop_toBottomOf="@+id/rankingCatProfile"
                 tools:text="Рейтинг" />
@@ -135,47 +136,50 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="9sp"
+                app:layout_constraintEnd_toEndOf="@+id/reviewCatProfile"
                 app:layout_constraintStart_toStartOf="@+id/reviewCatProfile"
                 app:layout_constraintTop_toBottomOf="@+id/reviewCatProfile"
                 tools:text="Отзывы" />
 
             <ImageView
                 android:id="@+id/avatarCatProfile"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginBottom="16dp"
+                android:layout_width="70dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginBottom="4dp"
+                android:layout_height="76dp"
                 android:src="@drawable/avatar"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageButton
                 android:id="@+id/rankingCatProfile"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_marginStart="92dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="84dp"
                 android:layout_marginBottom="16dp"
+                android:background="@color/transparent"
                 android:src="@drawable/ic_star_stroke"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <ImageView
                 android:id="@+id/reviewCatProfile"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_marginStart="156dp"
-                android:layout_marginBottom="16dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="20dp"
                 android:src="@drawable/button_reviews"
                 app:layout_constraintBottom_toBottomOf="@+id/rankingCountTextView"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/rankingCountTextView"
                 app:layout_constraintTop_toTopOf="@+id/rankingCountTextView"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintVertical_bias="0.25" />
 
             <TextView
                 android:id="@+id/nameOwnerTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
+                android:layout_marginStart="8dp"
                 app:layout_constraintStart_toEndOf="@+id/avatarCatProfile"
                 app:layout_constraintTop_toTopOf="@+id/avatarCatProfile"
                 tools:text="Кирилл" />

@@ -61,7 +61,7 @@ class UserProfileFragment : Fragment(R.layout.fragment_profile_other) {
                 starCountTextViewProfile.text = user.ranking.toString()
 
                 Glide.with(this@UserProfileFragment)
-                    .load("https://cordy-app.herokuapp.com/avatars/" + user.id.toString())
+                    .load(user.avatar)
                     .transform(CircleCrop())
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(avatarImageViewProfile)
