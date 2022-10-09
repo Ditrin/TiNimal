@@ -10,13 +10,15 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import ru.cordyapp.tinimal.data.remote.DTOmodels.UserDTO
 import ru.cordyapp.tinimal.data.remote.DTOmodels.UserEditDTO
+import ru.cordyapp.tinimal.domain.use_case.PostAvatarUseCase
 import ru.cordyapp.tinimal.domain.use_case.UpdateUserUseCase
 import java.io.File
 import javax.inject.Inject
 
 @HiltViewModel
 class ProfileEditViewModel @Inject constructor(
-    private val updateUserUseCase: UpdateUserUseCase
+    private val updateUserUseCase: UpdateUserUseCase,
+    private val postAvatarUseCase: PostAvatarUseCase
 ) : ViewModel() {
 
     private val userLiveData = MutableLiveData<UserDTO>()
@@ -38,6 +40,18 @@ class ProfileEditViewModel @Inject constructor(
             }.onFailure {
                 Log.d("EDIT_TAG", it.toString())
                 isSuccessLiveData.value = false
+            }
+        }
+    }
+
+    fun postAvatar(id: Long, file: File) {
+        viewModelScope.launch {
+            runCatching {
+                postAvatarUseCase.execute(id, file)
+            }.onSuccess {
+                Log.d("TAG_AVATAR", "all good")
+            }.onFailure {
+                Log.d("TAG_AVATAR", it.toString())
             }
         }
     }
