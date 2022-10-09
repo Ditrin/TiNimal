@@ -51,7 +51,6 @@ class CatProfileFragment : Fragment(R.layout.fragment_cat_profile) {
                 infoTextView.text = catInfo.info
                 Glide.with(this@CatProfileFragment)
                     .load(catInfo.photo)
-                    .transform(CircleCrop())
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(photoCatProfileFragment)
                 nameOwnerTextView.text = catInfo.owner_name
