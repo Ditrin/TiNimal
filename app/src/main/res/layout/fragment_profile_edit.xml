@@ -43,10 +43,10 @@
 
         <ImageButton
             android:id="@+id/removeImageButtonProfileEdit"
-            android:layout_width="25dp"
-            android:layout_height="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginBottom="28dp"
+            android:layout_marginBottom="48dp"
             android:background="@color/transparent"
             app:layout_constraintBottom_toBottomOf="@+id/avatarImageViewProfileEdit"
             app:layout_constraintStart_toEndOf="@+id/avatarImageViewProfileEdit"

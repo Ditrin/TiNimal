@@ -61,6 +61,10 @@ class TiNimalRepositoryImpl(private val api: TinimalApi) : TiNimalRepository {
         return api.deleteUser(id)
     }
 
+    override suspend fun postFeedback(id: Long, feedbackNewDTO: FeedbackNewDTO): FeedbackDTO {
+        return api.postFeedback(id, feedbackNewDTO)
+    }
+
     override suspend fun getFavorites(id: Long): List<CatDTO> {
         return api.getFavorites(id)
     }
@@ -79,6 +83,8 @@ class TiNimalRepositoryImpl(private val api: TinimalApi) : TiNimalRepository {
 //            null
 //        }
 //    }
+
+
 
 
     override suspend fun getUserById(id: Long): UserDTO {
