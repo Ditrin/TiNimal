@@ -40,20 +40,24 @@ class TiNimalRepositoryImpl(private val api: TinimalApi) : TiNimalRepository {
         return api.getCatById(id)
     }
 
-    override suspend fun updateUser(name: String, id: Long, file: File): UserDTO? {
-        return try {
-            api.updateUser(
-                name, id, image = MultipartBody.Part.createFormData(
-                    "image",
-                    file.name,
-                    file.asRequestBody()
-                )
-            )
-        } catch (e: IOException) {
-            e.printStackTrace()
-            null
-        }
+    override suspend fun updateUser(userEditDTO: UserEditDTO, id: Long): UserDTO {
+        return api.updateUser(userEditDTO, id)
     }
+
+//    override suspend fun updateUser(name: String, id: Long, file: File): UserDTO? {
+//        return try {
+//            api.updateUser(
+//                name, id, image = MultipartBody.Part.createFormData(
+//                    "image",
+//                    file.name,
+//                    file.asRequestBody()
+//                )
+//            )
+//        } catch (e: IOException) {
+//            e.printStackTrace()
+//            null
+//        }
+//    }
 
 
     override suspend fun getUserById(id: Long): UserDTO {

@@ -7,7 +7,7 @@ import ru.cordyapp.tinimal.domain.models.FeedbackShort
 class FeedbackMapper : Mapper<FeedbackDTO, FeedbackShort> {
     override fun map(t: FeedbackDTO): FeedbackShort {
         return FeedbackShort(
-            "https://cordy-app.herokuapp.com/avatars/" + t.id.toString(),
+            t.avatar,
             t.name,
             t.date,
             t.text,

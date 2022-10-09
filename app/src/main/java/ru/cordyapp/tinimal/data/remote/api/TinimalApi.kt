@@ -34,13 +34,11 @@ interface TinimalApi {
         @Path("id") id: Int,
     ): CatAvatarDTO
 
-    @Multipart
     @PUT("users/{id}")
     suspend fun updateUser(
-        @Part("name") name: String,
-        @Path("id") id: Long,
-        @Part image: MultipartBody.Part
-    ): UserDTO?
+        @Body userEditDTO: UserEditDTO,
+        @Path("id") id: Long
+    ): UserDTO
 
     //   @GET("")
 }

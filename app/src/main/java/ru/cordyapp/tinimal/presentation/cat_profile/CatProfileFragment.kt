@@ -49,11 +49,16 @@ class CatProfileFragment : Fragment(R.layout.fragment_cat_profile) {
                 priceProfileFragment.text = catInfo.price.toString()
                 addressProfileFragment.text = catInfo.owner_address
                 infoTextView.text = catInfo.info
+                Glide.with(this@CatProfileFragment)
+                    .load(catInfo.photo)
+                    .transform(CircleCrop())
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .into(photoCatProfileFragment)
                 nameOwnerTextView.text = catInfo.owner_name
                 rankingCountTextView.text = catInfo.owner_ranking.toString()
                 reviewCountTextView.text = catInfo.count_feedback.toString()
                 Glide.with(this@CatProfileFragment)
-                    .load(catInfo.photo)
+                    .load("https://cordy-app.herokuapp.com/avatars/" + catInfo.owner_id.toString())
                     .transform(CircleCrop())
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(avatarCatProfile)

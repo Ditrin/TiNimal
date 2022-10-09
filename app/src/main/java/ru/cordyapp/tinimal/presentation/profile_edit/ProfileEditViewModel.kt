@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import ru.cordyapp.tinimal.data.remote.DTOmodels.UserDTO
+import ru.cordyapp.tinimal.data.remote.DTOmodels.UserEditDTO
 import ru.cordyapp.tinimal.domain.use_case.UpdateUserUseCase
 import java.io.File
 import javax.inject.Inject
@@ -27,10 +28,10 @@ class ProfileEditViewModel @Inject constructor(
     private val pathImageLiveData = MutableLiveData<Uri>()
     val pathImage: LiveData<Uri> = pathImageLiveData
 
-    fun update(name: String, id: Long, file: File) {
+    fun update(userEditDTO: UserEditDTO, id: Long) {
         viewModelScope.launch {
             runCatching {
-                updateUserUseCase.execute(name, id, file)
+                updateUserUseCase.execute(userEditDTO, id)
             }.onSuccess {
                 isSuccessLiveData.value = true
                 userLiveData.postValue(it)

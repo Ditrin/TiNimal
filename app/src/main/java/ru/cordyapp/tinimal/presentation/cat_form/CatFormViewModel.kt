@@ -48,11 +48,11 @@ class CatFormViewModel @Inject constructor(private val addCatUseCase: AddCatUseC
         }
     }
 
-    fun setPassport(){
+    fun setPassport() {
         isPassportLiveData.value = !isPassportLiveData.value!!
     }
 
-    fun setVaccination(){
+    fun setVaccination() {
         isVaccinationLiveData.value = !isVaccinationLiveData.value!!
     }
 
@@ -60,7 +60,7 @@ class CatFormViewModel @Inject constructor(private val addCatUseCase: AddCatUseC
         isCertificateLiveData.value = !isCertificateLiveData.value!!
     }
 
-    fun setSex(b: Boolean){
+    fun setSex(b: Boolean) {
         isMaleLiveData.value = b
     }
 
