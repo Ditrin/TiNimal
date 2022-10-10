@@ -5,6 +5,8 @@ import android.view.View
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -19,11 +21,12 @@ import ru.cordyapp.tinimal.utils.SharedPref
         private val viewModel: FeedbackOtherViewModel by viewModels()
         private val binding by viewBinding(FragmentFeedbackOtherBinding::bind)
         private val feedbackAdapter = FeedbackAdapter()
-        private val id = SharedPref.id ?: -1
+        private val args: FeedbackOtherFragmentArgs by navArgs()
 
         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
             super.onViewCreated(view, savedInstanceState)
 
+            val id = args.idUser
             viewModel.getFeedbacks(id)
             viewModel.feedbackList.observe(viewLifecycleOwner){
                 binding.reviewsRecycleView.apply {
@@ -42,6 +45,14 @@ import ru.cordyapp.tinimal.utils.SharedPref
             }
             binding.appBarInfo.setNavigationOnClickListener {
                 requireActivity().onBackPressed()
+            }
+
+            binding.reviewsButton.setOnClickListener {
+                val bundle = Bundle().apply {
+                    putLong("idUser", id)
+                }
+
+                findNavController().navigate(R.id.action_feedbackOtherFragment_to_feedbackNewFragment, bundle)
             }
         }
     }

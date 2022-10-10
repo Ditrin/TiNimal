@@ -18,4 +18,6 @@ interface TiNimalRepository {
     suspend fun updateUser(userEditDTO: UserEditDTO, id: Long): UserDTO
     suspend fun postAvatar(id: Long, @Part file: MultipartBody.Part)
     suspend fun getFavorites(id: Long): List<CatDTO>
+    suspend fun deleteUser(id: Long)
+    suspend fun postFeedback(id: Long, feedbackNewDTO: FeedbackNewDTO): FeedbackDTO
 }

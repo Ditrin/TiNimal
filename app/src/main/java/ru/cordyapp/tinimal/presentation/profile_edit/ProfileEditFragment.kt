@@ -25,6 +25,7 @@ import ru.cordyapp.tinimal.R
 import ru.cordyapp.tinimal.data.remote.DTOmodels.UserDTO
 import ru.cordyapp.tinimal.data.remote.DTOmodels.UserEditDTO
 import ru.cordyapp.tinimal.databinding.FragmentProfileEditBinding
+import ru.cordyapp.tinimal.utils.SharedPref
 import ru.cordyapp.tinimal.utils.User
 import java.io.File
 
@@ -118,7 +119,15 @@ class ProfileEditFragment : Fragment(R.layout.fragment_profile_edit) {
                 viewModel.saveImagePath("".toUri())
             }
 
-
+            binding.appBarInfo.setOnClickListener {
+                requireActivity().onBackPressed()
+            }
+            binding.removeAccountButtonProfileEdit.setOnClickListener {
+                Log.d("DELETE_TAG", "id = ${User.user!!.id}, token = ${SharedPref.authToken}")
+                viewModel.deleteUser(User.user!!.id)
+                SharedPref.authToken = ""
+                findNavController().navigate(R.id.action_profileEditFragment_to_loginFragment)
+            }
         }
 
 
