@@ -45,7 +45,7 @@ interface TinimalApi {
     @POST("users/{id}/avatar")
     suspend fun postAvatar(
         @Path("id") id: Long,
-        @Part image: MultipartBody.Part
+        @Part file: MultipartBody.Part
     )
 
     @GET("/users/{id}/favourites")
