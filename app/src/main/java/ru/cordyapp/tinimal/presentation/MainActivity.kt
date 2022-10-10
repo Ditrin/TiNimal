@@ -1,5 +1,7 @@
 package ru.cordyapp.tinimal.presentation
 
+import android.Manifest
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -19,21 +21,24 @@ import ru.cordyapp.tinimal.utils.SharedPref
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
-    private lateinit var binding: ActivityMainBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+            if (checkSelfPermission(Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED
+                && checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
+            ) {
+                requestPermissions(
+                    arrayOf(
+                        Manifest.permission.CALL_PHONE,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE
+                    ), REQUEST_CODE_PERMISSION
+                )
+            }
+        }
+
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
         val navController = findNavController(R.id.tinimalNavHostFragment)
-
-//        val graph = navController.graph
-//        if (SharedPref.authToken.isNullOrBlank())
-//            graph.setStartDestination(R.id.authFragment)
-//        else
-//            graph.setStartDestination(R.id.mainFragment)
-
-//        navController.graph = graph
 
         bottomNavigationView.setupWithNavController(navController)
 
@@ -53,5 +58,8 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                 }
             }
         }
+    }
+    companion object {
+        private const val REQUEST_CODE_PERMISSION = 1
     }
 }

@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import okhttp3.MultipartBody
 import ru.cordyapp.tinimal.data.remote.DTOmodels.UserDTO
 import ru.cordyapp.tinimal.data.remote.DTOmodels.UserEditDTO
 import ru.cordyapp.tinimal.domain.use_case.PostAvatarUseCase
@@ -27,6 +28,12 @@ class ProfileEditViewModel @Inject constructor(
     private val isSuccessLiveData = MutableLiveData<Boolean>()
     val isSuccess: LiveData<Boolean> = isSuccessLiveData
 
+    private val isUpdateSuccessLiveData = MutableLiveData<Boolean>()
+    val isUpdate: LiveData<Boolean> = isUpdateSuccessLiveData
+
+    private val isAvatarSuccessLiveData = MutableLiveData<Boolean>()
+    val isAvatar: LiveData<Boolean> = isAvatarSuccessLiveData
+
     private val pathImageLiveData = MutableLiveData<Uri>()
     val pathImage: LiveData<Uri> = pathImageLiveData
 
@@ -35,7 +42,7 @@ class ProfileEditViewModel @Inject constructor(
             runCatching {
                 updateUserUseCase.execute(userEditDTO, id)
             }.onSuccess {
-                isSuccessLiveData.value = true
+                isUpdateSuccessLiveData.value = true
                 userLiveData.postValue(it)
             }.onFailure {
                 Log.d("EDIT_TAG", it.toString())
@@ -44,13 +51,15 @@ class ProfileEditViewModel @Inject constructor(
         }
     }
 
-    fun postAvatar(id: Long, file: File) {
+    fun postAvatar(id: Long, file: MultipartBody.Part) {
         viewModelScope.launch {
             runCatching {
                 postAvatarUseCase.execute(id, file)
             }.onSuccess {
+                isAvatarSuccessLiveData.value = true
                 Log.d("TAG_AVATAR", "all good")
             }.onFailure {
+                isAvatarSuccessLiveData.value = false
                 Log.d("TAG_AVATAR", it.toString())
             }
         }
