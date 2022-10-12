@@ -16,8 +16,10 @@ interface TiNimalRepository {
     suspend fun getFeedback(id: Long): List<FeedbackDTO>
     suspend fun getCatById(id: Long): CatInfoDTO
     suspend fun updateUser(userEditDTO: UserEditDTO, id: Long): UserDTO
+    suspend fun updateCat(catAddDTO: CatAddDTO, id: Long, id_cat: Long): CatDTO
     suspend fun postAvatar(id: Long, @Part file: MultipartBody.Part)
     suspend fun getFavorites(id: Long): List<CatDTO>
     suspend fun deleteUser(id: Long)
     suspend fun postFeedback(id: Long, feedbackNewDTO: FeedbackNewDTO): FeedbackDTO
+    suspend fun postCatAvatar(id: Long, @Part file: MultipartBody.Part)
 }

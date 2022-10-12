@@ -79,8 +79,8 @@
         android:button="@null"
         android:checked="false"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintStart_toStartOf="@+id/addCatImageView"
+        app:layout_constraintTop_toBottomOf="@+id/addCatImageView" />
 
     <CheckBox
         android:id="@+id/femaleCheckBox"
@@ -175,7 +175,7 @@
 
     <ImageView
 
-        android:id="@+id/imageView"
+        android:id="@+id/addCatImageView"
         android:layout_width="64dp"
         android:layout_height="100dp"
         android:layout_marginStart="32dp"

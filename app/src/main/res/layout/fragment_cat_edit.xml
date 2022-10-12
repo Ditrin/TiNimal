@@ -27,7 +27,7 @@
             app:layout_constraintTop_toBottomOf="@+id/appBarInfo" />
 
         <ImageButton
-            android:id="@+id/removePhotoImageButton"
+            android:id="@+id/addPhotoImageButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="184dp"
@@ -48,7 +48,7 @@
             android:checked="true"
             android:textAppearance="?android:attr/textAppearanceLarge"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/removePhotoImageButton" />
+            app:layout_constraintTop_toBottomOf="@+id/addPhotoImageButton" />
 
         <CheckBox
             android:id="@+id/femaleCheckBox"
@@ -123,7 +123,7 @@
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@+id/maleCheckBox"
             app:layout_constraintTop_toBottomOf="@+id/priceEditTextCatFormFragment"
-            tools:text="Наличие паспорта" />
+            android:text="Наличие паспорта" />
 
         <TextView
             android:id="@+id/vaccinationTextView"
@@ -133,7 +133,7 @@
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@+id/passportTextView"
             app:layout_constraintTop_toBottomOf="@+id/passportTextView"
-            tools:text="Наличие прививок" />
+            android:text="Наличие прививок" />
 
         <TextView
             android:id="@+id/certificatesTextView"
@@ -143,32 +143,41 @@
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@+id/vaccinationTextView"
             app:layout_constraintTop_toBottomOf="@+id/vaccinationTextView"
-            tools:text="Наличие справок" />
+            android:text="Наличие справок" />
 
-        <TextView
+        <CheckBox
             android:id="@+id/passportCheckBox"
             android:layout_width="28dp"
             android:layout_height="28dp"
             android:layout_marginEnd="128dp"
-            android:background="@drawable/custom_square"
+            android:background="@drawable/checkbox_square_selector"
+            android:button="@null"
+            android:checked="false"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/passportTextView" />
 
-        <TextView
+        <CheckBox
             android:id="@+id/vaccinationCheckBox"
             android:layout_width="28dp"
             android:layout_height="28dp"
             android:layout_marginEnd="128dp"
             app:layout_constraintEnd_toEndOf="parent"
-            android:background="@drawable/custom_square"
+            android:background="@drawable/checkbox_square_selector"
+            android:button="@null"
+            android:checked="false"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             app:layout_constraintTop_toTopOf="@+id/vaccinationTextView" />
 
-        <TextView
+        <CheckBox
             android:id="@+id/certificatesCheckBox"
             android:layout_width="28dp"
             android:layout_height="28dp"
             android:layout_marginEnd="128dp"
-            android:background="@drawable/custom_square"
+            android:background="@drawable/checkbox_square_selector"
+            android:button="@null"
+            android:checked="false"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/certificatesTextView" />
 

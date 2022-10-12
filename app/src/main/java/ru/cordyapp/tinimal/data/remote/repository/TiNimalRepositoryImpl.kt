@@ -23,16 +23,6 @@ class TiNimalRepositoryImpl(private val api: TinimalApi) : TiNimalRepository {
 
     override suspend fun addCatToUser(catAddDTO: CatAddDTO, id: Long): CatDTO? {
         return api.addCat(catAddDTO, id)
-//        return try {
-//            api.addCat(catAddDTO,id, image = MultipartBody.Part.createFormData(
-//                "image",
-//                file.name,
-//                file.asRequestBody()
-//            ))
-//        } catch (e: IOException) {
-//            e.printStackTrace()
-//            null
-//        }
     }
 
     override suspend fun getFeedback(id: Long): List<FeedbackDTO> {
@@ -47,24 +37,19 @@ class TiNimalRepositoryImpl(private val api: TinimalApi) : TiNimalRepository {
         return api.updateUser(userEditDTO, id)
     }
 
+    override suspend fun updateCat(catAddDTO: CatAddDTO, id: Long, id_cat: Long): CatDTO {
+        return api.updateCat(catAddDTO, id, id_cat)
+    }
+
     override suspend fun postAvatar(id: Long, @Part file: MultipartBody.Part) {
         return try {
             api.postAvatar(id, file)
-        } catch (e:IOException){
+        } catch (e: IOException) {
             e.printStackTrace()
         }
-//        return try {
-//            api.postAvatar(id, file = MultipartBody.Part.createFormData(
-//                "file",
-//                file.name,
-//                file.asRequestBody("multipart/form-data".toMediaTypeOrNull())
-//            ))
-//        } catch (e: IOException) {
-//            e.printStackTrace()
-//        }
     }
 
-    override suspend fun deleteUser(id: Long){
+    override suspend fun deleteUser(id: Long) {
         return api.deleteUser(id)
     }
 
@@ -72,27 +57,17 @@ class TiNimalRepositoryImpl(private val api: TinimalApi) : TiNimalRepository {
         return api.postFeedback(id, feedbackNewDTO)
     }
 
+    override suspend fun postCatAvatar(id: Long, file: MultipartBody.Part) {
+        return try {
+            api.postCatAvatar(id, file)
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+    }
+
     override suspend fun getFavorites(id: Long): List<CatDTO> {
         return api.getFavorites(id)
     }
-
-//    override suspend fun updateUser(name: String, id: Long, file: File): UserDTO? {
-//        return try {
-//            api.updateUser(
-//                name, id, image = MultipartBody.Part.createFormData(
-//                    "image",
-//                    file.name,
-//                    file.asRequestBody()
-//                )
-//            )
-//        } catch (e: IOException) {
-//            e.printStackTrace()
-//            null
-//        }
-//    }
-
-
-
 
     override suspend fun getUserById(id: Long): UserDTO {
         return api.getUserById(id)

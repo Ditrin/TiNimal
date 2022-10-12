@@ -1,4 +1,4 @@
-package ru.cordyapp.tinimal.presentation.cat_form
+package ru.cordyapp.tinimal.presentation.cat_edit
 
 import android.net.Uri
 import android.util.Log
@@ -10,19 +10,18 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import okhttp3.MultipartBody
 import ru.cordyapp.tinimal.data.remote.DTOmodels.CatAddDTO
-import ru.cordyapp.tinimal.data.remote.DTOmodels.CatAvatarDTO
 import ru.cordyapp.tinimal.data.remote.DTOmodels.CatDTO
 import ru.cordyapp.tinimal.domain.use_case.AddCatUseCase
 import ru.cordyapp.tinimal.domain.use_case.PostCatAvatarUseCase
-import java.io.File
+import ru.cordyapp.tinimal.domain.use_case.UpdateCatUseCase
 import javax.inject.Inject
 
 @HiltViewModel
-class CatFormViewModel @Inject constructor(
-    private val addCatUseCase: AddCatUseCase,
+class CatEditViewModel @Inject constructor(
+    private val updateCatUseCase: UpdateCatUseCase,
     private val postCatAvatarUseCase: PostCatAvatarUseCase
-) :
-    ViewModel() {
+) : ViewModel() {
+
     private val isValidateLiveData = MutableLiveData<Boolean>(false)
     val isValidate: LiveData<Boolean> = isValidateLiveData
 
@@ -50,10 +49,10 @@ class CatFormViewModel @Inject constructor(
     private val catLiveData = MutableLiveData<CatDTO>()
     val cat: LiveData<CatDTO> = catLiveData
 
-    fun addCat(catAddDTO: CatAddDTO, id: Long) {
+    fun update(catAddDTO: CatAddDTO, id: Long, id_cat: Long) {
         viewModelScope.launch {
             runCatching {
-                addCatUseCase.execute(catAddDTO, id)
+                updateCatUseCase.execute(catAddDTO, id, id_cat)
             }
                 .onSuccess {
                     catLiveData.value = it
@@ -111,5 +110,4 @@ class CatFormViewModel @Inject constructor(
             isValidateLiveData.postValue(true)
 
     }
-
 }
