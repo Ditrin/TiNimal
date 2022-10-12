@@ -13,6 +13,5 @@ data class CatAddDTO(
     @field:Json(name = "passport") val passport: Boolean,
     @field:Json(name = "vaccination") val vaccination: Boolean,
     @field:Json(name = "certificates") val certificates: Boolean,
-    @field:Json(name = "info") val info: String,
-//    @field:Json(name = "photo") val photo: String
+    @field:Json(name = "info") val info: String
 )

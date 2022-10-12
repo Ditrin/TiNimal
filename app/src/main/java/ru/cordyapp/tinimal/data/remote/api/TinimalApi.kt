@@ -5,6 +5,7 @@ import okhttp3.RequestBody
 import retrofit2.http.*
 import ru.cordyapp.tinimal.data.remote.DTOmodels.*
 import ru.cordyapp.tinimal.domain.models.CatShort
+import ru.cordyapp.tinimal.utils.Cat
 
 interface TinimalApi {
     @GET("cats")
@@ -40,10 +41,23 @@ interface TinimalApi {
         @Path("id") id: Long
     ): UserDTO
 
+    @PUT("users/{id}/cats/{cat_id}")
+    suspend fun updateCat(
+        @Body catAddDTO: CatAddDTO,
+        @Path("id") id: Long,
+        @Path("cat_id") cat_id: Long
+    ) : CatDTO
 
     @Multipart
     @POST("users/{id}/avatar")
     suspend fun postAvatar(
+        @Path("id") id: Long,
+        @Part file: MultipartBody.Part
+    )
+
+    @Multipart
+    @POST("cats/{id}/photo")
+    suspend fun postCatAvatar(
         @Path("id") id: Long,
         @Part file: MultipartBody.Part
     )

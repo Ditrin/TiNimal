@@ -124,6 +124,9 @@
         <argument
             android:name="ourCatId"
             app:argType="long" />
+        <action
+            android:id="@+id/action_ourCatProfileFragment_to_catEditFragment"
+            app:destination="@id/catEditFragment" />
     </fragment>
     <fragment
         android:id="@+id/feedbackOtherFragment"
@@ -143,5 +146,13 @@
         <argument
             android:name="idUser"
             app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/catEditFragment"
+        android:name="ru.cordyapp.tinimal.presentation.cat_edit.CatEditFragment"
+        android:label="CatEditFragment" >
+        <action
+            android:id="@+id/action_catEditFragment_to_ourCatProfileFragment"
+            app:destination="@id/ourCatProfileFragment" />
     </fragment>
 </navigation>

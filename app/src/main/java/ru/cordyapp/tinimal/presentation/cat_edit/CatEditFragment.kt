@@ -1,4 +1,4 @@
-package ru.cordyapp.tinimal.presentation.cat_form
+package ru.cordyapp.tinimal.presentation.cat_edit
 
 import android.app.Activity
 import android.content.Intent
@@ -13,84 +13,89 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import dagger.hilt.android.AndroidEntryPoint
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import ru.cordyapp.tinimal.R
 import ru.cordyapp.tinimal.data.remote.DTOmodels.CatAddDTO
-import ru.cordyapp.tinimal.data.remote.DTOmodels.CatAvatarDTO
-import ru.cordyapp.tinimal.databinding.FragmentCatFormBinding
+import ru.cordyapp.tinimal.data.remote.DTOmodels.CatInfoDTO
+import ru.cordyapp.tinimal.databinding.FragmentCatEditBinding
+import ru.cordyapp.tinimal.utils.Cat
 import ru.cordyapp.tinimal.utils.SharedPref
 import java.io.File
 
 @AndroidEntryPoint
-class CatFormFragment : Fragment(R.layout.fragment_cat_form) {
-    private val binding by viewBinding(FragmentCatFormBinding::bind)
-    private val viewModel: CatFormViewModel by viewModels()
-    private val id = SharedPref.id ?: -1
+class CatEditFragment : Fragment(R.layout.fragment_cat_edit) {
+    private val binding by viewBinding(FragmentCatEditBinding::bind)
+    private val viewModel: CatEditViewModel by viewModels()
     private var imageUri: Uri? = null
     private var filePart: MultipartBody.Part? = null
+    private val myCat = Cat.cat
+    private val id = SharedPref.id ?: -1
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        loadCat(myCat!!)
+
         with(binding) {
-            buttonCreate.setOnClickListener {
-                viewModel.verify(
-                    nameEditTextCatFormFragment.text.toString(),
-                    breedEditTextCatFormFragment.text.toString(),
-                    ageEditTextCatFormFragment.text.toString(),
-                    priceEditTextCatFormFragment.text.toString(),
-                    catStoryEditTextCatFormFragment.text.toString()
-                )
-                viewModel.isValidate.observe(viewLifecycleOwner) {
-                    if (it) {
-                        errorTextView.visibility = View.INVISIBLE
-                        val cat = CatAddDTO(
-                            viewModel.isMale.toString().toBoolean(),
-                            breedEditTextCatFormFragment.text.toString(),
-                            nameEditTextCatFormFragment.text.toString(),
-                            ageEditTextCatFormFragment.text.toString().toInt(),
-                            priceEditTextCatFormFragment.text.toString().toInt(),
-                            viewModel.isPassport.toString().toBoolean(),
-                            viewModel.isVaccination.toString().toBoolean(),
-                            viewModel.isCertificate.toString().toBoolean(),
-                            catStoryEditTextCatFormFragment.text.toString(),
-                        )
-                        viewModel.addCat(cat, id)
-                        viewModel.isSuccess.observe(viewLifecycleOwner){
-                            if (it){
-                                viewModel.postAvatar(viewModel.cat.value!!.id, filePart!!)
-                                viewModel.isPostAvatar.observe(viewLifecycleOwner){
-                                    if (it) {
-                                        Toast.makeText(
-                                            activity,
-                                            "Cat not create",
-                                            Toast.LENGTH_SHORT
-                                        ).show()
-                                        findNavController().navigate(R.id.action_catFormFragment_to_profileFragment)
-                                    }
-                                    else
-                                        Toast.makeText(activity, "Cat not create", Toast.LENGTH_SHORT).show()
-                                }
-                            }
-                        }
-                    } else
-                        errorTextView.visibility = View.VISIBLE
-                }
-
-//                findNavController().navigate(R.id.action_catFormFragment_to_profileFragment)
+            addPhotoImageButton.setOnClickListener {
+                val gallery =
+                    Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
+                gallery.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                gallery.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION)
+                startActivityForResult(gallery, REQUEST_CODE)
             }
+
+            buttonDeleteContact.setOnClickListener {  }
+
+            viewModel.pathImage.observe(viewLifecycleOwner){
+                avatarImageView.setImageURI(it)
+            }
+
+            buttonSave.setOnClickListener {
+                val catUpdate = CatAddDTO(
+                    femaleCheckBox.isChecked,
+                    breedEditTextCatFormFragment.text.toString(),
+                    nameEditTextCatFormFragment.text.toString(),
+                    ageEditTextCatFormFragment.text.toString().toInt(),
+                    priceEditTextCatFormFragment.text.toString().toInt(),
+                    viewModel.isPassport.value!!,
+                    viewModel.isVaccination.value!!,
+                    viewModel.isCertificate.value!!,
+                    infoEditText.text.toString()
+                )
+
+                viewModel.update(catUpdate, id, myCat.id)
+
+                viewModel.isSuccess.observe(viewLifecycleOwner){
+                    if (it){
+                        viewModel.postAvatar(viewModel.cat.value!!.id, filePart!!)
+                        viewModel.isPostAvatar.observe(viewLifecycleOwner){
+                            if (it) {
+                                Toast.makeText(
+                                    activity,
+                                    "Cat not create",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                                findNavController().navigate(R.id.action_catFormFragment_to_profileFragment)
+                            }
+                            else
+                                Toast.makeText(activity, "Cat not create", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+            }
+
         }
 
-        binding.addCatImageView.setOnClickListener {
-            val gallery =
-                Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
-            gallery.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-            gallery.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION)
-            startActivityForResult(gallery, REQUEST_CODE)
-        }
+
+
+
 
         viewModel.isCertificate.observe(viewLifecycleOwner) { isCertificate ->
             binding.certificatesCheckBox.setOnClickListener {
@@ -125,9 +130,27 @@ class CatFormFragment : Fragment(R.layout.fragment_cat_form) {
             Log.d("asd", "${viewModel.isMale.value}")
         }
         binding.appBarInfo.setNavigationOnClickListener {
-            requireActivity().onBackPressed()}
+            requireActivity().onBackPressed()
+        }
     }
 
+    private fun loadCat(cat: CatInfoDTO) {
+        binding.nameEditTextCatFormFragment.setText(cat.name)
+        binding.breedEditTextCatFormFragment.setText(cat.breed)
+        binding.ageEditTextCatFormFragment.setText(cat.age.toString())
+        binding.priceEditTextCatFormFragment.setText(cat.price.toString())
+        binding.infoEditText.setText(cat.info)
+        binding.femaleCheckBox.isChecked = cat.sex
+        binding.maleCheckBox.isChecked = !cat.sex
+        binding.passportCheckBox.isChecked = cat.passport
+        binding.vaccinationCheckBox.isChecked = cat.vaccination
+        binding.certificatesCheckBox.isChecked = cat.certificates
+        Glide.with(this@CatEditFragment)
+            .load(cat.photo)
+            .transform(CircleCrop())
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .into(binding.avatarImageView)
+    }
 
     private fun getFilePart(uri: Uri): MultipartBody.Part {
         val newUri = getRealPathFromURI(uri)
@@ -158,13 +181,11 @@ class CatFormFragment : Fragment(R.layout.fragment_cat_form) {
             Log.d("PATH_TAG", "ImageUri = " + imageUri.toString())
 
             filePart = getFilePart(imageUri!!)
-            binding.addCatImageView.setImageURI(imageUri)
         }
     }
 
-    companion object{
+    companion object {
         private const val REQUEST_CODE = 200
     }
+
 }
-
-

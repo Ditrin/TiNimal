@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.bumptech.glide.Glide
@@ -12,6 +13,7 @@ import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import dagger.hilt.android.AndroidEntryPoint
 import ru.cordyapp.tinimal.R
 import ru.cordyapp.tinimal.databinding.FragmentCatOurProfileBinding
+import ru.cordyapp.tinimal.utils.Cat
 
 @AndroidEntryPoint
 class OurCatProfileFragment: Fragment(R.layout.fragment_cat_our_profile) {
@@ -42,6 +44,10 @@ class OurCatProfileFragment: Fragment(R.layout.fragment_cat_our_profile) {
                     .into(photoCatProfileFragment)
                 ourCatToolbar.backPressButton.setOnClickListener {
                     requireActivity().onBackPressed()
+                }
+                ourCatToolbar.settingsButton.setOnClickListener {
+                    Cat.cat = catInfo
+                    findNavController().navigate(R.id.action_ourCatProfileFragment_to_catEditFragment)
                 }
             }
         }
