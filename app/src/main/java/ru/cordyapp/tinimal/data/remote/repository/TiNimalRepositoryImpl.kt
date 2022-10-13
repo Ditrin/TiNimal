@@ -11,6 +11,7 @@ import ru.cordyapp.tinimal.data.remote.DTOmodels.*
 import ru.cordyapp.tinimal.data.remote.api.TinimalApi
 import ru.cordyapp.tinimal.domain.models.CatShort
 import ru.cordyapp.tinimal.domain.repository.TiNimalRepository
+import ru.cordyapp.tinimal.utils.User
 import java.io.File
 import java.io.IOException
 
@@ -37,7 +38,7 @@ class TiNimalRepositoryImpl(private val api: TinimalApi) : TiNimalRepository {
         return api.updateUser(userEditDTO, id)
     }
 
-    override suspend fun updateCat(catAddDTO: CatAddDTO, id: Long, id_cat: Long): CatDTO {
+    override suspend fun updateCat(catAddDTO: CatAddDTO, id: Long, id_cat: Long): UserDTO {
         return api.updateCat(catAddDTO, id, id_cat)
     }
 

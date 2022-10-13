@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 import okhttp3.MultipartBody
 import ru.cordyapp.tinimal.data.remote.DTOmodels.CatAddDTO
 import ru.cordyapp.tinimal.data.remote.DTOmodels.CatDTO
-import ru.cordyapp.tinimal.domain.use_case.AddCatUseCase
+import ru.cordyapp.tinimal.data.remote.DTOmodels.UserDTO
 import ru.cordyapp.tinimal.domain.use_case.PostCatAvatarUseCase
 import ru.cordyapp.tinimal.domain.use_case.UpdateCatUseCase
 import javax.inject.Inject
@@ -46,8 +46,8 @@ class CatEditViewModel @Inject constructor(
     private val pathImageLiveData = MutableLiveData<Uri>()
     val pathImage: LiveData<Uri> = pathImageLiveData
 
-    private val catLiveData = MutableLiveData<CatDTO>()
-    val cat: LiveData<CatDTO> = catLiveData
+    private val userLiveData = MutableLiveData<UserDTO>()
+    val user: LiveData<UserDTO> = userLiveData
 
     fun update(catAddDTO: CatAddDTO, id: Long, id_cat: Long) {
         viewModelScope.launch {
@@ -55,7 +55,7 @@ class CatEditViewModel @Inject constructor(
                 updateCatUseCase.execute(catAddDTO, id, id_cat)
             }
                 .onSuccess {
-                    catLiveData.value = it
+                    userLiveData.value = it
                     isSuccessLiveData.value = true
                 }
                 .onFailure {
