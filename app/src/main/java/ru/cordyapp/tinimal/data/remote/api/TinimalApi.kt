@@ -77,4 +77,9 @@ interface TinimalApi {
         @Path("id") id: Long,
         @Body feedbackNewDTO: FeedbackNewDTO
     ): FeedbackDTO
+
+    @POST("/cats/search")
+    suspend fun postFilter(
+        @Body filterDTO: FilterDTO
+    ): List<CatDTO>
 }

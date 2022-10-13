@@ -106,7 +106,11 @@ object AppModule {
         return DeleteUserUseCase(repository)
     }
 
-
+    @Provides
+    @Singleton
+    fun providePostFilter(repository: TiNimalRepository): PostFilterUseCase {
+        return PostFilterUseCase(repository)
+    }
 
     @Provides
     @Singleton

@@ -66,6 +66,10 @@ class TiNimalRepositoryImpl(private val api: TinimalApi) : TiNimalRepository {
         }
     }
 
+    override suspend fun postFilter(filterDTO: FilterDTO): List<CatDTO> {
+        return api.postFilter(filterDTO)
+    }
+
     override suspend fun getFavorites(id: Long): List<CatDTO> {
         return api.getFavorites(id)
     }
