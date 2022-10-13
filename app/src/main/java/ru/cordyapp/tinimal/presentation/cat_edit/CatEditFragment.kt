@@ -74,18 +74,18 @@ class CatEditFragment : Fragment(R.layout.fragment_cat_edit) {
 
                 viewModel.isSuccess.observe(viewLifecycleOwner){
                     if (it){
-                        viewModel.postAvatar(viewModel.cat.value!!.id, filePart!!)
+                        viewModel.postAvatar(myCat.id, filePart!!)
                         viewModel.isPostAvatar.observe(viewLifecycleOwner){
                             if (it) {
                                 Toast.makeText(
                                     activity,
-                                    "Cat not create",
+                                    "Cat updated",
                                     Toast.LENGTH_SHORT
                                 ).show()
-                                findNavController().navigate(R.id.action_catFormFragment_to_profileFragment)
+                                requireActivity().onBackPressed()
                             }
                             else
-                                Toast.makeText(activity, "Cat not create", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(activity, "Cat not updated", Toast.LENGTH_SHORT).show()
                         }
                     }
                 }

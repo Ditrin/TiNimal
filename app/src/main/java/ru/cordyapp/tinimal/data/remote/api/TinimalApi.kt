@@ -46,7 +46,7 @@ interface TinimalApi {
         @Body catAddDTO: CatAddDTO,
         @Path("id") id: Long,
         @Path("cat_id") cat_id: Long
-    ) : CatDTO
+    ) : UserDTO
 
     @Multipart
     @POST("users/{id}/avatar")
