@@ -14,7 +14,7 @@
         app:navigationIcon="@drawable/ic_arrow" />
 
     <EditText
-
+        android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginHorizontal="32dp"

@@ -116,6 +116,12 @@ object AppModule {
 
     @Provides
     @Singleton
+    fun providePostFeedback(repository: TiNimalRepository): PostFeedbackUseCase {
+        return PostFeedbackUseCase(repository)
+    }
+
+    @Provides
+    @Singleton
     fun provideGetCatById(repository: TiNimalRepository): GetCatByIdUseCase {
         return GetCatByIdUseCase(repository)
     }
