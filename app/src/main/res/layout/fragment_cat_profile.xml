@@ -2,9 +2,9 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/primary_light"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/primary_light">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,24 +23,57 @@
             android:layout_gravity="center"
             android:src="@drawable/cat_photo_example" />
 
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:orientation="horizontal"-->
+        <!--            android:layout_marginHorizontal="32dp"-->
+        <!--            android:layout_marginTop="8dp"-->
+        <!--            android:background="cust"-->
+        <!--            >-->
+
+        <!--            <TextView-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:textColor="@color/black"-->
+        <!--                android:text="@string/name_cat"-->
+        <!--                android:textSize="16sp"/>-->
+
         <TextView
             android:id="@+id/nameProfileFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="32dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="18dp"
+            android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="32sp"
             tools:text="Джоржд" />
 
-        <TextView
-            android:id="@+id/breedProfileFragment"
+        <!--        </LinearLayout>-->
+
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="32dp"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            tools:text="Шотландский скоттиш-страйт" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/breed"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/breedProfileFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="27dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                tools:text="Шотландский скоттиш-страйт" />
+        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -80,9 +113,9 @@
             <ImageView
                 android:id="@+id/sexImageView"
                 android:layout_width="18dp"
-                android:layout_marginStart="10dp"
-
                 android:layout_height="match_parent"
+
+                android:layout_marginStart="10dp"
                 android:src="@drawable/ic_male" />
 
         </LinearLayout>
@@ -90,16 +123,25 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-        <TextView
-            android:id="@+id/priceProfileFragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginHorizontal="32dp"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            tools:text="2000" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/price"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/priceProfileFragment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="2000" />
+
             <TextView
                 android:id="@+id/currencyTextView"
                 android:layout_width="wrap_content"
@@ -112,22 +154,39 @@
                 app:layout_constraintStart_toEndOf="@+id/priceTextView"
                 app:layout_constraintTop_toTopOf="@+id/priceTextView" />
         </LinearLayout>
-        <TextView
-            android:id="@+id/addressProfileFragment"
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="32dp"
-            android:textColor="@color/black"
-            android:textSize="12sp"
-            tools:text="Республика Татарстан, Казань" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/address"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/addressProfileFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="13dp"
+
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                tools:text="Республика Татарстан, Казань" />
+
+        </LinearLayout>
+
 
         <TextView
             android:id="@+id/infoTextView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="32dp"
-            android:background="@drawable/custom_frame_rectangle"
             android:layout_marginTop="8dp"
+            android:background="@drawable/custom_frame_rectangle"
             android:padding="8dp"
             android:textColor="@color/black"
             tools:text="Kот кpупный, здopoвый, кpасивый, с прeкpacным хaрактepoм, что пеpедаётcя его потомcтву. Носитель мраморного гена по родословной." />
@@ -163,10 +222,10 @@
             <ImageView
                 android:id="@+id/avatarCatProfile"
                 android:layout_width="70dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginBottom="4dp"
                 android:layout_height="76dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
                 android:src="@drawable/default_avatar"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

@@ -1,13 +1,8 @@
 package ru.cordyapp.tinimal.domain.repository
 
 import okhttp3.MultipartBody
-import okhttp3.RequestBody
-import retrofit2.http.Body
 import retrofit2.http.Part
 import ru.cordyapp.tinimal.data.remote.DTOmodels.*
-import ru.cordyapp.tinimal.domain.models.CatShort
-import ru.cordyapp.tinimal.utils.Cat
-import java.io.File
 
 interface TiNimalRepository {
 

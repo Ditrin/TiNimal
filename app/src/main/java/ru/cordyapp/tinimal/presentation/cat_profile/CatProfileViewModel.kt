@@ -25,6 +25,9 @@ class CatProfileViewModel @Inject constructor(
     private val catLiveData = MutableLiveData<CatInfoDTO>()
     val cat: LiveData<CatInfoDTO> = catLiveData
 
+    private val isLikedLiveData = MutableLiveData<Boolean>()
+    val isLiked: LiveData<Boolean> = isLikedLiveData
+
     private val isSuccessLiveData = MutableLiveData<Boolean>()
     val isSuccess: LiveData<Boolean> = isSuccessLiveData
 
@@ -69,5 +72,9 @@ class CatProfileViewModel @Inject constructor(
                 isAddedLiveData.value = false
             }
         }
+    }
+
+    fun setIsLiked(value: Boolean) {
+        isLikedLiveData.value = value
     }
 }

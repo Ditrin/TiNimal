@@ -44,6 +44,11 @@ class CatProfileFragment : Fragment(R.layout.fragment_cat_profile) {
         viewModel.getCat(id)
         viewModel.cat.observe(viewLifecycleOwner) { catInfo ->
             with(binding) {
+                viewModel.setIsLiked(catInfo.liked)
+                if (catInfo.liked)
+                    binding.toolbarCatProfile.kudosButton.setImageResource(R.drawable.button_kudos)
+                else
+                    binding.toolbarCatProfile.kudosButton.setImageResource(R.drawable.button_unkudos)
                 nameProfileFragment.text = catInfo.name
                 breedProfileFragment.text = catInfo.breed
                 ageCatProfileFragment.text = catInfo.age.toString()
@@ -59,9 +64,10 @@ class CatProfileFragment : Fragment(R.layout.fragment_cat_profile) {
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(photoCatProfileFragment)
                 nameOwnerTextView.text = catInfo.owner_name
-                rankingCountTextView.text = ((catInfo.owner_ranking!! * 100).roundToInt() / 100.0f).toString()
+                rankingCountTextView.text =
+                    ((catInfo.owner_ranking!! * 100).roundToInt() / 100.0f).toString()
                 reviewCountTextView.text = catInfo.count_feedback.toString()
-                if(catInfo.owner_avatar != null)
+                if (catInfo.owner_avatar != null)
                     Glide.with(this@CatProfileFragment)
                         .load(catInfo.owner_avatar)
                         .transform(CircleCrop())
@@ -99,18 +105,40 @@ class CatProfileFragment : Fragment(R.layout.fragment_cat_profile) {
             }
 
             binding.toolbarCatProfile.kudosButton.setOnClickListener {
-                val addFavouritesCatDTO = AddFavouritesCatDTO(id = catInfo.id)
-                viewModel.addFavouritesCat(userId, addFavouritesCatDTO)
-                viewModel.isAdded.observe(viewLifecycleOwner) {
-                    if (it) {
-                        Toast.makeText(
-                            requireActivity(),
-                            "Cat added to you favourites",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        binding.toolbarCatProfile.kudosButton.setImageResource(R.drawable.button_kudos)
+                if (catInfo.liked) {
+                    viewModel.deleteFavouritesCat(userId, catInfo.id)
+                    viewModel.setIsLiked(false)
+                    binding.toolbarCatProfile.kudosButton.setImageResource(R.drawable.button_unkudos)
+                    Toast.makeText( requireActivity(),
+                        "Cat delete from you favourites",
+                        Toast.LENGTH_SHORT).show()
+                } else {
+                    val addFavouritesCatDTO = AddFavouritesCatDTO(id = catInfo.id)
+                    viewModel.addFavouritesCat(userId, addFavouritesCatDTO)
+                    viewModel.isAdded.observe(viewLifecycleOwner) {
+                        if (it) {
+                            Toast.makeText(
+                                requireActivity(),
+                                "Cat added to you favourites",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            binding.toolbarCatProfile.kudosButton.setImageResource(R.drawable.button_kudos)
+                            viewModel.setIsLiked(true)
+                        }
                     }
                 }
+//                val addFavouritesCatDTO = AddFavouritesCatDTO(id = catInfo.id)
+//                viewModel.addFavouritesCat(userId, addFavouritesCatDTO)
+//                viewModel.isAdded.observe(viewLifecycleOwner) {
+//                    if (it) {
+//                        Toast.makeText(
+//                            requireActivity(),
+//                            "Cat added to you favourites",
+//                            Toast.LENGTH_SHORT
+//                        ).show()
+//                        binding.toolbarCatProfile.kudosButton.setImageResource(R.drawable.button_kudos)
+//                    }
+//                }
 
             }
         }

@@ -78,7 +78,7 @@ class TiNimalRepositoryImpl(private val api: TinimalApi) : TiNimalRepository {
     }
 
     override suspend fun deleteFavoutiresCat(id: Long, id_cat: Long) {
-        api.deleteFavouritesCat()
+        api.deleteFavouritesCat(id, id_cat)
     }
 
     override suspend fun deleteCatFromUser(id: Long, id_cat: Long) {

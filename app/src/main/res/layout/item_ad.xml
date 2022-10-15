@@ -82,23 +82,10 @@
         android:id="@+id/sexImageView"
         android:layout_width="17dp"
         android:layout_height="22dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="48dp"
         android:src="@drawable/ic_male"
-        app:layout_constraintEnd_toStartOf="@+id/kudosImageButton"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/kudosImageButton"
-        android:layout_width="28dp"
-        android:layout_height="26dp"
-
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="40dp"
-        android:background="@color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/button_kudos" />
+        app:layout_constraintTop_toTopOf="@+id/priceTextView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
