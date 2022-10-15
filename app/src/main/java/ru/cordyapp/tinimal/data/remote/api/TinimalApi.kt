@@ -89,7 +89,10 @@ interface TinimalApi {
     ): CatDTO
 
     @DELETE("/users/{id}/favourites/{id_cat}")
-    suspend fun deleteFavouritesCat()
+    suspend fun deleteFavouritesCat(
+        @Path("id") id: Long,
+        @Path("id_cat") id_cat: Long
+    )
 
     @DELETE("/users/{id}/cats/{id_cat}")
     suspend fun deleteCatFromUser(
