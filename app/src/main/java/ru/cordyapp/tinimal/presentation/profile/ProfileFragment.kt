@@ -22,6 +22,7 @@ import ru.cordyapp.tinimal.domain.mapper.CatMapper
 import ru.cordyapp.tinimal.presentation.main.MainAdapter
 import ru.cordyapp.tinimal.utils.SharedPref
 import ru.cordyapp.tinimal.utils.User
+import kotlin.math.roundToInt
 
 @AndroidEntryPoint
 
@@ -63,7 +64,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                 reviewsCountTextViewProfile.text = user.ranking.toString()
                 starImageButtonProfile.setImageResource(countRating(user.ranking))
                 reviewsCountTextViewProfile.text = user.feedbacks?.size.toString()
-                starCountTextViewProfile.text = user.ranking.toString()
+                starCountTextViewProfile.text = ((user.ranking!! * 100).roundToInt() / 100.0f).toString()
 
                 Glide.with(this@ProfileFragment)
                     .load(user.avatar)

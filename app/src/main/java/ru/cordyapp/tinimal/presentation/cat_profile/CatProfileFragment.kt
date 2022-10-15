@@ -26,6 +26,7 @@ import ru.cordyapp.tinimal.presentation.profile.ProfileViewModel
 import ru.cordyapp.tinimal.utils.SharedPref
 import ru.cordyapp.tinimal.utils.User
 import ru.cordyapp.tinimal.utils.setStarByRating
+import kotlin.math.roundToInt
 
 @AndroidEntryPoint
 class CatProfileFragment : Fragment(R.layout.fragment_cat_profile) {
@@ -58,7 +59,7 @@ class CatProfileFragment : Fragment(R.layout.fragment_cat_profile) {
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(photoCatProfileFragment)
                 nameOwnerTextView.text = catInfo.owner_name
-                rankingCountTextView.text = catInfo.owner_ranking.toString()
+                rankingCountTextView.text = ((catInfo.owner_ranking!! * 100).roundToInt() / 100.0f).toString()
                 reviewCountTextView.text = catInfo.count_feedback.toString()
                 if(catInfo.owner_avatar != null)
                     Glide.with(this@CatProfileFragment)

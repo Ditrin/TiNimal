@@ -13,16 +13,16 @@
         android:layout_height="?attr/actionBarSize"
         app:navigationIcon="@drawable/ic_arrow" />
 
+
     <TextView
         android:id="@+id/noReviews"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Здесь еще никто не оставил отзыв :("
-        android:textSize="30dp"
+        android:text="@string/be_the_first_to_leave_feedback"
+        android:textSize="24sp"
         android:layout_marginHorizontal="25dp"
         android:layout_gravity="center"
-        android:visibility="gone"
-        ></TextView>
+        android:visibility="gone" />
 
 
 
@@ -35,9 +35,8 @@
         android:layout_marginTop="60dp"
         tools:listitem="@layout/item_review"
         android:layout_marginBottom="72dp">
-
-
     </androidx.recyclerview.widget.RecyclerView>
+
 
 
     <Button
