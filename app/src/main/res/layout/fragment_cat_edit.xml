@@ -185,16 +185,17 @@
             android:id="@+id/infoEditText"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:gravity="top|left"
             android:layout_marginHorizontal="32dp"
             android:background="@drawable/custom_frame_rectangle"
+            android:gravity="top|left"
             android:hint="@string/tell_about_cat"
             android:padding="8dp"
+            android:layout_marginTop="8dp"
             android:textColorHint="@color/black"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="@+id/priceEditTextCatFormFragment"
             app:layout_constraintStart_toStartOf="@+id/certificatesTextView"
-            app:layout_constraintTop_toBottomOf="@+id/certificatesTextView" />
+            app:layout_constraintTop_toBottomOf="@+id/certificatesCheckBox" />
 
 
         <Button
@@ -204,6 +205,7 @@
             android:text="@string/delete"
             android:textStyle="bold"
             app:cornerRadius="12dip"
+            android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/infoEditText"

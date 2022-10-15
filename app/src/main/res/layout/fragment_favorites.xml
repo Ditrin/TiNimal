@@ -13,6 +13,15 @@
         android:layout_height="?attr/actionBarSize"
         app:navigationIcon="@drawable/ic_arrow" />
 
+    <TextView
+        android:id="@+id/noPetsTextView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/add_a_pet_to_your_favorites"
+        android:gravity="center"
+        android:visibility="gone"
+        android:textSize="24sp"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/catFavoritesListRecyclerView"
         android:layout_width="match_parent"
