@@ -50,24 +50,6 @@ class FeedbackNewFragment : Fragment(R.layout.fragment_feedback_new) {
                 }
             }
 
-
-//            star1ImageView.setOnClickListener {
-//                viewModel.setRating(1)
-//            }
-//            star2ImageView.setOnClickListener {
-//                viewModel.setRating(2)
-//            }
-//            star3ImageView.setOnClickListener {
-//                viewModel.setRating(3)
-//            }
-//            star4ImageView.setOnClickListener {
-//                viewModel.setRating(4)
-//            }
-//            star5ImageView.setOnClickListener {
-//                viewModel.setRating(5)
-//            }
-
-
             reviewsButton.setOnClickListener {
                 val feedbackNew = FeedbackNewDTO(
                     userId = SharedPref.id!!,
@@ -75,13 +57,12 @@ class FeedbackNewFragment : Fragment(R.layout.fragment_feedback_new) {
                     text.text.toString(),
                     viewModel.rating.value!!
                 )
-                Log.d("TAG_FEEDBACK", "id = $id, id_feedback = ${feedbackNew.userId}")
                 viewModel.getFeedbacks(id, feedbackNew)
                 viewModel.isSuccess.observe(viewLifecycleOwner){
                     if(it){
                         requireActivity().onBackPressed()
                     }
-                    Toast.makeText(requireActivity(), "Error, try again later.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireActivity(), R.string.error_try_again_later, Toast.LENGTH_SHORT).show()
                 }
             }
 

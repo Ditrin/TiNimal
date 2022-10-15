@@ -19,13 +19,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/be_the_first_to_leave_feedback"
+        android:gravity="center"
         android:textSize="24sp"
         android:layout_marginHorizontal="25dp"
         android:layout_gravity="center"
-        android:visibility="gone" />
-
-
-
+        android:visibility="visible" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/reviewsRecycleView"

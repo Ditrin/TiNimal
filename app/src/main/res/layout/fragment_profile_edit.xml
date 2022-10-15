@@ -40,16 +40,16 @@
 
     <ImageButton
         android:id="@+id/removeImageButtonProfileEdit"
-        android:layout_width="25dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="48dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="44dp"
         android:background="@color/transparent"
         app:layout_constraintBottom_toBottomOf="@+id/avatarImageViewProfileEdit"
-        app:layout_constraintStart_toEndOf="@+id/avatarImageViewProfileEdit"
+        app:layout_constraintEnd_toEndOf="@+id/plusImageButtonProfileEdit"
+        app:layout_constraintStart_toStartOf="@+id/plusImageButtonProfileEdit"
         app:srcCompat="@drawable/button_remove" />
 
-        <EditText
+    <EditText
             android:id="@+id/nameEditTextProfileEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

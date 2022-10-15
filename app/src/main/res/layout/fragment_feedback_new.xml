@@ -21,7 +21,7 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/custom_frame_rectangle"
         android:gravity="top|left"
-        android:hint="Чем все закончилось?"
+        android:hint="@string/how_it_ended"
         android:padding="8dp"
         app:layout_constraintBottom_toTopOf="@+id/buttonCreate"
         app:layout_constraintEnd_toEndOf="@+id/priceEditTextCatFormFragment"
@@ -35,7 +35,7 @@
         android:layout_marginTop="20dp"
         android:textSize="16dp"
         android:textColor="@color/black"
-        android:text="Оцените продавца"/>
+        android:text="@string/rate_user"/>
 
     <LinearLayout
         android:layout_width="wrap_content"

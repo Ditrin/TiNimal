@@ -23,6 +23,7 @@
         android:visibility="gone"
         android:textSize="24sp"/>
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/catFavoritesListRecyclerView"
         android:layout_width="match_parent"

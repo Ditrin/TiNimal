@@ -46,6 +46,7 @@ class ProfileEditFragment : Fragment(R.layout.fragment_profile_edit) {
         loadUser(user)
 
         with(binding) {
+            avatarImageViewProfileEdit.setImageResource(R.drawable.default_avatar)
             appBarInfo.setNavigationOnClickListener {
                 requireActivity().onBackPressed()
             }
@@ -90,7 +91,7 @@ class ProfileEditFragment : Fragment(R.layout.fragment_profile_edit) {
                             viewModel.isAvatar.observe(viewLifecycleOwner) {
                                 Toast.makeText(
                                     requireActivity(),
-                                    "User info update",
+                                    R.string.user_info_update,
                                     Toast.LENGTH_SHORT
                                 )
                                     .show()
@@ -100,7 +101,7 @@ class ProfileEditFragment : Fragment(R.layout.fragment_profile_edit) {
 
                             Toast.makeText(
                                 requireActivity(),
-                                "User info update",
+                                R.string.user_info_update,
                                 Toast.LENGTH_SHORT
                             )
                                 .show()
@@ -109,7 +110,7 @@ class ProfileEditFragment : Fragment(R.layout.fragment_profile_edit) {
                     } else
                         Toast.makeText(
                             requireActivity(),
-                            "User info not update. Retry later",
+                            R.string.user_info_not_update,
                             Toast.LENGTH_SHORT
                         ).show()
                 }

@@ -1,7 +1,6 @@
 package ru.cordyapp.tinimal.presentation.filter
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -62,7 +61,7 @@ class FilterFragment : Fragment(R.layout.fragment_parameters) {
                     } else
                         Toast.makeText(
                             requireContext(),
-                            "Error. Please try again",
+                            R.string.error_try_again_later,
                             Toast.LENGTH_SHORT
                         ).show()
                 }
@@ -100,7 +99,6 @@ class FilterFragment : Fragment(R.layout.fragment_parameters) {
                 binding.maleCheckBox.isChecked = false
                 binding.femaleCheckBox.isChecked = true
             }
-            Log.d("asd", "${viewModel.isMale.value}")
         }
     }
 }

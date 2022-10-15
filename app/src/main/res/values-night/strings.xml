@@ -15,4 +15,9 @@
     <string name="Save">Сохранить</string>
     <string name="be_the_first_to_leave_feedback">Be the first to leave feedback!</string>
     <string name="name_cat">Name:</string>
+    <string name="how_it_ended">How it ended?</string>
+    <string name="rate_user">Rate user</string>
+    <string name="passport_availability">Passport availability</string>
+    <string name="vaccination_availability">Наличие прививок</string>
+    <string name="certificate_availability">Certificate availability</string>
 </resources>

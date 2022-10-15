@@ -70,14 +70,14 @@ class CatFormFragment : Fragment(R.layout.fragment_cat_form) {
                                     if (it) {
                                         Toast.makeText(
                                             activity,
-                                            "Cat not create",
+                                            R.string.cat_created,
                                             Toast.LENGTH_SHORT
                                         ).show()
                                         findNavController().navigate(R.id.action_catFormFragment_to_profileFragment)
                                     } else
                                         Toast.makeText(
                                             activity,
-                                            "Cat not create",
+                                            R.string.cat_no_created,
                                             Toast.LENGTH_SHORT
                                         ).show()
                                 }
@@ -86,8 +86,6 @@ class CatFormFragment : Fragment(R.layout.fragment_cat_form) {
                     } else
                         errorTextView.visibility = View.VISIBLE
                 }
-
-//                findNavController().navigate(R.id.action_catFormFragment_to_profileFragment)
             }
         }
 

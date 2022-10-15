@@ -88,7 +88,7 @@
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/maleCheckBox"
         app:layout_constraintTop_toBottomOf="@+id/maleCheckBox"
-        android:text="Наличие паспорта" />
+        android:text="@string/passport_availability" />
 
     <TextView
         android:id="@+id/vaccinationTextView"
@@ -98,7 +98,7 @@
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/passportTextView"
         app:layout_constraintTop_toBottomOf="@+id/passportTextView"
-        android:text="Наличие прививок" />
+        android:text="@string/vaccination_availability" />
 
     <TextView
         android:id="@+id/certificatesTextView"
@@ -108,7 +108,7 @@
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/vaccinationTextView"
         app:layout_constraintTop_toBottomOf="@+id/vaccinationTextView"
-        android:text="Наличие справок" />
+        android:text="@string/certificate_availability" />
 
     <CheckBox
         android:id="@+id/passportCheckBox"

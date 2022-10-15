@@ -110,7 +110,7 @@ class CatProfileFragment : Fragment(R.layout.fragment_cat_profile) {
                     viewModel.setIsLiked(false)
                     binding.toolbarCatProfile.kudosButton.setImageResource(R.drawable.button_unkudos)
                     Toast.makeText( requireActivity(),
-                        "Cat delete from you favourites",
+                        R.string.cat_deleted_from_favorites,
                         Toast.LENGTH_SHORT).show()
                 } else {
                     val addFavouritesCatDTO = AddFavouritesCatDTO(id = catInfo.id)
@@ -119,7 +119,7 @@ class CatProfileFragment : Fragment(R.layout.fragment_cat_profile) {
                         if (it) {
                             Toast.makeText(
                                 requireActivity(),
-                                "Cat added to you favourites",
+                                R.string.cat_added_to_favorites,
                                 Toast.LENGTH_SHORT
                             ).show()
                             binding.toolbarCatProfile.kudosButton.setImageResource(R.drawable.button_kudos)
@@ -127,19 +127,6 @@ class CatProfileFragment : Fragment(R.layout.fragment_cat_profile) {
                         }
                     }
                 }
-//                val addFavouritesCatDTO = AddFavouritesCatDTO(id = catInfo.id)
-//                viewModel.addFavouritesCat(userId, addFavouritesCatDTO)
-//                viewModel.isAdded.observe(viewLifecycleOwner) {
-//                    if (it) {
-//                        Toast.makeText(
-//                            requireActivity(),
-//                            "Cat added to you favourites",
-//                            Toast.LENGTH_SHORT
-//                        ).show()
-//                        binding.toolbarCatProfile.kudosButton.setImageResource(R.drawable.button_kudos)
-//                    }
-//                }
-
             }
         }
     }

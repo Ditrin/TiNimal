@@ -53,7 +53,7 @@ class CatEditFragment : Fragment(R.layout.fragment_cat_edit) {
 
             deleteCatButton.setOnClickListener {
                 viewModel.deleteCat(id, myCat.id)
-                Toast.makeText(requireActivity(), "Cat is deleted", Toast.LENGTH_SHORT)
+                Toast.makeText(requireActivity(), R.string.cat_was_deleted, Toast.LENGTH_SHORT)
                     .show()
                 findNavController().navigate(R.id.action_catEditFragment_to_profileFragment)
 
@@ -85,12 +85,12 @@ class CatEditFragment : Fragment(R.layout.fragment_cat_edit) {
                             if (it) {
                                 Toast.makeText(
                                     activity,
-                                    "Cat updated",
+                                    R.string.cat_was_updated,
                                     Toast.LENGTH_SHORT
                                 ).show()
                                 requireActivity().onBackPressed()
                             } else
-                                Toast.makeText(activity, "Cat not updated", Toast.LENGTH_SHORT)
+                                Toast.makeText(activity, R.string.cat_was_not_updated, Toast.LENGTH_SHORT)
                                     .show()
                         }
                     }

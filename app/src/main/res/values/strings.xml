@@ -48,4 +48,19 @@
     <string name="Save">Сохранить</string>
     <string name="be_the_first_to_leave_feedback">Be the first to leave feedback!</string>
     <string name="name_cat">Name:</string>
+    <string name="cat_created">Cat was created</string>
+    <string name="cat_no_created">Cat wasn\'t created</string>
+    <string name="cat_added_to_favorites">Cat added to you favourites</string>
+    <string name="cat_deleted_from_favorites">Cat delete from you favourites</string>
+    <string name="how_it_ended">How it ended?</string>
+    <string name="rate_user">Rate user</string>
+    <string name="passport_availability">Passport availability</string>
+    <string name="vaccination_availability">Vaccination availability</string>
+    <string name="certificate_availability">Certificate availability</string>
+    <string name="user_info_update">User info was update</string>
+    <string name="user_info_not_update">User info wasn\'t update. Retry later</string>
+    <string name="cat_was_deleted">Cat was deleted</string>
+    <string name="cat_was_updated">Cat was updated</string>
+    <string name="cat_was_not_updated">Cat wasn\'t updated</string>
+    <string name="error_try_again_later">Error, try again later.</string>
 </resources>
