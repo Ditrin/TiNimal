@@ -17,6 +17,7 @@ import ru.cordyapp.tinimal.data.remote.DTOmodels.CatsDTO
 import ru.cordyapp.tinimal.databinding.FragmentSearchBinding
 import ru.cordyapp.tinimal.domain.mapper.CatMapper
 import ru.cordyapp.tinimal.domain.models.CatShort
+import ru.cordyapp.tinimal.utils.Filter
 
 @AndroidEntryPoint
 class MainFragment : Fragment(R.layout.fragment_search) {
@@ -28,7 +29,12 @@ class MainFragment : Fragment(R.layout.fragment_search) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.getUsersListByLogin()
+        val filter = Filter.listCat
+
+        if (filter != null)
+            viewModel.setCatsList(filter)
+        else
+            viewModel.getUsersListByLogin()
         viewModel.catsList.observe(viewLifecycleOwner) {
             binding.adsListRecyclerView.apply {
                 adapter = mainAdapter
@@ -54,6 +60,9 @@ class MainFragment : Fragment(R.layout.fragment_search) {
                     bundle
                 )
             }
+        }
+        binding.filterImageButton.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_filterFragment)
         }
     }
 }

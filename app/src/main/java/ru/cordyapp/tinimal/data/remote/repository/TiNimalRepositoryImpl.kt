@@ -66,6 +66,25 @@ class TiNimalRepositoryImpl(private val api: TinimalApi) : TiNimalRepository {
         }
     }
 
+    override suspend fun postFilter(filterDTO: FilterDTO): List<CatDTO> {
+        return api.postFilter(filterDTO)
+    }
+
+    override suspend fun addFavouritesCat(
+        id: Long,
+        addFavouritesCatDTO: AddFavouritesCatDTO
+    ): CatDTO {
+        return api.addFavouritesCat(id, addFavouritesCatDTO)
+    }
+
+    override suspend fun deleteFavoutiresCat(id: Long, id_cat: Long) {
+        api.deleteFavouritesCat()
+    }
+
+    override suspend fun deleteCatFromUser(id: Long, id_cat: Long) {
+        return api.deleteCatFromUser(id, id_cat)
+    }
+
     override suspend fun getFavorites(id: Long): List<CatDTO> {
         return api.getFavorites(id)
     }
