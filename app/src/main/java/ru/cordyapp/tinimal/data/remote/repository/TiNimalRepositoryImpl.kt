@@ -85,6 +85,10 @@ class TiNimalRepositoryImpl(private val api: TinimalApi) : TiNimalRepository {
         return api.deleteCatFromUser(id, id_cat)
     }
 
+    override suspend fun postSearch(searchDTO: SearchDTO): List<CatDTO> {
+        return api.postSearch(searchDTO)
+    }
+
     override suspend fun getFavorites(id: Long): List<CatDTO> {
         return api.getFavorites(id)
     }

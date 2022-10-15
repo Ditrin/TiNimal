@@ -24,11 +24,12 @@
             android:src="@drawable/button_search" />
 
         <EditText
+            android:id="@+id/searchEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="@string/search_by_breed"
-            android:backgroundTint="@color/transparent" />
+            android:backgroundTint="@color/transparent"
+            android:hint="@string/search_by_breed" />
 
         <ImageButton
             android:id="@+id/filterImageButton"

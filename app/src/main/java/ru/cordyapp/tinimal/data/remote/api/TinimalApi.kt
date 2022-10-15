@@ -97,4 +97,8 @@ interface TinimalApi {
         @Path("id_cat") id_cat: Long
     )
 
+    @POST("/cats/filter")
+    suspend fun postSearch(
+        @Body searchDTO: SearchDTO
+    ): List<CatDTO>
 }

@@ -60,11 +60,12 @@ class CatProfileFragment : Fragment(R.layout.fragment_cat_profile) {
                 nameOwnerTextView.text = catInfo.owner_name
                 rankingCountTextView.text = catInfo.owner_ranking.toString()
                 reviewCountTextView.text = catInfo.count_feedback.toString()
-                Glide.with(this@CatProfileFragment)
-                    .load(catInfo.owner_avatar)
-                    .transform(CircleCrop())
-                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .into(avatarCatProfile)
+                if(catInfo.owner_avatar != null)
+                    Glide.with(this@CatProfileFragment)
+                        .load(catInfo.owner_avatar)
+                        .transform(CircleCrop())
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .into(avatarCatProfile)
                 toolbarCatProfile.backPressButton.setOnClickListener {
                     requireActivity().onBackPressed()
                 }

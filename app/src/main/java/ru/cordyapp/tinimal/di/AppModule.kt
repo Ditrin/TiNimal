@@ -168,6 +168,12 @@ object AppModule {
 
     @Provides
     @Singleton
+    fun providePostSearch(repository: TiNimalRepository): PostSearchUseCase {
+        return PostSearchUseCase(repository)
+    }
+
+    @Provides
+    @Singleton
     fun provideAuthorizationRepository(
         api: AuthApi
     ): AuthorizationRepository {

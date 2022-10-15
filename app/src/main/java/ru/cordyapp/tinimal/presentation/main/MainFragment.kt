@@ -14,6 +14,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import ru.cordyapp.tinimal.R
 import ru.cordyapp.tinimal.data.remote.DTOmodels.CatDTO
 import ru.cordyapp.tinimal.data.remote.DTOmodels.CatsDTO
+import ru.cordyapp.tinimal.data.remote.DTOmodels.SearchDTO
 import ru.cordyapp.tinimal.databinding.FragmentSearchBinding
 import ru.cordyapp.tinimal.domain.mapper.CatMapper
 import ru.cordyapp.tinimal.domain.models.CatShort
@@ -35,6 +36,12 @@ class MainFragment : Fragment(R.layout.fragment_search) {
             viewModel.setCatsList(filter)
         else
             viewModel.getUsersListByLogin()
+
+        binding.searchImageButton.setOnClickListener {
+            val searchText = SearchDTO(binding.searchEditText.text.toString())
+            viewModel.postSearch(searchText)
+        }
+
         viewModel.catsList.observe(viewLifecycleOwner) {
             binding.adsListRecyclerView.apply {
                 adapter = mainAdapter
