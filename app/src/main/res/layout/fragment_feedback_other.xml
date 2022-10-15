@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/primary_dark"
     android:orientation="vertical">
 
@@ -13,30 +13,43 @@
         android:layout_height="?attr/actionBarSize"
         app:navigationIcon="@drawable/ic_arrow" />
 
-<androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/reviewsRecycleView"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="8dp"
-    android:layout_marginHorizontal="8dp"
-    tools:listitem="@layout/item_review"
-    >
+    <TextView
+        android:id="@+id/noReviews"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Здесь еще никто не оставил отзыв :("
+        android:textSize="30dp"
+        android:layout_marginHorizontal="25dp"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        ></TextView>
 
 
-</androidx.recyclerview.widget.RecyclerView>
 
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/reviewsRecycleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="60dp"
+        tools:listitem="@layout/item_review"
+        android:layout_marginBottom="72dp">
+
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 
     <Button
-
         android:id="@+id/reviewsButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_gravity="bottom"
         android:layout_marginHorizontal="64dp"
-        android:text="Оставить отзыв"
+        android:layout_marginBottom="16dp"
+        android:text="@string/add_feedback"
         android:textStyle="bold"
         app:cornerRadius="12dip"
         app:strokeColor="@color/hint_text_color"
         app:strokeWidth="1dp" />
-</LinearLayout>
+</FrameLayout>

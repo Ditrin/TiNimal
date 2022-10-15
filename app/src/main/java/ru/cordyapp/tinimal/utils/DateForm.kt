@@ -15,7 +15,7 @@ import java.util.*
 
 object DateForm {
     fun dateParse(millis: Long): String {
-        val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+        val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         return formatter.format(millis)
     }
 }

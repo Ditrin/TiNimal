@@ -8,5 +8,5 @@ data class FeedbackNewDTO(
     @field:Json(name = "userId") val userId: Long,
     @field:Json(name = "date") val date: String?,
     @field:Json(name = "text") val text: String,
-    @field:Json(name = "rating") val rating: Float
+    @field:Json(name = "rating") val rating: Int
 )

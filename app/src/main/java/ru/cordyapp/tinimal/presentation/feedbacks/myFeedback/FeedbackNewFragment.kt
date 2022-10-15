@@ -20,6 +20,7 @@ import ru.cordyapp.tinimal.databinding.FragmentFeedbackNewBinding
 import ru.cordyapp.tinimal.presentation.cat_profile.CatProfileFragmentArgs
 import ru.cordyapp.tinimal.utils.DateForm
 import ru.cordyapp.tinimal.utils.SharedPref
+import android.util.Log
 
 @AndroidEntryPoint
 class FeedbackNewFragment : Fragment(R.layout.fragment_feedback_new) {
@@ -44,7 +45,7 @@ class FeedbackNewFragment : Fragment(R.layout.fragment_feedback_new) {
             )
             for (i in 0 until list.size) {
                 list[i].setOnClickListener {
-                    viewModel.setRating(i)
+                    viewModel.setRating(i + 1)
                     fillStar(i + 1, list)
                 }
             }
@@ -72,8 +73,9 @@ class FeedbackNewFragment : Fragment(R.layout.fragment_feedback_new) {
                     userId = SharedPref.id!!,
                     date = DateForm.dateParse(System.currentTimeMillis()),
                     text.text.toString(),
-                    viewModel.rating.value!!.toFloat()
+                    viewModel.rating.value!!
                 )
+                Log.d("TAG_FEEDBACK", "id = $id, id_feedback = ${feedbackNew.userId}")
                 viewModel.getFeedbacks(id, feedbackNew)
                 viewModel.isSuccess.observe(viewLifecycleOwner){
                     if(it){

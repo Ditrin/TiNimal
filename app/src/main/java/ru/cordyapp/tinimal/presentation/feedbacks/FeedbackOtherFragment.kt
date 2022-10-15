@@ -1,7 +1,9 @@
 package ru.cordyapp.tinimal.presentation.feedbacks
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.view.ViewDebug
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -29,6 +31,11 @@ import ru.cordyapp.tinimal.utils.SharedPref
             val id = args.idUser
             viewModel.getFeedbacks(id)
             viewModel.feedbackList.observe(viewLifecycleOwner){
+                if (it.isEmpty()){
+                    binding.noReviews.visibility = View.VISIBLE
+                }
+                else
+                    binding.noReviews.visibility = View.GONE
                 binding.reviewsRecycleView.apply {
                     adapter = feedbackAdapter
                     layoutManager = LinearLayoutManager(requireContext())
@@ -51,6 +58,7 @@ import ru.cordyapp.tinimal.utils.SharedPref
                 val bundle = Bundle().apply {
                     putLong("idUser", id)
                 }
+                Log.d("TAG_FEEDBACK", id.toString())
 
                 findNavController().navigate(R.id.action_feedbackOtherFragment_to_feedbackNewFragment, bundle)
             }

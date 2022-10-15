@@ -82,6 +82,7 @@ class CatProfileFragment : Fragment(R.layout.fragment_cat_profile) {
                 val bundle = Bundle().apply {
                     putLong("idUser", catInfo.owner_id)
                 }
+                Log.d("TAG_FEEDBACK", catInfo.owner_id.toString())
                 findNavController().navigate(R.id.action_catProfileFragment_to_feedbackOtherFragment, bundle)
             }
         }

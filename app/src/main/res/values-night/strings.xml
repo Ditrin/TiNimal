@@ -10,4 +10,5 @@
     <string name="mailText">Mail:</string>
     <string name="phoneText">Phone:</string>
     <string name="addressText">Address:</string>
+    <string name="add_feedback">Оставить отзыв</string>
 </resources>
