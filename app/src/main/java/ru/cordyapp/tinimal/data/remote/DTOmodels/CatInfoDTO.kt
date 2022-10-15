@@ -19,8 +19,9 @@ data class CatInfoDTO(
     val owner_phoneNumber: Long,
     val owner_mail: String,
     val owner_address: String,
-    val owner_avatar: String,
+    val owner_avatar: String?,
     val owner_ranking: Float?,
     val owner_name: String,
-    val count_feedback: Int
+    val count_feedback: Int,
+    val liked: Boolean
 )

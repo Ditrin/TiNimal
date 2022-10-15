@@ -10,18 +10,24 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import ru.cordyapp.tinimal.data.remote.DTOmodels.CatDTO
 import ru.cordyapp.tinimal.data.remote.DTOmodels.CatsDTO
+import ru.cordyapp.tinimal.data.remote.DTOmodels.SearchDTO
 import ru.cordyapp.tinimal.domain.use_case.GetCatsListByUserUseCase
+import ru.cordyapp.tinimal.domain.use_case.PostSearchUseCase
 import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val getCatsList: GetCatsListByUserUseCase
+    private val getCatsList: GetCatsListByUserUseCase,
+    private val postSearchUseCase: PostSearchUseCase
 ) : ViewModel() {
 
     private val catsListLiveData = MutableLiveData<List<CatDTO>>()
 
     val catsList: LiveData<List<CatDTO>>
         get() = catsListLiveData
+
+    private val searchTextLiveData = MutableLiveData<String>()
+    val searchText: LiveData<String> = searchTextLiveData
 
     private var searchJob: Job? = null
 
@@ -35,13 +41,25 @@ class MainViewModel @Inject constructor(
 
                 catsListLiveData.postValue(it)
             }.onFailure {
-                Log.d("tags", "error $it" )
+                Log.d("tags", "error $it")
                 catsListLiveData.postValue(emptyList())
             }
         }
     }
 
-    fun setCatsList(list: List<CatDTO>){
+    fun postSearch(searchDTO: SearchDTO) {
+        viewModelScope.launch {
+            runCatching {
+                postSearchUseCase.execute(searchDTO)
+            }.onSuccess {
+                catsListLiveData.postValue(it)
+            }.onFailure {
+                catsListLiveData.postValue(emptyList())
+            }
+        }
+    }
+
+    fun setCatsList(list: List<CatDTO>) {
         catsListLiveData.value = list
     }
 }

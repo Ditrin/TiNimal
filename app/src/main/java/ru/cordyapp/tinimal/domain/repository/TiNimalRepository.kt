@@ -27,4 +27,5 @@ interface TiNimalRepository {
     suspend fun addFavouritesCat(id: Long, addFavouritesCatDTO: AddFavouritesCatDTO): CatDTO
     suspend fun deleteFavoutiresCat(id: Long, id_cat: Long)
     suspend fun deleteCatFromUser(id: Long, id_cat: Long)
+    suspend fun postSearch(searchDTO: SearchDTO): List<CatDTO>
 }
