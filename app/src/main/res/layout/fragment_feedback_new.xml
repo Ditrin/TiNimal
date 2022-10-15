@@ -48,7 +48,7 @@
             android:id="@+id/star1ImageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_star_stroke"/>
+            android:src="@drawable/ic_star5"/>
         <ImageView
             android:id="@+id/star2ImageView"
             android:layout_marginStart="10dp"

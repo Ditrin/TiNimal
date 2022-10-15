@@ -16,7 +16,7 @@ class FeedbackNewViewModel @Inject constructor(
     private val postFeedbackUseCase: PostFeedbackUseCase
 ) : ViewModel() {
 
-    private val ratingLiveData = MutableLiveData<Int>()
+    private val ratingLiveData = MutableLiveData<Int>(1)
     val rating: LiveData<Int> = ratingLiveData
 
     private val isSuccessLiveData = MutableLiveData<Boolean>()

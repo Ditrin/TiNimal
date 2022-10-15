@@ -11,14 +11,14 @@
         android:id="@+id/starCountTextViewProfile2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="60dp"
         android:layout_marginBottom="4dp"
         android:textColor="@color/black"
         android:textSize="11sp"
-        android:layout_marginStart="4dp"
         app:layout_constraintBottom_toBottomOf="@+id/starImageViewReviews"
-        app:layout_constraintStart_toEndOf="@+id/starImageViewReviews"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/starImageViewReviews"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.0"
         tools:text="255" />
 
     <ImageView
@@ -36,11 +36,10 @@
         android:id="@+id/starImageViewReviews"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_marginStart="136dp"
+        android:layout_marginEnd="8dp"
         android:src="@drawable/ic_star_stroke"
-        app:layout_constraintBottom_toBottomOf="@+id/nameTextView"
-        app:layout_constraintStart_toEndOf="@+id/nameTextView"
-        app:layout_constraintTop_toTopOf="@+id/nameTextView"></ImageView>
+        app:layout_constraintEnd_toStartOf="@+id/starCountTextViewProfile2"
+        app:layout_constraintTop_toTopOf="@+id/nameTextView"/>.
 
     <TextView
         android:id="@+id/nameTextView"
