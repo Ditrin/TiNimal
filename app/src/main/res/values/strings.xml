@@ -38,4 +38,5 @@
     <string name="is_passport">Наличие паспорта</string>
     <string name="is_vaccination">Наличие прививок</string>
     <string name="is_certificate">Наличие справок</string>
+    <string name="add_feedback">Оставить отзыв</string>
 </resources>

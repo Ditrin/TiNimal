@@ -5,7 +5,7 @@ import androidx.annotation.RequiresApi
 import ru.cordyapp.tinimal.data.remote.DTOmodels.FeedbackDTO
 import ru.cordyapp.tinimal.data.remote.DTOmodels.UserDTO
 import ru.cordyapp.tinimal.domain.models.FeedbackShort
-import ru.cordyapp.tinimal.utils.dateParse
+import ru.cordyapp.tinimal.utils.DateForm
 
 class FeedbackMapper : Mapper<FeedbackDTO, FeedbackShort>{
     @RequiresApi(Build.VERSION_CODES.O)
@@ -13,7 +13,8 @@ class FeedbackMapper : Mapper<FeedbackDTO, FeedbackShort>{
         return FeedbackShort(
             t.avatar,
             t.name,
-            dateParse(t.date!!.substring(0, 19).replace("T", " ")),
+//            DateForm.dateParse(t.date!!.substring(0, 19).replace("T", " ")),
+            DateForm.dateParse(System.currentTimeMillis()),
             t.text,
             t.rating
         )

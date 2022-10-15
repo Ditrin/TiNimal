@@ -70,11 +70,12 @@ interface TinimalApi {
         @Path("id") id: Long
     )
 
-    @POST("/users/{id}/feedbacks/")
+    @POST("/users/{id}/feedbacks")
     suspend fun postFeedback(
         @Path("id") id: Long,
         @Body feedbackNewDTO: FeedbackNewDTO
     ): FeedbackDTO
+
 
     @POST("/cats/search")
     suspend fun postFilter(
