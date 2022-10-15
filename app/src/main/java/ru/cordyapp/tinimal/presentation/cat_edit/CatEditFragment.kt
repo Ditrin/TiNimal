@@ -51,9 +51,15 @@ class CatEditFragment : Fragment(R.layout.fragment_cat_edit) {
                 startActivityForResult(gallery, REQUEST_CODE)
             }
 
-            buttonDeleteContact.setOnClickListener {  }
+            deleteCatButton.setOnClickListener {
+                viewModel.deleteCat(id, myCat.id)
+                Toast.makeText(requireActivity(), "Cat is deleted", Toast.LENGTH_SHORT)
+                    .show()
+                findNavController().navigate(R.id.action_catEditFragment_to_profileFragment)
 
-            viewModel.pathImage.observe(viewLifecycleOwner){
+            }
+
+            viewModel.pathImage.observe(viewLifecycleOwner) {
                 avatarImageView.setImageURI(it)
             }
 
@@ -72,10 +78,10 @@ class CatEditFragment : Fragment(R.layout.fragment_cat_edit) {
 
                 viewModel.update(catUpdate, id, myCat.id)
 
-                viewModel.isSuccess.observe(viewLifecycleOwner){
-                    if (it){
+                viewModel.isSuccess.observe(viewLifecycleOwner) {
+                    if (it) {
                         viewModel.postAvatar(myCat.id, filePart!!)
-                        viewModel.isPostAvatar.observe(viewLifecycleOwner){
+                        viewModel.isPostAvatar.observe(viewLifecycleOwner) {
                             if (it) {
                                 Toast.makeText(
                                     activity,
@@ -83,9 +89,9 @@ class CatEditFragment : Fragment(R.layout.fragment_cat_edit) {
                                     Toast.LENGTH_SHORT
                                 ).show()
                                 requireActivity().onBackPressed()
-                            }
-                            else
-                                Toast.makeText(activity, "Cat not updated", Toast.LENGTH_SHORT).show()
+                            } else
+                                Toast.makeText(activity, "Cat not updated", Toast.LENGTH_SHORT)
+                                    .show()
                         }
                     }
                 }

@@ -6,6 +6,7 @@ import retrofit2.http.Body
 import retrofit2.http.Part
 import ru.cordyapp.tinimal.data.remote.DTOmodels.*
 import ru.cordyapp.tinimal.domain.models.CatShort
+import ru.cordyapp.tinimal.utils.Cat
 import java.io.File
 
 interface TiNimalRepository {
@@ -22,4 +23,8 @@ interface TiNimalRepository {
     suspend fun deleteUser(id: Long)
     suspend fun postFeedback(id: Long, feedbackNewDTO: FeedbackNewDTO): FeedbackDTO
     suspend fun postCatAvatar(id: Long, @Part file: MultipartBody.Part)
+    suspend fun postFilter(filterDTO: FilterDTO): List<CatDTO>
+    suspend fun addFavouritesCat(id: Long, addFavouritesCatDTO: AddFavouritesCatDTO): CatDTO
+    suspend fun deleteFavoutiresCat(id: Long, id_cat: Long)
+    suspend fun deleteCatFromUser(id: Long, id_cat: Long)
 }

@@ -12,6 +12,7 @@ import okhttp3.MultipartBody
 import ru.cordyapp.tinimal.data.remote.DTOmodels.CatAddDTO
 import ru.cordyapp.tinimal.data.remote.DTOmodels.CatDTO
 import ru.cordyapp.tinimal.data.remote.DTOmodels.UserDTO
+import ru.cordyapp.tinimal.domain.use_case.DeleteCatFromUserUseCase
 import ru.cordyapp.tinimal.domain.use_case.PostCatAvatarUseCase
 import ru.cordyapp.tinimal.domain.use_case.UpdateCatUseCase
 import javax.inject.Inject
@@ -19,7 +20,8 @@ import javax.inject.Inject
 @HiltViewModel
 class CatEditViewModel @Inject constructor(
     private val updateCatUseCase: UpdateCatUseCase,
-    private val postCatAvatarUseCase: PostCatAvatarUseCase
+    private val postCatAvatarUseCase: PostCatAvatarUseCase,
+    private val deleteCatFromUserUseCase: DeleteCatFromUserUseCase
 ) : ViewModel() {
 
     private val isValidateLiveData = MutableLiveData<Boolean>(false)
@@ -27,6 +29,9 @@ class CatEditViewModel @Inject constructor(
 
     private val isSuccessLiveData = MutableLiveData<Boolean>()
     val isSuccess: LiveData<Boolean> = isSuccessLiveData
+
+    private val isDeleteLiveData = MutableLiveData<Boolean>()
+    val isDelete: LiveData<Boolean> = isDeleteLiveData
 
     private val isPostAvatarLiveData = MutableLiveData<Boolean>()
     val isPostAvatar: LiveData<Boolean> = isPostAvatarLiveData
@@ -69,10 +74,22 @@ class CatEditViewModel @Inject constructor(
         viewModelScope.launch {
             runCatching {
                 postCatAvatarUseCase.execute(id, file)
-            }.onSuccess{
+            }.onSuccess {
                 isPostAvatarLiveData.value = true
             }.onFailure {
                 isPostAvatarLiveData.value = false
+            }
+        }
+    }
+
+    fun deleteCat(id: Long, id_cat: Long) {
+        viewModelScope.launch {
+            runCatching {
+                deleteCatFromUserUseCase.execute(id, id_cat)
+            }.onSuccess {
+                isDeleteLiveData.value = true
+            }.onFailure {
+                isDeleteLiveData.value = false
             }
         }
     }

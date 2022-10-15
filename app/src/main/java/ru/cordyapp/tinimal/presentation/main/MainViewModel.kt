@@ -18,11 +18,6 @@ class MainViewModel @Inject constructor(
     private val getCatsList: GetCatsListByUserUseCase
 ) : ViewModel() {
 
-//    private val isLoadLiveData = MutableLiveData(false)
-//
-//    val isLoad: LiveData<Boolean>
-//        get() = isLoadLiveData
-
     private val catsListLiveData = MutableLiveData<List<CatDTO>>()
 
     val catsList: LiveData<List<CatDTO>>
@@ -44,5 +39,9 @@ class MainViewModel @Inject constructor(
                 catsListLiveData.postValue(emptyList())
             }
         }
+    }
+
+    fun setCatsList(list: List<CatDTO>){
+        catsListLiveData.value = list
     }
 }

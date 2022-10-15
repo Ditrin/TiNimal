@@ -106,7 +106,11 @@ object AppModule {
         return DeleteUserUseCase(repository)
     }
 
-
+    @Provides
+    @Singleton
+    fun providePostFilter(repository: TiNimalRepository): PostFilterUseCase {
+        return PostFilterUseCase(repository)
+    }
 
     @Provides
     @Singleton
@@ -142,6 +146,24 @@ object AppModule {
     @Singleton
     fun provideCatAvatar(repository: TiNimalRepository): PostCatAvatarUseCase {
         return PostCatAvatarUseCase(repository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideAddFavouritesCat(repository: TiNimalRepository): AddFavouritesCatUseCase {
+        return AddFavouritesCatUseCase(repository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideDeleteFavouritesCat(repository: TiNimalRepository): DeleteFavouritesCatUseCase {
+        return DeleteFavouritesCatUseCase(repository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideDeleteCatFromUser(repository: TiNimalRepository): DeleteCatFromUserUseCase {
+        return DeleteCatFromUserUseCase(repository)
     }
 
     @Provides

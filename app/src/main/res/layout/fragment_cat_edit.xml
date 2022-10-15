@@ -198,7 +198,7 @@
 
 
         <Button
-            android:id="@+id/buttonDeleteContact"
+            android:id="@+id/deleteCatButton"
             android:layout_width="320dp"
             android:layout_height="wrap_content"
             android:text="@string/delete"
@@ -219,7 +219,7 @@
             app:cornerRadius="12dip"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonDeleteContact"
+            app:layout_constraintTop_toBottomOf="@+id/deleteCatButton"
             app:strokeColor="@color/hint_text_color"
             app:strokeWidth="1dp" />
 

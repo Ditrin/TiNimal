@@ -6,6 +6,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -18,10 +19,12 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import dagger.hilt.android.AndroidEntryPoint
 import ru.cordyapp.tinimal.R
+import ru.cordyapp.tinimal.data.remote.DTOmodels.AddFavouritesCatDTO
 import ru.cordyapp.tinimal.databinding.FragmentCatProfileBinding
 import ru.cordyapp.tinimal.databinding.FragmentProfileBinding
 import ru.cordyapp.tinimal.presentation.profile.ProfileViewModel
 import ru.cordyapp.tinimal.utils.SharedPref
+import ru.cordyapp.tinimal.utils.User
 import ru.cordyapp.tinimal.utils.setStarByRating
 
 @AndroidEntryPoint
@@ -29,6 +32,7 @@ class CatProfileFragment : Fragment(R.layout.fragment_cat_profile) {
     private val binding by viewBinding(FragmentCatProfileBinding::bind)
     private val viewModel: CatProfileViewModel by viewModels()
     private val args: CatProfileFragmentArgs by navArgs()
+    private val userId = SharedPref.id ?: -1
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -37,7 +41,7 @@ class CatProfileFragment : Fragment(R.layout.fragment_cat_profile) {
         val id = args.cat
         Log.d("ID_TAG", id.toString())
         viewModel.getCat(id)
-        viewModel.cat.observe(viewLifecycleOwner) {catInfo ->
+        viewModel.cat.observe(viewLifecycleOwner) { catInfo ->
             with(binding) {
                 nameProfileFragment.text = catInfo.name
                 breedProfileFragment.text = catInfo.breed
@@ -70,7 +74,10 @@ class CatProfileFragment : Fragment(R.layout.fragment_cat_profile) {
                     val bundle = Bundle().apply {
                         putLong("id_owner", catInfo.owner_id)
                     }
-                    findNavController().navigate(R.id.action_catProfileFragment_to_userProfileFragment, bundle)
+                    findNavController().navigate(
+                        R.id.action_catProfileFragment_to_userProfileFragment,
+                        bundle
+                    )
                 }
                 toolbarCatProfile.callButton.setOnClickListener {
                     call(catInfo.owner_phoneNumber.toString())
@@ -82,8 +89,27 @@ class CatProfileFragment : Fragment(R.layout.fragment_cat_profile) {
                 val bundle = Bundle().apply {
                     putLong("idUser", catInfo.owner_id)
                 }
-                Log.d("TAG_FEEDBACK", catInfo.owner_id.toString())
-                findNavController().navigate(R.id.action_catProfileFragment_to_feedbackOtherFragment, bundle)
+
+                findNavController().navigate(
+                    R.id.action_catProfileFragment_to_feedbackOtherFragment,
+                    bundle
+                )
+            }
+
+            binding.toolbarCatProfile.kudosButton.setOnClickListener {
+                val addFavouritesCatDTO = AddFavouritesCatDTO(id = catInfo.id)
+                viewModel.addFavouritesCat(userId, addFavouritesCatDTO)
+                viewModel.isAdded.observe(viewLifecycleOwner) {
+                    if (it) {
+                        Toast.makeText(
+                            requireActivity(),
+                            "Cat added to you favourites",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        binding.toolbarCatProfile.kudosButton.setImageResource(R.drawable.button_kudos)
+                    }
+                }
+
             }
         }
     }
