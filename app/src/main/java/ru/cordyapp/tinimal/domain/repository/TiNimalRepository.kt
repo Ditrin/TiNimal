@@ -24,4 +24,7 @@ interface TiNimalRepository {
     suspend fun postFeedback(id: Long, feedbackNewDTO: FeedbackNewDTO): FeedbackDTO
     suspend fun postCatAvatar(id: Long, @Part file: MultipartBody.Part)
     suspend fun postFilter(filterDTO: FilterDTO): List<CatDTO>
+    suspend fun addFavouritesCat(id: Long, addFavouritesCatDTO: AddFavouritesCatDTO): CatDTO
+    suspend fun deleteFavoutiresCat(id: Long, id_cat: Long)
+    suspend fun deleteCatFromUser(id: Long, id_cat: Long)
 }

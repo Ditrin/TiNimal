@@ -16,12 +16,10 @@ interface TinimalApi {
         @Path("id") id: Long
     ): UserDTO
 
-    //    @Multipart
     @POST("users/{id}/cats")
     suspend fun addCat(
         @Body catAddDTO: CatAddDTO,
         @Path("id") id: Long,
-//        @Part image: MultipartBody.Part
     ): CatDTO?
 
     @GET("users/{id}/feedbacks")
@@ -46,7 +44,7 @@ interface TinimalApi {
         @Body catAddDTO: CatAddDTO,
         @Path("id") id: Long,
         @Path("cat_id") cat_id: Long
-    ) : UserDTO
+    ): UserDTO
 
     @Multipart
     @POST("users/{id}/avatar")
@@ -82,4 +80,20 @@ interface TinimalApi {
     suspend fun postFilter(
         @Body filterDTO: FilterDTO
     ): List<CatDTO>
+
+    @POST("/users/{id}/favourites")
+    suspend fun addFavouritesCat(
+        @Path("id") id: Long,
+        @Body addFavouritesCatDTO: AddFavouritesCatDTO
+    ): CatDTO
+
+    @DELETE("/users/{id}/favourites/{id_cat}")
+    suspend fun deleteFavouritesCat()
+
+    @DELETE("/users/{id}/cats/{id_cat}")
+    suspend fun deleteCatFromUser(
+        @Path("id") id: Long,
+        @Path("id_cat") id_cat: Long
+    )
+
 }

@@ -55,8 +55,10 @@ class FilterFragment : Fragment(R.layout.fragment_parameters) {
                 viewModel.postFilter(filter)
                 viewModel.isSuccess.observe(viewLifecycleOwner) {
                     if (it) {
-                        findNavController().navigate(R.id.action_filterFragment_to_mainFragment)
-                        Filter.listCat = viewModel.listCat.value
+                        viewModel.listCat.observe(viewLifecycleOwner) { list ->
+                            Filter.listCat = list
+                            findNavController().navigate(R.id.action_filterFragment_to_mainFragment)
+                        }
                     } else
                         Toast.makeText(
                             requireContext(),

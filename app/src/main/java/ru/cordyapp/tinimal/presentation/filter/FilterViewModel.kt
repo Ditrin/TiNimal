@@ -31,7 +31,7 @@ class FilterViewModel @Inject constructor(private val postFilterUseCase: PostFil
     private val isMaleLiveData = MutableLiveData<Boolean>(true)
     val isMale: LiveData<Boolean> = isMaleLiveData
 
-    private val isSuccessLiveData = MutableLiveData<Boolean>(true)
+    private val isSuccessLiveData = MutableLiveData<Boolean>()
     val isSuccess: LiveData<Boolean> = isSuccessLiveData
 
     fun postFilter(filterDTO: FilterDTO) {
@@ -39,9 +39,10 @@ class FilterViewModel @Inject constructor(private val postFilterUseCase: PostFil
             runCatching {
                 postFilterUseCase.execute(filterDTO)
             }.onSuccess {
+                isSuccessLiveData.postValue(true)
                 listCatLiveData.postValue(it)
             }.onFailure {
-
+                isSuccessLiveData.postValue(false)
             }
         }
     }

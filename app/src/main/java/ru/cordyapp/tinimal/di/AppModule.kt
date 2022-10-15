@@ -144,6 +144,24 @@ object AppModule {
 
     @Provides
     @Singleton
+    fun provideAddFavouritesCat(repository: TiNimalRepository): AddFavouritesCatUseCase {
+        return AddFavouritesCatUseCase(repository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideDeleteFavouritesCat(repository: TiNimalRepository): DeleteFavouritesCatUseCase {
+        return DeleteFavouritesCatUseCase(repository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideDeleteCatFromUser(repository: TiNimalRepository): DeleteCatFromUserUseCase {
+        return DeleteCatFromUserUseCase(repository)
+    }
+
+    @Provides
+    @Singleton
     fun provideAuthorizationRepository(
         api: AuthApi
     ): AuthorizationRepository {
