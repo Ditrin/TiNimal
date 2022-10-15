@@ -29,6 +29,9 @@ class CatFormViewModel @Inject constructor(
     private val isSuccessLiveData = MutableLiveData<Boolean>()
     val isSuccess: LiveData<Boolean> = isSuccessLiveData
 
+    private val isEnabledLiveData = MutableLiveData<Boolean>(true)
+    val isEnabled: LiveData<Boolean> = isEnabledLiveData
+
     private val isPostAvatarLiveData = MutableLiveData<Boolean>()
     val isPostAvatar: LiveData<Boolean> = isPostAvatarLiveData
 
@@ -53,6 +56,7 @@ class CatFormViewModel @Inject constructor(
     fun addCat(catAddDTO: CatAddDTO, id: Long) {
         viewModelScope.launch {
             runCatching {
+                isEnabledLiveData.value = false
                 addCatUseCase.execute(catAddDTO, id)
             }
                 .onSuccess {
@@ -71,8 +75,10 @@ class CatFormViewModel @Inject constructor(
             runCatching {
                 postCatAvatarUseCase.execute(id, file)
             }.onSuccess{
+                isEnabledLiveData.value = true
                 isPostAvatarLiveData.value = true
             }.onFailure {
+                isEnabledLiveData.value = true
                 isPostAvatarLiveData.value = false
             }
         }

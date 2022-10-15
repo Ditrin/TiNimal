@@ -9,6 +9,7 @@ import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.compose.ui.window.Dialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -36,6 +37,9 @@ class CatFormFragment : Fragment(R.layout.fragment_cat_form) {
         super.onViewCreated(view, savedInstanceState)
 
         with(binding) {
+            viewModel.isEnabled.observe(viewLifecycleOwner) {
+                buttonCreate.isEnabled = it
+            }
             buttonCreate.setOnClickListener {
                 viewModel.verify(
                     nameEditTextCatFormFragment.text.toString(),
@@ -59,10 +63,10 @@ class CatFormFragment : Fragment(R.layout.fragment_cat_form) {
                             catStoryEditTextCatFormFragment.text.toString(),
                         )
                         viewModel.addCat(cat, id)
-                        viewModel.isSuccess.observe(viewLifecycleOwner){
-                            if (it){
+                        viewModel.isSuccess.observe(viewLifecycleOwner) {
+                            if (it) {
                                 viewModel.postAvatar(viewModel.cat.value!!.id, filePart!!)
-                                viewModel.isPostAvatar.observe(viewLifecycleOwner){
+                                viewModel.isPostAvatar.observe(viewLifecycleOwner) {
                                     if (it) {
                                         Toast.makeText(
                                             activity,
@@ -70,9 +74,12 @@ class CatFormFragment : Fragment(R.layout.fragment_cat_form) {
                                             Toast.LENGTH_SHORT
                                         ).show()
                                         findNavController().navigate(R.id.action_catFormFragment_to_profileFragment)
-                                    }
-                                    else
-                                        Toast.makeText(activity, "Cat not create", Toast.LENGTH_SHORT).show()
+                                    } else
+                                        Toast.makeText(
+                                            activity,
+                                            "Cat not create",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
                                 }
                             }
                         }
@@ -125,7 +132,8 @@ class CatFormFragment : Fragment(R.layout.fragment_cat_form) {
             Log.d("asd", "${viewModel.isMale.value}")
         }
         binding.appBarInfo.setNavigationOnClickListener {
-            requireActivity().onBackPressed()}
+            requireActivity().onBackPressed()
+        }
     }
 
 
@@ -162,7 +170,7 @@ class CatFormFragment : Fragment(R.layout.fragment_cat_form) {
         }
     }
 
-    companion object{
+    companion object {
         private const val REQUEST_CODE = 200
     }
 }

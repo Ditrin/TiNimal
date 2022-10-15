@@ -32,6 +32,10 @@ class FavouritesFragment : Fragment(R.layout.fragment_favorites) {
 
         viewModel.getCats(id)
         viewModel.catsList.observe(viewLifecycleOwner) {
+            if (it.isEmpty())
+                binding.noPetsTextView.visibility = View.VISIBLE
+            else
+                binding.noPetsTextView.visibility = View.GONE
             binding.catFavoritesListRecyclerView.apply {
                 adapter = mainAdapter
                 layoutManager = LinearLayoutManager(requireContext())

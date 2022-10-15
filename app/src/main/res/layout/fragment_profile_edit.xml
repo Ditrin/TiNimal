@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
     <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="@color/primary_light"
         android:orientation="vertical">
 
@@ -41,16 +38,16 @@
             app:layout_constraintTop_toTopOf="@+id/avatarImageViewProfileEdit"
             app:srcCompat="@drawable/ic_plus" />
 
-        <ImageButton
-            android:id="@+id/removeImageButtonProfileEdit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginBottom="48dp"
-            android:background="@color/transparent"
-            app:layout_constraintBottom_toBottomOf="@+id/avatarImageViewProfileEdit"
-            app:layout_constraintStart_toEndOf="@+id/avatarImageViewProfileEdit"
-            app:srcCompat="@drawable/button_remove" />
+    <ImageButton
+        android:id="@+id/removeImageButtonProfileEdit"
+        android:layout_width="25dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="48dp"
+        android:background="@color/transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/avatarImageViewProfileEdit"
+        app:layout_constraintStart_toEndOf="@+id/avatarImageViewProfileEdit"
+        app:srcCompat="@drawable/button_remove" />
 
         <EditText
             android:id="@+id/nameEditTextProfileEdit"
@@ -111,37 +108,20 @@
             app:layout_constraintTop_toBottomOf="@+id/mailEditTextProfileEdit"
             tools:text="г. Казань,ул. Моторная" />
 
-        <Button
-            android:id="@+id/removeAccountButtonProfileEdit"
-            android:layout_width="320dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:text="удалить аккаунт"
-            android:textStyle="bold"
-            app:cornerRadius="12dip"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.494"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/addressEditTextProfileEdit"
-            app:strokeColor="@color/hint_text_color"
-            app:strokeWidth="1dp" />
 
-        <Button
-            android:id="@+id/saveButtonProfileEdit"
-            android:layout_width="320dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="48dp"
-            android:text="Сохранить"
-            android:textStyle="bold"
-            app:cornerRadius="12dip"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.494"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/removeAccountButtonProfileEdit"
-            app:strokeColor="@color/hint_text_color"
-            app:strokeWidth="1dp" />
+    <Button
+        android:id="@+id/saveButtonProfileEdit"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        android:text="@string/Save"
+        android:textStyle="bold"
+        app:cornerRadius="12dip"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:strokeColor="@color/hint_text_color"
+        app:strokeWidth="1dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>

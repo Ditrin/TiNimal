@@ -56,7 +56,7 @@ class ProfileEditFragment : Fragment(R.layout.fragment_profile_edit) {
                 gallery.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION)
                 startActivityForResult(gallery, pickImage)
             }
-            removeAccountButtonProfileEdit.setOnClickListener {
+            removeImageButtonProfileEdit.setOnClickListener {
                 Glide.with(this@ProfileEditFragment)
                     .load(R.drawable.default_avatar)
                     .transform(CircleCrop())
@@ -121,12 +121,6 @@ class ProfileEditFragment : Fragment(R.layout.fragment_profile_edit) {
 
             binding.appBarInfo.setOnClickListener {
                 requireActivity().onBackPressed()
-            }
-            binding.removeAccountButtonProfileEdit.setOnClickListener {
-                Log.d("DELETE_TAG", "id = ${User.user!!.id}, token = ${SharedPref.authToken}")
-                viewModel.deleteUser(User.user!!.id)
-                SharedPref.authToken = ""
-                findNavController().navigate(R.id.action_profileEditFragment_to_loginFragment)
             }
         }
 

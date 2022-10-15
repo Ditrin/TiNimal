@@ -39,5 +39,12 @@
     <string name="is_vaccination">Наличие прививок</string>
     <string name="is_certificate">Наличие справок</string>
     <string name="add_feedback">Оставить отзыв</string>
+    <string name="add_a_pet_to_your_favorites">Add a pet to your favorites</string>
+    <string name="dialog_text">This page is not yet available on the mobile app</string>
+    <string name="dialog_header">Open Tinimal website</string>
+    <string name="positive">Go</string>
+    <string name="negative">Close</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="Save">Сохранить</string>
     <string name="be_the_first_to_leave_feedback">Be the first to leave feedback!</string>
 </resources>

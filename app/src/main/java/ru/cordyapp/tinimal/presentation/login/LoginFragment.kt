@@ -1,5 +1,9 @@
 package ru.cordyapp.tinimal.presentation.login
 
+import android.app.AlertDialog
+import android.content.DialogInterface
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -23,6 +27,26 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
         if (!SharedPref.authToken.isNullOrBlank())
             findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
+
+        binding.passwordResetTextView.setOnClickListener {
+            val alertDialog: AlertDialog? = activity?.let {
+                val builder = AlertDialog.Builder(it)
+                builder.apply {
+                    setMessage(R.string.dialog_text)
+                    setPositiveButton(R.string.positive,
+                        DialogInterface.OnClickListener { dialog, id ->
+                            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://cordy.vercel.app/"))
+                            startActivity(browserIntent)
+                        })
+                    setNegativeButton(R.string.negative,
+                        DialogInterface.OnClickListener { dialog, id ->
+                        })
+                }
+
+                builder.create()
+            }
+            alertDialog?.show()
+        }
 
         viewModel.isEnabled.observe(viewLifecycleOwner){
             binding.signInButton.isEnabled = it
