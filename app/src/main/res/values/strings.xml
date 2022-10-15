@@ -39,4 +39,5 @@
     <string name="is_vaccination">Наличие прививок</string>
     <string name="is_certificate">Наличие справок</string>
     <string name="add_feedback">Оставить отзыв</string>
+    <string name="be_the_first_to_leave_feedback">Be the first to leave feedback!</string>
 </resources>

@@ -16,7 +16,7 @@ class FeedbackMapper : Mapper<FeedbackDTO, FeedbackShort>{
 //            DateForm.dateParse(t.date!!.substring(0, 19).replace("T", " ")),
             DateForm.dateParse(System.currentTimeMillis()),
             t.text,
-            t.rating
+            (t.rating!! * 100) / 100.0.toFloat()
         )
     }
 

@@ -11,4 +11,5 @@
     <string name="phoneText">Phone:</string>
     <string name="addressText">Address:</string>
     <string name="add_feedback">Оставить отзыв</string>
+    <string name="be_the_first_to_leave_feedback">Be the first to leave feedback!</string>
 </resources>
