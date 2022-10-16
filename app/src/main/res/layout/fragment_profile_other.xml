@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/primary_light"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/userProfileToolbar"
+        layout="@layout/toolbar_profile_other"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/custom_frame_rectangle">
+
+        <ImageView
+            android:id="@+id/avatarImageViewProfile"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/default_avatar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/nameTextViewProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="@+id/avatarImageViewProfile"
+            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintStart_toStartOf="@+id/avatarImageViewProfile"
+            app:layout_constraintTop_toBottomOf="@+id/avatarImageViewProfile"
+            tools:text="Катерина" />
+
+        <TextView
+            android:id="@+id/addressTextViewProfile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/starImageButtonProfile"
+            app:layout_constraintTop_toBottomOf="@+id/starTextViewProfile"
+            tools:text="г. Казань,ул.Чистопольскаяввввв" />
+
+        <ImageButton
+            android:id="@+id/starImageButtonProfile"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="68dp"
+            android:background="@color/transparent"
+            app:layout_constraintStart_toEndOf="@+id/avatarImageViewProfile"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_star_stroke" />
+
+        <ImageButton
+            android:id="@+id/reviewsImageButtonProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.144"
+            app:layout_constraintStart_toEndOf="@+id/starCountTextViewProfile"
+            app:layout_constraintTop_toTopOf="@+id/starImageButtonProfile"
+            app:srcCompat="@drawable/button_reviews" />
+
+        <TextView
+            android:id="@+id/starTextViewProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/black"
+            android:textSize="9sp"
+            app:layout_constraintEnd_toEndOf="@+id/starImageButtonProfile"
+            app:layout_constraintStart_toStartOf="@+id/starImageButtonProfile"
+            app:layout_constraintTop_toBottomOf="@+id/starImageButtonProfile"
+            tools:text="Рейтинг" />
+
+        <TextView
+            android:id="@+id/reviewsTextViewProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/black"
+            android:textSize="9sp"
+            app:layout_constraintEnd_toEndOf="@+id/reviewsImageButtonProfile"
+            app:layout_constraintStart_toStartOf="@+id/reviewsImageButtonProfile"
+            app:layout_constraintTop_toBottomOf="@+id/reviewsImageButtonProfile"
+            tools:text="Отзывы" />
+
+        <TextView
+            android:id="@+id/starCountTextViewProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/starImageButtonProfile"
+            app:layout_constraintStart_toEndOf="@+id/starImageButtonProfile"
+            app:layout_constraintTop_toTopOf="@+id/starImageButtonProfile"
+            tools:text="255" />
+
+        <TextView
+            android:id="@+id/reviewsCountTextViewProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/reviewsImageButtonProfile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.014"
+            app:layout_constraintStart_toEndOf="@+id/reviewsImageButtonProfile"
+            app:layout_constraintTop_toTopOf="@+id/reviewsImageButtonProfile"
+            tools:text="2" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/catListRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="20dp"
+        tools:listitem="@layout/item_ad">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</LinearLayout>

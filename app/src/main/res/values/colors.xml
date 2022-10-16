@@ -10,4 +10,9 @@
     <color name="deep_blue">#243473</color>
     <color name="primary_dark">#C2D5E0</color>
     <color name="primary_light">#F0F3F6</color>
+    <color name="background_frame">#FEFEFE</color>
+    <color name="hint_text_color">#E4EFF4</color>
+    <color name="transparent">#00000000</color>
+    <color name="bottom_highlight">#1A628D</color>
+    <color name="error">#FF0000</color>
 </resources>

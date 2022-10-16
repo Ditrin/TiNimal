@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary_light">
+
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/appBarInfo"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_arrow" />
+
+        <EditText
+            android:id="@+id/nameEditTextCatFormFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/custom_edit_text_rectangle"
+            android:hint="@string/name"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/maleCheckBox" />
+
+        <EditText
+            android:id="@+id/breedEditTextCatFormFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/custom_edit_text_rectangle"
+            android:hint="@string/breed"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nameEditTextCatFormFragment" />
+
+        <EditText
+            android:id="@+id/priceEditTextCatFormFragment"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/custom_edit_text_rectangle"
+            android:hint="@string/price"
+            android:inputType="number"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ageEditTextCatFormFragment" />
+
+        <EditText
+            android:id="@+id/ageEditTextCatFormFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/custom_edit_text_rectangle"
+            android:hint="@string/age"
+            android:inputType="number"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/breedEditTextCatFormFragment" />
+
+        <CheckBox
+            android:id="@+id/maleCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/checkbox_male_selector"
+            android:button="@null"
+            android:checked="false"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            app:layout_constraintStart_toStartOf="@+id/nameEditTextCatFormFragment"
+            app:layout_constraintTop_toBottomOf="@+id/addCatImageView" />
+
+        <CheckBox
+            android:id="@+id/femaleCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:background="@drawable/checkbox_female_selector"
+            android:button="@null"
+            android:checked="false"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            app:layout_constraintBottom_toBottomOf="@+id/maleCheckBox"
+            app:layout_constraintStart_toEndOf="@+id/maleCheckBox"
+            app:layout_constraintTop_toTopOf="@+id/maleCheckBox" />
+
+        <TextView
+            android:id="@+id/passportTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/passport_availability"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/maleCheckBox"
+            app:layout_constraintTop_toBottomOf="@+id/priceEditTextCatFormFragment" />
+
+        <TextView
+            android:id="@+id/vaccinationTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/vaccination_availability"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/passportTextView"
+            app:layout_constraintTop_toBottomOf="@+id/passportTextView" />
+
+        <TextView
+            android:id="@+id/certificatesTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/certificate_availability"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/vaccinationTextView"
+            app:layout_constraintTop_toBottomOf="@+id/vaccinationTextView" />
+
+        <CheckBox
+            android:id="@+id/passportCheckBox"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginEnd="128dp"
+            android:background="@drawable/checkbox_square_selector"
+            android:button="@null"
+            android:checked="false"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/passportTextView" />
+
+        <CheckBox
+            android:id="@+id/vaccinationCheckBox"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginEnd="128dp"
+            android:background="@drawable/checkbox_square_selector"
+            android:button="@null"
+            android:checked="false"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/vaccinationTextView" />
+
+
+        <CheckBox
+            android:id="@+id/certificatesCheckBox"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginEnd="128dp"
+            android:background="@drawable/checkbox_square_selector"
+            android:button="@null"
+            android:checked="false"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/certificatesTextView" />
+
+        <Button
+            android:id="@+id/buttonCreate"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/create"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <ImageView
+
+            android:id="@+id/addCatImageView"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_add_cat_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBarInfo" />
+
+        <TextView
+            android:id="@+id/errorTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="@string/invalid_input"
+            android:textColor="@color/error"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/buttonCreate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/catStoryEditTextCatFormFragment" />
+
+        <EditText
+            android:id="@+id/catStoryEditTextCatFormFragment"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/custom_frame_rectangle"
+            android:gravity="left"
+            android:hint="@string/tell_about_cat"
+            android:padding="8dp"
+            android:textColorHint="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/buttonCreate"
+            app:layout_constraintEnd_toEndOf="@+id/priceEditTextCatFormFragment"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/certificatesTextView"
+            app:layout_constraintTop_toBottomOf="@+id/certificatesCheckBox"
+            app:layout_constraintVertical_bias="0.684" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

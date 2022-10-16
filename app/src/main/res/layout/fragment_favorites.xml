@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:background="@color/primary_light"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/appBarInfo"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:navigationIcon="@drawable/ic_arrow" />
+
+    <TextView
+        android:id="@+id/noPetsTextView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/add_a_pet_to_your_favorites"
+        android:gravity="center"
+        android:visibility="gone"
+        android:textSize="24sp"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/catFavoritesListRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="8dp"
+        tools:listitem="@layout/item_ad">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</LinearLayout>

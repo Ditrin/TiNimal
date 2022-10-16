@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_light">
+
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/appBarInfo"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_arrow" />
+
+    <EditText
+        android:id="@+id/addressEditTextParameterFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/custom_edit_text_rectangle"
+        android:hint="@string/address"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarInfo" />
+
+    <EditText
+        android:id="@+id/breedEditTextParameterFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/custom_edit_text_rectangle"
+        android:hint="@string/breed"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addressEditTextParameterFragment" />
+
+    <EditText
+        android:id="@+id/ageEditTextParameterFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/custom_edit_text_rectangle"
+        android:hint="@string/age"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/breedEditTextParameterFragment" />
+
+    <CheckBox
+        android:id="@+id/maleCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/checkbox_male_selector"
+        android:button="@null"
+        android:checked="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        app:layout_constraintStart_toStartOf="@+id/ageEditTextParameterFragment"
+        app:layout_constraintTop_toBottomOf="@+id/ageEditTextParameterFragment" />
+
+    <CheckBox
+        android:id="@+id/femaleCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:background="@drawable/checkbox_female_selector"
+        android:button="@null"
+        android:checked="false"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        app:layout_constraintBottom_toBottomOf="@+id/maleCheckBox"
+        app:layout_constraintStart_toEndOf="@+id/maleCheckBox"
+        app:layout_constraintTop_toTopOf="@+id/maleCheckBox" />
+
+    <TextView
+        android:id="@+id/passportTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/maleCheckBox"
+        app:layout_constraintTop_toBottomOf="@+id/maleCheckBox"
+        android:text="@string/passport_availability" />
+
+    <TextView
+        android:id="@+id/vaccinationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/passportTextView"
+        app:layout_constraintTop_toBottomOf="@+id/passportTextView"
+        android:text="@string/vaccination_availability" />
+
+    <TextView
+        android:id="@+id/certificatesTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/vaccinationTextView"
+        app:layout_constraintTop_toBottomOf="@+id/vaccinationTextView"
+        android:text="@string/certificate_availability" />
+
+    <CheckBox
+        android:id="@+id/passportCheckBox"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginEnd="128dp"
+        app:layout_constraintBottom_toBottomOf="@+id/passportTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/passportTextView" />
+
+    <CheckBox
+        android:id="@+id/vaccinationCheckBox"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginEnd="128dp"
+        app:layout_constraintBottom_toBottomOf="@+id/vaccinationTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/vaccinationTextView" />
+
+    <CheckBox
+        android:id="@+id/certificatesCheckBox"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginEnd="128dp"
+        app:layout_constraintBottom_toBottomOf="@+id/certificatesTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/certificatesTextView" />
+
+    <TextView
+        android:id="@+id/priceFinishTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/priceStartEditText"
+        app:layout_constraintTop_toTopOf="@+id/priceStartTextView"
+        android:text="@string/to" />
+
+    <TextView
+        android:id="@+id/priceStartTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="72dp"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/ageEditTextParameterFragment"
+        app:layout_constraintTop_toBottomOf="@+id/certificatesTextView"
+        android:text="@string/price_from" />
+
+    <EditText
+        android:id="@+id/priceStartEditText"
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:background="@drawable/custom_edit_text_rectangle"
+        android:hint="0"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/priceStartTextView"
+        app:layout_constraintStart_toEndOf="@+id/priceStartTextView"
+        app:layout_constraintTop_toTopOf="@+id/priceStartTextView" />
+
+    <EditText
+        android:id="@+id/priceEndEditText"
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:background="@drawable/custom_edit_text_rectangle"
+        android:hint="0"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/priceFinishTextView"
+        app:layout_constraintStart_toEndOf="@+id/priceFinishTextView"
+        app:layout_constraintTop_toTopOf="@+id/priceFinishTextView" />
+
+    <Button
+        android:id="@+id/buttonShow"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="@string/show"
+        android:textStyle="bold"
+        app:cornerRadius="12dip"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:strokeColor="@color/hint_text_color"
+        app:strokeWidth="1dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
