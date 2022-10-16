@@ -50,7 +50,6 @@ class ProfileEditFragment : Fragment(R.layout.fragment_profile_edit) {
             viewModel.isEnabled.observe(viewLifecycleOwner){
                 binding.saveButtonProfileEdit.isEnabled = it
             }
-            avatarImageViewProfileEdit.setImageResource(R.drawable.default_avatar)
             appBarInfo.setNavigationOnClickListener {
                 requireActivity().onBackPressed()
             }
@@ -62,6 +61,8 @@ class ProfileEditFragment : Fragment(R.layout.fragment_profile_edit) {
                 startActivityForResult(gallery, pickImage)
             }
             removeImageButtonProfileEdit.setOnClickListener {
+
+                viewModel.saveImagePath(Uri.EMPTY)
                 Glide.with(this@ProfileEditFragment)
                     .load(R.drawable.default_avatar)
                     .transform(CircleCrop())
@@ -70,11 +71,18 @@ class ProfileEditFragment : Fragment(R.layout.fragment_profile_edit) {
             }
 
             viewModel.pathImage.observe(viewLifecycleOwner) {
-                Glide.with(this@ProfileEditFragment)
-                    .load(it.toString())
-                    .transform(CircleCrop())
-                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .into(binding.avatarImageViewProfileEdit)
+                if (it != Uri.EMPTY)
+                    Glide.with(this@ProfileEditFragment)
+                        .load(it.toString())
+                        .transform(CircleCrop())
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .into(binding.avatarImageViewProfileEdit)
+                else
+                    Glide.with(this@ProfileEditFragment)
+                        .load(R.drawable.default_avatar)
+                        .transform(CircleCrop())
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .into(binding.avatarImageViewProfileEdit)
             }
 
             saveButtonProfileEdit.setOnClickListener {

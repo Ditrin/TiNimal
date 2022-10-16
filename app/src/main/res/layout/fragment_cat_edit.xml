@@ -97,6 +97,7 @@
             android:layout_marginTop="8dp"
             android:background="@drawable/custom_edit_text_rectangle"
             android:hint="@string/price"
+            android:inputType="number"
             android:padding="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -110,6 +111,7 @@
             android:layout_marginTop="8dp"
             android:background="@drawable/custom_edit_text_rectangle"
             android:hint="@string/age"
+            android:inputType="number"
             android:padding="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -120,30 +122,30 @@
             android:layout_width="wrap_content"
             android:layout_height="28dp"
             android:layout_marginTop="8dp"
+            android:text="@string/passport_availability"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@+id/maleCheckBox"
-            app:layout_constraintTop_toBottomOf="@+id/priceEditTextCatFormFragment"
-            android:text="@string/passport_availability"/>
+            app:layout_constraintTop_toBottomOf="@+id/priceEditTextCatFormFragment" />
 
         <TextView
             android:id="@+id/vaccinationTextView"
             android:layout_width="wrap_content"
             android:layout_height="28dp"
             android:layout_marginTop="8dp"
+            android:text="@string/vaccination_availability"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@+id/passportTextView"
-            app:layout_constraintTop_toBottomOf="@+id/passportTextView"
-            android:text="@string/vaccination_availability" />
+            app:layout_constraintTop_toBottomOf="@+id/passportTextView" />
 
         <TextView
             android:id="@+id/certificatesTextView"
             android:layout_width="wrap_content"
             android:layout_height="28dp"
             android:layout_marginTop="8dp"
+            android:text="@string/certificate_availability"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@+id/vaccinationTextView"
-            app:layout_constraintTop_toBottomOf="@+id/vaccinationTextView"
-            android:text="@string/certificate_availability" />
+            app:layout_constraintTop_toBottomOf="@+id/vaccinationTextView" />
 
         <CheckBox
             android:id="@+id/passportCheckBox"
@@ -162,11 +164,11 @@
             android:layout_width="28dp"
             android:layout_height="28dp"
             android:layout_marginEnd="128dp"
-            app:layout_constraintEnd_toEndOf="parent"
             android:background="@drawable/checkbox_square_selector"
             android:button="@null"
             android:checked="false"
             android:textAppearance="?android:attr/textAppearanceLarge"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/vaccinationTextView" />
 
         <CheckBox
@@ -186,11 +188,11 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/custom_frame_rectangle"
             android:gravity="top|left"
             android:hint="@string/tell_about_cat"
             android:padding="8dp"
-            android:layout_marginTop="8dp"
             android:textColorHint="@color/black"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="@+id/priceEditTextCatFormFragment"
@@ -202,10 +204,10 @@
             android:id="@+id/deleteCatButton"
             android:layout_width="320dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:text="@string/delete"
             android:textStyle="bold"
             app:cornerRadius="12dip"
-            android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/infoEditText"
