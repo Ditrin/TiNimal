@@ -27,8 +27,7 @@
             android:id="@+id/nameProfileFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:gravity="center"
+            android:layout_marginStart="40dp"
             android:textColor="@color/black"
             android:textSize="32sp"
             tools:text="Джоржд" />
@@ -36,14 +35,15 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="32dp"
+            android:layout_marginHorizontal="40dp"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/price"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/priceProfileFragment"
@@ -71,14 +71,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="32dp"
+            android:layout_marginHorizontal="40dp"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/breed"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/breedProfileFragment"
@@ -94,20 +95,21 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="40dp"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="32dp"
                 android:text="@string/age"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/ageCatProfileFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="40dp"
                 android:textColor="@color/black"
                 tools:text="4" />
         </LinearLayout>
@@ -115,40 +117,39 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="40dp"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-                android:layout_marginHorizontal="32dp"
                 android:text="@string/sex"
-
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/sexImageView"
                 android:layout_width="18dp"
                 android:layout_height="match_parent"
 
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="40dp"
                 android:src="@drawable/ic_male" />
 
         </LinearLayout>
 
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="32dp"
+            android:layout_marginHorizontal="40dp"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/address"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/addressProfileFragment"
@@ -169,15 +170,16 @@
             android:layout_height="match_parent"
             android:layout_marginHorizontal="32dp"
             android:layout_marginTop="8dp"
+            android:textSize="16sp"
             android:background="@drawable/custom_frame_rectangle"
-            android:padding="8dp"
+            android:padding="16dp"
             android:textColor="@color/black"
             tools:text="Kот кpупный, здopoвый, кpасивый, с прeкpacным хaрактepoм, что пеpедаётcя его потомcтву. Носитель мраморного гена по родословной." />
 
         <Space
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:layout_weight="1" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

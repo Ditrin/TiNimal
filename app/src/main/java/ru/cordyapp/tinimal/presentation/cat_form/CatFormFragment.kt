@@ -52,14 +52,14 @@ class CatFormFragment : Fragment(R.layout.fragment_cat_form) {
                     if (it) {
                         errorTextView.visibility = View.INVISIBLE
                         val cat = CatAddDTO(
-                            viewModel.isMale.toString().toBoolean(),
+                            femaleCheckBox.isChecked,
                             breedEditTextCatFormFragment.text.toString(),
                             nameEditTextCatFormFragment.text.toString(),
                             ageEditTextCatFormFragment.text.toString().toInt(),
                             priceEditTextCatFormFragment.text.toString().toInt(),
-                            viewModel.isPassport.toString().toBoolean(),
-                            viewModel.isVaccination.toString().toBoolean(),
-                            viewModel.isCertificate.toString().toBoolean(),
+                            viewModel.isPassport.value!!,
+                            viewModel.isVaccination.value!!,
+                            viewModel.isCertificate.value!!,
                             catStoryEditTextCatFormFragment.text.toString(),
                         )
                         viewModel.addCat(cat, id)

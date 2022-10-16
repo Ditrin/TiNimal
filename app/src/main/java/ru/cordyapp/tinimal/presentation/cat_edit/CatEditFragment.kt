@@ -80,23 +80,35 @@ class CatEditFragment : Fragment(R.layout.fragment_cat_edit) {
 
                 viewModel.isSuccess.observe(viewLifecycleOwner) {
                     if (it) {
-                        viewModel.postAvatar(myCat.id, filePart!!)
-                        viewModel.isPostAvatar.observe(viewLifecycleOwner) {
-                            if (it) {
-                                Toast.makeText(
-                                    activity,
-                                    R.string.cat_was_updated,
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                                requireActivity().onBackPressed()
-                            } else
-                                Toast.makeText(activity, R.string.cat_was_not_updated, Toast.LENGTH_SHORT)
-                                    .show()
+                        if (viewModel.pathImage.value != null) {
+                            viewModel.postAvatar(myCat.id, filePart!!)
+                            viewModel.isPostAvatar.observe(viewLifecycleOwner) {
+                                if (it) {
+                                    Toast.makeText(
+                                        activity,
+                                        R.string.cat_was_updated,
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                    requireActivity().onBackPressed()
+                                } else
+                                    Toast.makeText(
+                                        activity,
+                                        R.string.cat_was_not_updated,
+                                        Toast.LENGTH_SHORT
+                                    )
+                                        .show()
+                            }
+                        } else {
+                            Toast.makeText(
+                                activity,
+                                R.string.cat_was_updated,
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            requireActivity().onBackPressed()
                         }
                     }
                 }
             }
-
         }
 
 

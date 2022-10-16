@@ -11,10 +11,9 @@
         android:id="@+id/starCountTextViewProfile2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="60dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="56dp"
         android:textColor="@color/black"
-        android:textSize="11sp"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/starImageViewReviews"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/starImageViewReviews"
@@ -39,7 +38,7 @@
         android:layout_marginEnd="8dp"
         android:src="@drawable/ic_star_stroke"
         app:layout_constraintEnd_toStartOf="@+id/starCountTextViewProfile2"
-        app:layout_constraintTop_toTopOf="@+id/nameTextView"/>.
+        app:layout_constraintTop_toTopOf="@+id/nameTextView"/>
 
     <TextView
         android:id="@+id/nameTextView"
@@ -47,7 +46,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:textColor="@color/black"
-        android:textSize="12sp"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/avatarImageView"
         app:layout_constraintTop_toTopOf="@+id/avatarImageView"
         tools:text="Джордж" />
@@ -57,9 +57,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
+        android:textSize="12sp"
         android:textColor="@color/black"
-        android:textSize="8sp"
+
         app:layout_constraintStart_toEndOf="@+id/avatarImageView"
         app:layout_constraintTop_toBottomOf="@+id/nameTextView"
         tools:text="1 марта 2022  15:33" />
@@ -69,9 +70,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:textColor="@color/black"
-        android:textSize="10sp"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/avatarImageView"
         app:layout_constraintTop_toBottomOf="@+id/dataTextView"
