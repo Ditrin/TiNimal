@@ -8,6 +8,5 @@ data class CatShort(
     val sex: Boolean,
     val breed: String,
     val price: Int,
-    val photo: String?,
-    val address: String?
+    val photo: String?
 ) : Serializable

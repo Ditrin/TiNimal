@@ -23,7 +23,6 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
                 else sexImageView.setImageResource(R.drawable.ic_male)
                 nameTextView.text = cat.name
                 breedTextView.text = cat.breed
-                addressTextView.text = cat.address
                 Glide.with(itemView)
                     .load(cat.photo)
                     .transform(CircleCrop())

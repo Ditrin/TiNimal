@@ -11,8 +11,7 @@ class CatMapper : Mapper<CatDTO, CatShort> {
             sex = t.sex,
             breed = t.breed ?: "",
             price = t.price ?: 0,
-            photo = t.photo,
-            address = t.owner_address
+            photo = t.photo
         )
     }
 }

@@ -15,6 +15,5 @@ data class CatDTO (
     val vaccination: Boolean,
     val certificates: Boolean,
     val info: String?,
-    val photo: String?,
-    val owner_address: String
+    val photo: String?
 )
