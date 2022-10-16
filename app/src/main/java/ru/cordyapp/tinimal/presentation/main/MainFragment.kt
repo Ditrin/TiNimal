@@ -32,8 +32,10 @@ class MainFragment : Fragment(R.layout.fragment_search) {
 
         val filter = Filter.listCat
 
-        if (filter != null)
+        if (filter != null) {
             viewModel.setCatsList(filter)
+            Filter.listCat = null
+        }
         else
             viewModel.getUsersListByLogin()
 
