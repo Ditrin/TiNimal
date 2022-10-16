@@ -24,21 +24,24 @@ class LoginViewModel @Inject constructor(private val useCase: AuthorizationUseCa
     private val isEnabledLiveData = MutableLiveData<Boolean>()
     val isEnabled: LiveData<Boolean> = isEnabledLiveData
 
+    private val isSuccessLiveData = MutableLiveData<Boolean>()
+    val isSuccess: LiveData<Boolean> = isSuccessLiveData
+
     var token: String = ""
     var id : Long? = null
 
-    private var job: Job? = null
 
     fun postAuthorization(authDTO: AuthDTO) {
         Log.d("qwerty", "ttt")
-        job?.cancel()
-        job = viewModelScope.launch {
+
+        viewModelScope.launch {
             isEnabledLiveData.value = false
             runCatching {
                 useCase.execute(authDTO)
             }.onSuccess {
                 token = it.jwttoken
                 id = it.id
+                isSuccessLiveData.value = true
                 messageLiveData.value = "Success"
                 isEnabledLiveData.value = true
             }.onFailure {
@@ -47,5 +50,8 @@ class LoginViewModel @Inject constructor(private val useCase: AuthorizationUseCa
                 isEnabledLiveData.value = true
             }
         }
+    }
+    fun setSuccess(value: Boolean){
+        isSuccessLiveData.value = value
     }
 }

@@ -105,7 +105,7 @@
             android:layout_width="wrap_content"
             android:layout_height="28dp"
             android:layout_marginTop="8dp"
-            android:text="@string/is_passport"
+            android:text="@string/passport_availability"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@+id/maleCheckBox"
             app:layout_constraintTop_toBottomOf="@+id/priceEditTextCatFormFragment" />
@@ -115,7 +115,7 @@
             android:layout_width="wrap_content"
             android:layout_height="28dp"
             android:layout_marginTop="8dp"
-            android:text="@string/is_vaccination"
+            android:text="@string/vaccination_availability"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@+id/passportTextView"
             app:layout_constraintTop_toBottomOf="@+id/passportTextView" />
@@ -125,7 +125,7 @@
             android:layout_width="wrap_content"
             android:layout_height="28dp"
             android:layout_marginTop="8dp"
-            android:text="@string/is_certificate"
+            android:text="@string/certificate_availability"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@+id/vaccinationTextView"
             app:layout_constraintTop_toBottomOf="@+id/vaccinationTextView" />
@@ -198,8 +198,9 @@
             android:textColor="@color/error"
             android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@+id/buttonCreate"
-            app:layout_constraintTop_toBottomOf="@+id/catStoryEditTextCatFormFragment"
-            tools:layout_editor_absoluteX="104dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/catStoryEditTextCatFormFragment" />
 
         <EditText
             android:id="@+id/catStoryEditTextCatFormFragment"

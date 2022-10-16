@@ -62,6 +62,7 @@ class CatFormFragment : Fragment(R.layout.fragment_cat_form) {
                             viewModel.isCertificate.value!!,
                             catStoryEditTextCatFormFragment.text.toString(),
                         )
+                        viewModel.setCat(cat)
                         viewModel.addCat(cat, id)
                         viewModel.isSuccess.observe(viewLifecycleOwner) {
                             if (it) {

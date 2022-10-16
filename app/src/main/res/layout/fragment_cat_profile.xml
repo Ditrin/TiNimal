@@ -63,6 +63,7 @@
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 android:textStyle="bold"
+                android:layout_marginStart="4dp"
                 app:layout_constraintBottom_toBottomOf="@+id/priceTextView"
                 app:layout_constraintStart_toEndOf="@+id/priceTextView"
                 app:layout_constraintTop_toTopOf="@+id/priceTextView" />
@@ -196,7 +197,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/rankingCatProfile"
                 app:layout_constraintStart_toStartOf="@+id/rankingCatProfile"
                 app:layout_constraintTop_toBottomOf="@+id/rankingCatProfile"
-                tools:text="Рейтинг" />
+                android:text="@string/rating" />
 
             <TextView
                 android:id="@+id/reviewsTextViewProfile2"
@@ -207,7 +208,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/reviewCatProfile"
                 app:layout_constraintStart_toStartOf="@+id/reviewCatProfile"
                 app:layout_constraintTop_toBottomOf="@+id/reviewCatProfile"
-                tools:text="Отзывы" />
+                android:text="@string/reviews" />
 
             <ImageView
                 android:id="@+id/avatarCatProfile"

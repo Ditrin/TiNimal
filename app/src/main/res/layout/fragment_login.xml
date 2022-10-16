@@ -52,7 +52,7 @@
         android:layout_marginTop="30dp"
         android:textColor="@color/primary_dark"
         android:text="@string/sign_in"
-        android:textSize="24sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:cornerRadius="12dip"
         />
@@ -64,7 +64,7 @@
         android:layout_marginHorizontal="96dp"
         android:layout_marginTop="10dp"
         android:text="@string/sign_up"
-        android:textSize="24sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:cornerRadius="12dip"
         app:strokeColor="@color/white"
@@ -88,7 +88,7 @@
 
 
     <ImageView
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="163dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

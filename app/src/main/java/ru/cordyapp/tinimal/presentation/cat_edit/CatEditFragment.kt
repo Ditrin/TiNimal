@@ -64,16 +64,35 @@ class CatEditFragment : Fragment(R.layout.fragment_cat_edit) {
             }
 
             buttonSave.setOnClickListener {
+
+                val breed =
+                    if (breedEditTextCatFormFragment.text != null) breedEditTextCatFormFragment.text.toString() else ""
+
+                val name =
+                    if (nameEditTextCatFormFragment.text != null) nameEditTextCatFormFragment.text.toString() else ""
+
+                val age =
+                    if (ageEditTextCatFormFragment.text.toString() != "")
+                        ageEditTextCatFormFragment.text.toString().toInt()
+                    else
+                        0
+
+                val price =
+                    if (priceEditTextCatFormFragment.text != null) priceEditTextCatFormFragment.text.toString().toInt() else 0
+
+                val info =
+                    if (infoEditText.text != null) infoEditText.text.toString() else ""
+
                 val catUpdate = CatAddDTO(
                     femaleCheckBox.isChecked,
-                    breedEditTextCatFormFragment.text.toString(),
-                    nameEditTextCatFormFragment.text.toString(),
-                    ageEditTextCatFormFragment.text.toString().toInt(),
-                    priceEditTextCatFormFragment.text.toString().toInt(),
+                    breed,
+                    name,
+                    age,
+                    price,
                     viewModel.isPassport.value!!,
                     viewModel.isVaccination.value!!,
                     viewModel.isCertificate.value!!,
-                    infoEditText.text.toString()
+                    info
                 )
 
                 viewModel.update(catUpdate, id, myCat.id)

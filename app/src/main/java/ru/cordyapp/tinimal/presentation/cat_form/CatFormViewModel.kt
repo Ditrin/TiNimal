@@ -53,6 +53,9 @@ class CatFormViewModel @Inject constructor(
     private val catLiveData = MutableLiveData<CatDTO>()
     val cat: LiveData<CatDTO> = catLiveData
 
+    private val catAddLiveData = MutableLiveData<CatAddDTO>()
+    val catAdd: LiveData<CatAddDTO> = catAddLiveData
+
     fun addCat(catAddDTO: CatAddDTO, id: Long) {
         viewModelScope.launch {
             runCatching {
@@ -102,6 +105,10 @@ class CatFormViewModel @Inject constructor(
 
     fun saveImagePath(path: Uri) {
         pathImageLiveData.postValue(path)
+    }
+
+    fun setCat(catAddDTO: CatAddDTO){
+        catAddLiveData.value = catAddDTO
     }
 
     fun verify(

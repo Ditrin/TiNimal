@@ -155,11 +155,14 @@ class ProfileEditFragment : Fragment(R.layout.fragment_profile_edit) {
         binding.numberEditTextProfileEdit.setText(user.phoneNumber.toString())
         binding.mailEditTextProfileEdit.setText(user.mail)
         binding.addressEditTextProfileEdit.setText(user.address)
-        Glide.with(this@ProfileEditFragment)
-            .load(user.avatar)
-            .transform(CircleCrop())
-            .diskCacheStrategy(DiskCacheStrategy.ALL)
-            .into(binding.avatarImageViewProfileEdit)
+        if (user.avatar == null)
+            binding.avatarImageViewProfileEdit.setImageResource(R.drawable.default_avatar)
+        else
+            Glide.with(this@ProfileEditFragment)
+                .load(user.avatar)
+                .transform(CircleCrop())
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(binding.avatarImageViewProfileEdit)
     }
 
     private fun getRealPathFromURI(contentURI: Uri): String? {

@@ -35,7 +35,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     setMessage(R.string.dialog_text)
                     setPositiveButton(R.string.positive,
                         DialogInterface.OnClickListener { dialog, id ->
-                            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://cordy.vercel.app/"))
+                            val browserIntent =
+                                Intent(Intent.ACTION_VIEW, Uri.parse("https://cordy.vercel.app/"))
                             startActivity(browserIntent)
                         })
                     setNegativeButton(R.string.negative,
@@ -48,7 +49,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             alertDialog?.show()
         }
 
-        viewModel.isEnabled.observe(viewLifecycleOwner){
+        viewModel.isEnabled.observe(viewLifecycleOwner) {
             binding.signInButton.isEnabled = it
             binding.signUpButton.isEnabled = it
         }
@@ -59,13 +60,16 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     binding.passwordEditText.text.toString()
                 )
             viewModel.postAuthorization(user)
-            viewModel.message.observe(viewLifecycleOwner) {
-                if (it == "Success") {
+            viewModel.isSuccess.observe(viewLifecycleOwner) {
+                if (it) {
                     SharedPref.authToken = viewModel.token
                     SharedPref.id = viewModel.id
                     findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
-                } else
-                    Toast.makeText(activity, it, Toast.LENGTH_SHORT).show()
+                } else {
+                    val errorMessage = viewModel.message.value
+                    Toast.makeText(requireActivity(), viewModel.message.value, Toast.LENGTH_SHORT)
+                        .show()
+                }
             }
         }
         binding.signUpButton.setOnClickListener {

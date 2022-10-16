@@ -145,7 +145,7 @@
         android:textColor="@color/black"
         app:layout_constraintStart_toEndOf="@+id/priceStartEditText"
         app:layout_constraintTop_toTopOf="@+id/priceStartTextView"
-        tools:text="Цена до" />
+        android:text="@string/to" />
 
     <TextView
         android:id="@+id/priceStartTextView"
@@ -157,15 +157,15 @@
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/ageEditTextParameterFragment"
         app:layout_constraintTop_toBottomOf="@+id/certificatesTextView"
-        tools:text="Цена от" />
+        android:text="@string/price_from" />
 
     <EditText
         android:id="@+id/priceStartEditText"
-        android:layout_width="wrap_content"
+        android:layout_width="64dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:background="@drawable/custom_edit_text_rectangle"
-        android:hint="0 рублей"
+        android:hint="0"
         android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/priceStartTextView"
         app:layout_constraintStart_toEndOf="@+id/priceStartTextView"
@@ -173,11 +173,11 @@
 
     <EditText
         android:id="@+id/priceEndEditText"
-        android:layout_width="wrap_content"
+        android:layout_width="64dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:background="@drawable/custom_edit_text_rectangle"
-        android:hint="0 рублей"
+        android:hint="0"
         android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/priceFinishTextView"
         app:layout_constraintStart_toEndOf="@+id/priceFinishTextView"

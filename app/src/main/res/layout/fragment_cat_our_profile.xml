@@ -37,6 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/price"
+            android:textStyle="bold"
             android:textColor="@color/black" />
 
         <TextView
@@ -72,6 +73,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/breed"
+            android:textStyle="bold"
             android:textColor="@color/black" />
 
         <TextView
@@ -95,6 +97,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/age"
+            android:textStyle="bold"
             android:textColor="@color/black" />
 
         <TextView
@@ -116,6 +119,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
+            android:textStyle="bold"
 
             android:text="@string/sex"
 
@@ -143,6 +147,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/address"
+            android:textStyle="bold"
             android:textColor="@color/black" />
 
         <TextView

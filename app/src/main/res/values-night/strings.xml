@@ -5,19 +5,21 @@
     <string name="tinimal">TiNimal</string>
     <string name="password_reset">password_reset</string>
     <string name="currency">$</string>
-    <string name="rating">Рейтинг</string>
-    <string name="reviews">Отзывы</string>
+    <string name="rating">Rating</string>
+    <string name="reviews">Feedbacks</string>
     <string name="mailText">Mail:</string>
     <string name="phoneText">Phone:</string>
     <string name="addressText">Address:</string>
-    <string name="add_feedback">Оставить отзыв</string>
+    <string name="add_feedback">Add feedback</string>
     <string name="add_a_pet_to_your_favorites">Add a pet to your favorites</string>
-    <string name="Save">Сохранить</string>
+    <string name="Save">Save</string>
     <string name="be_the_first_to_leave_feedback">Be the first to leave feedback!</string>
     <string name="name_cat">Name:</string>
     <string name="how_it_ended">How it ended?</string>
     <string name="rate_user">Rate user</string>
     <string name="passport_availability">Passport availability</string>
-    <string name="vaccination_availability">Наличие прививок</string>
+    <string name="vaccination_availability">Vaccination availability</string>
     <string name="certificate_availability">Certificate availability</string>
+    <string name="price_from">Price from</string>
+    <string name="to">to</string>
 </resources>

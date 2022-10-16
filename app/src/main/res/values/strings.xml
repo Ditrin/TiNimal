@@ -35,17 +35,14 @@
     <string name="mailText">Mail:</string>
     <string name="phoneText">Phone:</string>
     <string name="addressText">Address:</string>
-    <string name="is_passport">Наличие паспорта</string>
-    <string name="is_vaccination">Наличие прививок</string>
-    <string name="is_certificate">Наличие справок</string>
-    <string name="add_feedback">Оставить отзыв</string>
+    <string name="add_feedback">Add feedback</string>
     <string name="add_a_pet_to_your_favorites">Add a pet to your favorites</string>
     <string name="dialog_text">This page is not yet available on the mobile app</string>
-    <string name="dialog_header">Open Tinimal website</string>
+    <string name="dialog_header">Open TiNimal website</string>
     <string name="positive">Go</string>
     <string name="negative">Close</string>
     <string name="forgot_password">Forgot password?</string>
-    <string name="Save">Сохранить</string>
+    <string name="Save">Save</string>
     <string name="be_the_first_to_leave_feedback">Be the first to leave feedback!</string>
     <string name="name_cat">Name:</string>
     <string name="cat_created">Cat was created</string>
@@ -63,4 +60,6 @@
     <string name="cat_was_updated">Cat was updated</string>
     <string name="cat_was_not_updated">Cat wasn\'t updated</string>
     <string name="error_try_again_later">Error, try again later.</string>
+    <string name="price_from">Price from</string>
+    <string name="to">to</string>
 </resources>

@@ -23,6 +23,10 @@ class FilterFragment : Fragment(R.layout.fragment_parameters) {
         super.onViewCreated(view, savedInstanceState)
 
         with(binding) {
+            appBarInfo.setNavigationOnClickListener {
+                requireActivity().onBackPressed()
+            }
+
             buttonShow.setOnClickListener {
 
                 val address = if (addressEditTextParameterFragment.text.toString() != "")
