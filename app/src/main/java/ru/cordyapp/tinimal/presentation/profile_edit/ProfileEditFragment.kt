@@ -46,6 +46,10 @@ class ProfileEditFragment : Fragment(R.layout.fragment_profile_edit) {
         loadUser(user)
 
         with(binding) {
+
+            viewModel.isEnabled.observe(viewLifecycleOwner){
+                binding.saveButtonProfileEdit.isEnabled = it
+            }
             avatarImageViewProfileEdit.setImageResource(R.drawable.default_avatar)
             appBarInfo.setNavigationOnClickListener {
                 requireActivity().onBackPressed()

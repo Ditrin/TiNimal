@@ -33,6 +33,9 @@ class ProfileEditViewModel @Inject constructor(
     private val isUpdateSuccessLiveData = MutableLiveData<Boolean>()
     val isUpdate: LiveData<Boolean> = isUpdateSuccessLiveData
 
+    private val isEnabledLiveData = MutableLiveData<Boolean>(true)
+    val isEnabled: LiveData<Boolean> = isEnabledLiveData
+
     private val isAvatarSuccessLiveData = MutableLiveData<Boolean>()
     val isAvatar: LiveData<Boolean> = isAvatarSuccessLiveData
 
@@ -42,11 +45,14 @@ class ProfileEditViewModel @Inject constructor(
     fun update(userEditDTO: UserEditDTO, id: Long) {
         viewModelScope.launch {
             runCatching {
+                isEnabledLiveData.value = false
                 updateUserUseCase.execute(userEditDTO, id)
             }.onSuccess {
+                isEnabledLiveData.value = true
                 isUpdateSuccessLiveData.value = true
                 userLiveData.postValue(it)
             }.onFailure {
+                isEnabledLiveData.value = true
                 Log.d("EDIT_TAG", it.toString())
                 isSuccessLiveData.value = false
             }
@@ -56,11 +62,14 @@ class ProfileEditViewModel @Inject constructor(
     fun postAvatar(id: Long, file: MultipartBody.Part) {
         viewModelScope.launch {
             runCatching {
+                isEnabledLiveData.value = false
                 postAvatarUseCase.execute(id, file)
             }.onSuccess {
+                isEnabledLiveData.value = true
                 isAvatarSuccessLiveData.value = true
                 Log.d("TAG_AVATAR", "all good")
             }.onFailure {
+                isEnabledLiveData.value = true
                 isAvatarSuccessLiveData.value = false
                 Log.d("TAG_AVATAR", it.toString())
             }

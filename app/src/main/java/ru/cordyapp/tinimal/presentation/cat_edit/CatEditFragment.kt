@@ -43,6 +43,9 @@ class CatEditFragment : Fragment(R.layout.fragment_cat_edit) {
         loadCat(myCat!!)
 
         with(binding) {
+            viewModel.isEnabled.observe(viewLifecycleOwner){
+                binding.buttonSave.isEnabled = it
+            }
             addPhotoImageButton.setOnClickListener {
                 val gallery =
                     Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
@@ -184,7 +187,6 @@ class CatEditFragment : Fragment(R.layout.fragment_cat_edit) {
         binding.certificatesCheckBox.isChecked = cat.certificates
         Glide.with(this@CatEditFragment)
             .load(cat.photo)
-            .transform(CircleCrop())
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .into(binding.avatarImageView)
     }

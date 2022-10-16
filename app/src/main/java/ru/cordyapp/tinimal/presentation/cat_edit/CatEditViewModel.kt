@@ -54,16 +54,22 @@ class CatEditViewModel @Inject constructor(
     private val userLiveData = MutableLiveData<UserDTO>()
     val user: LiveData<UserDTO> = userLiveData
 
+    private val isEnabledLiveData = MutableLiveData<Boolean>(true)
+    val isEnabled: LiveData<Boolean> = isEnabledLiveData
+
     fun update(catAddDTO: CatAddDTO, id: Long, id_cat: Long) {
         viewModelScope.launch {
             runCatching {
+                isEnabledLiveData.value = false
                 updateCatUseCase.execute(catAddDTO, id, id_cat)
             }
                 .onSuccess {
+                    isEnabledLiveData.value = true
                     userLiveData.value = it
                     isSuccessLiveData.value = true
                 }
                 .onFailure {
+                    isEnabledLiveData.value = true
                     Log.d("Error_tag", it.toString())
                     isSuccessLiveData.value = false
                 }
@@ -73,10 +79,13 @@ class CatEditViewModel @Inject constructor(
     fun postAvatar(id: Long, file: MultipartBody.Part) {
         viewModelScope.launch {
             runCatching {
+                isEnabledLiveData.value = false
                 postCatAvatarUseCase.execute(id, file)
             }.onSuccess {
+                isEnabledLiveData.value = true
                 isPostAvatarLiveData.value = true
             }.onFailure {
+                isEnabledLiveData.value = true
                 isPostAvatarLiveData.value = false
             }
         }
