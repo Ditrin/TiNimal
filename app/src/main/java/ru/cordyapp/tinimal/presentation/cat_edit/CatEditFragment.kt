@@ -78,7 +78,7 @@ class CatEditFragment : Fragment(R.layout.fragment_cat_edit) {
                         0
 
                 val price =
-                    if (priceEditTextCatFormFragment.text != null) priceEditTextCatFormFragment.text.toString().toInt() else 0
+                    if (priceEditTextCatFormFragment.text.toString() != "") priceEditTextCatFormFragment.text.toString().toInt() else 0
 
                 val info =
                     if (infoEditText.text != null) infoEditText.text.toString() else ""
