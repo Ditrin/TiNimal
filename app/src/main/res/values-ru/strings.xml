@@ -64,5 +64,5 @@
     <string name="cat_was_not_updated">Кот не обновлен</string>
     <string name="error_try_again_later">Ошибка. Попробуйте позже</string>
     <string name="price_from">Цена от</string>
-    <string name="to">до</string>
+    <string name="to">to</string>
 </resources>

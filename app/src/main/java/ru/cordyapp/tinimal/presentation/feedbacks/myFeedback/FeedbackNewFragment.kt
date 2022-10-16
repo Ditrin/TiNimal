@@ -62,7 +62,6 @@ class FeedbackNewFragment : Fragment(R.layout.fragment_feedback_new) {
                     if(it){
                         requireActivity().onBackPressed()
                     }
-                    Toast.makeText(requireActivity(), R.string.error_try_again_later, Toast.LENGTH_SHORT).show()
                 }
             }
 
