@@ -36,7 +36,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     setPositiveButton(R.string.positive,
                         DialogInterface.OnClickListener { dialog, id ->
                             val browserIntent =
-                                Intent(Intent.ACTION_VIEW, Uri.parse("https://cordy.vercel.app/"))
+                                Intent(Intent.ACTION_VIEW, Uri.parse("https://cordy.vercel.app/forgot"))
                             startActivity(browserIntent)
                         })
                     setNegativeButton(R.string.negative,
